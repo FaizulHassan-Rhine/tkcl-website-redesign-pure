@@ -6,7 +6,17 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+   extend: {
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" }, // move only half, because we duplicated content
+        },
+      },
+      animation: {
+        marquee: "marquee 10s linear infinite",
+      },
+    },
   },
   darkMode: 'class',
   plugins: [],
