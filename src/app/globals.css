@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body {
-  height: auto;;
+  height: auto;
   scroll-behavior: auto !important; /* Prevent conflict with Lenis */
   overflow-x: hidden; /* Prevent horizontal scroll */
   /* ✅ Allow vertical scroll (which Lenis needs) */

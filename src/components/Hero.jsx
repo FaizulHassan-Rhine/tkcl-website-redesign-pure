@@ -5,11 +5,11 @@ import Matter from 'matter-js';
 import { useRouter } from 'next/navigation';
 
 const objectsData = [
-  { id: 1, label: 'Circle', color: '#e74c3c', link: '/shape/circle' },
-  { id: 2, label: 'Rectangle', color: '#8e44ad', link: '/shape/rectangle' },
-  { id: 3, label: 'Triangle', color: '#f39c12', link: '/shape/triangle' },
-  { id: 4, label: 'Pentagon', color: '#16a085', link: 'https://youtube.com' },
-  { id: 5, label: 'Hexagon', color: '#3498db', link: 'https://openai.com' },
+  { id: 1, label: 'Image Editing', color: '#22c55e', link: '/shape/circle' },
+  { id: 2, label: 'Video Editing', color: '#22c55e', link: '/shape/rectangle' },
+  { id: 3, label: '3D Modeling', color: '#22c55e', link: '/shape/triangle' },
+  { id: 4, label: 'CGI Rendering', color: '#22c55e', link: 'https://youtube.com' },
+ 
  
 ];
 
@@ -55,7 +55,7 @@ const Hero = () => {
     engineRef.current = Matter.Engine.create();
     const engine = engineRef.current;
     const world = engine.world;
-    engine.gravity.y = .3;
+    engine.gravity.y = .4;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -111,7 +111,7 @@ const Hero = () => {
       bodiesRef.current = objectsData.map((obj, i) => {
         const x = spacing * (i + 1);
         const y = 0;
-        const body = createCapsule(x, y, 200 * scale, 50 * scale, {
+        const body = createCapsule(x, y, 200 * scale, 40 * scale, {
           ...baseOptions,
           fillStyle: obj.color,
           label: obj.label,
@@ -252,7 +252,13 @@ const Hero = () => {
           className="w-full h-full bg-white dark:bg-black border-2 border-white dark:border-black touch-none"
         />
       </div>
-     <div className='h-[1px] bg-black dark:bg-white'>
+     <div className='h-[1px] mb-[3px] bg-black dark:bg-white'>
+
+     </div>
+     <div className='h-[1px] mb-[3px] bg-black dark:bg-white'>
+
+     </div>
+     <div className='h-[1px] mb-[3px] bg-black dark:bg-white'>
 
      </div>
      

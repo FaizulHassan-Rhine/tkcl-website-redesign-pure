@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className="2xl:container mx-auto antialiased transition-colors bg-white text-black dark:bg-black dark:text-white relative"
+        className=" 2xl:container mx-auto antialiased transition-colors bg-white text-black dark:bg-black dark:text-white relative"
       >
         <ThemeToggleProvider>
           <SmoothScrollProvider>

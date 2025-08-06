@@ -1,9 +1,19 @@
 'use client';
 
+import ClientBrand from '@/components/ClientBrand';
+import FeaturedWork from '@/components/FeatureWork';
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import InfiniteLine from '@/components/InfiniteLine';
+import NoteSection from '@/components/NoteSection';
+import ParallaxImageSection from '@/components/ParallaxImageSection';
+import ScrollTitle from '@/components/ScrollTitle';
+import ServicesSection from '@/components/ServicesSection';
 
 export default function HomePage() {
+ 
+
+ 
 
 
   return (
@@ -19,11 +29,11 @@ export default function HomePage() {
             <div>
               <div className='flex justify-center gap-10 items-center'>
                 <div>
-                  <h1 className='text-[90px]'>24/7</h1>
+                  <h1 className='text-[90px] text-green-500'>24/7</h1>
                   <p>We’re here for you 24/7—anytime, anywhere.</p>
                 </div>
                 <div>
-                  <h1 className='text-[90px]'>100%</h1>
+                  <h1 className='text-[90px] text-green-500'>100%</h1>
                   <p>Guaranteed 100% on-time delivery, every time.</p>
                 </div>
               </div>
@@ -40,29 +50,22 @@ export default function HomePage() {
 
         <InfiniteLine/>
 
-        {/* Info Section */}
-        <section className="h-screen flex flex-col justify-center items-center bg-gray-100 dark:bg-zinc-800 text-black dark:text-white transition-colors duration-500">
-          <h1 className="text-5xl font-bold">🪶 ScrollTrigger + Lenis</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
-            Scroll down to animate elements
-          </p>
-        </section>
+       <FeaturedWork/>
 
-        {/* Animated Section 2 */}
-        <section
+       <ServicesSection/>
 
-          className="h-screen flex items-center justify-center bg-green-100 dark:bg-emerald-900 text-black dark:text-white transition-colors duration-500"
-        >
-          <h2 className="text-4xl font-semibold">✨ Fade + Slide Up</h2>
-        </section>
+       <ClientBrand/>
 
-        {/* Animated Section 3 */}
-        <section
+       <ScrollTitle/>
 
-          className="h-screen flex items-center justify-center bg-blue-100 dark:bg-blue-900 text-black dark:text-white transition-colors duration-500"
-        >
-          <h2 className="text-4xl font-semibold">🚀 Slide In From Left</h2>
-        </section>
+       
+
+
+        <NoteSection/>
+
+        <ParallaxImageSection/>
+       
+        <Footer/>
       </main>
     </>
   );
