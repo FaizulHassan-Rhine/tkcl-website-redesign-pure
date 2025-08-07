@@ -63,7 +63,7 @@ body {
 
 /* Smooth transitions */
 html, body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: none !important;
 }
 
 /* Prevent flash during initial load */
