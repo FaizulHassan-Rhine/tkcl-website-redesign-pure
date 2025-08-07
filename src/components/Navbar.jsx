@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import { useTheme } from '@/app/theme-provider';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,12 +41,19 @@ export default function Navbar() {
         <nav className="2xl:container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <div className="text-2xl font-bold text-black dark:text-white">
-              KOW
-            </div>
+           <a href="/" className="">
+            
+              <img
+                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo2.60f47440.webp&w=640&q=75&dpl=dpl_CkEYops9HRVi48wwLma1szyfnsWZ"
+                alt="Logo"                
+                width={100}
+                height={100}
+              />
+           </a>
+            
 
             {/* Desktop Navigation - Centered Routes */}
-            <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+            <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
               <ul className="flex gap-8 text-black/80 dark:text-white/80">
                 <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
                   Home
@@ -70,29 +78,18 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="#"
+                        href="/image-video-services"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Image & Video Editing
                       </a>
                       <a
-                        href="#"
+                        href="cgi-service"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         3D Modelling & CGI
                       </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
-                      >
-                        Web Development
-                      </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
-                      >
-                        Digital Marketing
-                      </a>
+                     
                     </div>
                   </div>
                 </li>
@@ -116,23 +113,18 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="#"
+                        href="https://retouched.ai"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
-                        Software Solutions
+                        Retouched.ai
                       </a>
                       <a
-                        href="#"
+                        href="https://holosnap.ai"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
-                        Mobile Apps
+                        Holosnap
                       </a>
-                      <a
-                        href="#"
-                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
-                      >
-                        Templates & Themes
-                      </a>
+                      
                     </div>
                   </div>
                 </li>
@@ -160,13 +152,7 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="#"
-                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
-                      >
-                        Help Center
-                      </a>
-                      <a
-                        href="#"
+                        href="/contact"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Contact Us
@@ -175,20 +161,34 @@ export default function Navbar() {
                         href="#"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
-                        Documentation
+                        About Us
+                      </a>
+                      <a
+                        href="faq"
+                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+                      >
+                        FAQ
+                      </a>
+                      <a
+                        href="#"
+                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+                      >
+                        Resources
                       </a>
                     </div>
                   </div>
                 </li>
 
-                <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
+               <a href="/blog" >
+                 <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
                   Blogs
                 </li>
+               </a>
               </ul>
             </div>
 
             {/* Right Side - Dark Mode Toggle & Let's Talk Button */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleTheme}
@@ -207,14 +207,14 @@ export default function Navbar() {
               </button>
 
               {/* Let's Talk Button */}
-              <button className="relative px-6 py-2 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
+              <button className="relative px-8 py-4 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
                 <span className="absolute inset-0 bg-green-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10">Let's Talk</span>
               </button>
             </div>
 
             {/* Mobile Menu Button & Dark Mode Toggle */}
-            <div className="md:hidden flex items-center gap-2">
+            <div className="lg:hidden flex items-center gap-2">
               {/* Mobile Dark Mode Toggle */}
               <button
                 onClick={toggleTheme}
@@ -248,7 +248,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Navigation Menu */}
-          <div className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <ul className="pt-4 pb-2 space-y-2 text-black/80 dark:text-white/80">
               <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Home</li>
               

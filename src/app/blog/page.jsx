@@ -87,7 +87,7 @@ const BlogSection = () => {
 
   return (
     <div className="bg-white text-black dark:bg-black dark:text-white min-h-screen py-20 px-4">
-      <h1 className="text-[150px] font-bold text-center mb-10">NEWSLETTER</h1>
+      <h1 className="text-[128px] font-bold title text-center mb-10">NEWSLETTER</h1>
 
       {/* Toggle Buttons */}
       <div className="flex justify-center gap-4 mb-12 flex-wrap">

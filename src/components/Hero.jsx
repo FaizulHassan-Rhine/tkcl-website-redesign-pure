@@ -246,7 +246,7 @@ const Hero = () => {
   return (
     <div className="">
      
-      <div className="w-full -mt-[400px]  mx-auto h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+      <div className="w-full -mt-[450px]  mx-auto h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
         <canvas
           ref={canvasRef}
           className="w-full h-full bg-white dark:bg-black border-2 border-white dark:border-black touch-none"

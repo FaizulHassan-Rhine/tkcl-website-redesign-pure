@@ -11,32 +11,89 @@ const objectsData = [
     color: "#22c55e",
     link: "https://www.adidas.com",
     image:
-      "https://logos-world.net/wp-content/uploads/2020/04/Adidas-Logo-1991-present.jpg", // Relative path if served via public/
+      "/images/client/client-9.webp", // Relative path if served via public/
   },
   {
     id: 2,
-    label: "Image Editing",
+    label: "Adidas",
     color: "#22c55e",
-    link: "/shape/circle",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
   },
   {
     id: 3,
-    label: "Video Editing",
+    label: "Adidas",
     color: "#22c55e",
-    link: "/shape/rectangle",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
   },
   {
     id: 4,
-    label: "3D Modeling",
+    label: "Adidas",
     color: "#22c55e",
-    link: "/shape/triangle",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
   },
   {
     id: 5,
-    label: "CGI Rendering",
+    label: "Adidas",
     color: "#22c55e",
-    link: "https://youtube.com",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
   },
+  {
+    id: 6,
+    label: "Adidas",
+    color: "#22c55e",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
+  },
+  {
+    id: 7,
+    label: "Adidas",
+    color: "#22c55e",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
+  },
+  {
+    id: 8,
+    label: "Adidas",
+    color: "#22c55e",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
+  },
+  {
+    id: 9,
+    label: "Adidas",
+    color: "#22c55e",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
+  },
+  {
+    id: 10,
+    label: "Adidas",
+    color: "#22c55e",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
+  },
+  {
+    id: 11,
+    label: "Adidas",
+    color: "#22c55e",
+    link: "https://www.adidas.com",
+    image:
+      "/images/client/client-9.webp", // Relative path if served via public/
+  },
+  
 ];
 
 const ClientBrand = () => {
@@ -124,8 +181,8 @@ const ClientBrand = () => {
         ctx.rotate(angle);
 
         if (body.imageObj && body.imageObj.complete) {
-          const iw = 80;
-          const ih = 30;
+          const iw = 150;
+          const ih = 40;
           ctx.drawImage(body.imageObj, -iw / 2, -ih / 2, iw, ih);
         } else {
           ctx.fillStyle = body.textColor;

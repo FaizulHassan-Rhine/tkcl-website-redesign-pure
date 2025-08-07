@@ -15,3 +15,58 @@ body {
 
 
 
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/Thunder-BoldLC.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CustomFont2';
+  src: url('/public/fonts/Sequel\ Sans\ Roman\ Body.otf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.title {
+  font-family: 'CustomFont', sans-serif;
+}
+.sub-title {
+  font-family: 'CustomFont2', sans-serif;
+}
+
+
+
+
+
+
+
+
+/* Add these to your globals.css - CRITICAL for theme switching */
+
+/* Force override any inline styles */
+html.dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.light {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Ensure body inherits properly */
+body {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+/* Smooth transitions */
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Prevent flash during initial load */
+html:not(.dark):not(.light) {
+  visibility: hidden;
+}

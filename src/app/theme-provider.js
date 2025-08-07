@@ -21,11 +21,18 @@ export default function ThemeToggleProvider({ children }) {
     
     setTheme(defaultTheme);
     
+    const root = document.documentElement;
+    
+    // CRITICAL: Clear inline styles from initial script
+    root.style.removeProperty('background-color');
+    root.style.removeProperty('color');
+    
     // Apply theme to document
+    root.classList.remove('dark', 'light');
     if (defaultTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.add('light');
     }
   }, []);
 
@@ -34,11 +41,18 @@ export default function ThemeToggleProvider({ children }) {
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     
+    const root = document.documentElement;
+    
+    // CRITICAL: Clear inline styles before applying new theme
+    root.style.removeProperty('background-color');
+    root.style.removeProperty('color');
+    
     // Apply theme to document
+    root.classList.remove('dark', 'light');
     if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.add('light');
     }
   };
 

@@ -19,7 +19,7 @@ const LoadingScreenOverlay = ({ onComplete }) => {
 
     const initTimeout = setTimeout(() => {
       initializeAnimations();
-    }, 100);
+    }, 50);
 
     return () => {
       clearTimeout(initTimeout);
@@ -45,12 +45,10 @@ const LoadingScreenOverlay = ({ onComplete }) => {
 
     animationsRef.current.timeout = setTimeout(() => {
       openDoors();
-    }, 300);
+    }, 500);
   };
 
   const openDoors = () => {
-    if (!leftDoorRef.current || !rightDoorRef.current || !spinnerRef.current) return;
-
     if (animationsRef.current.spinner) {
       animationsRef.current.spinner.kill();
     }
@@ -63,20 +61,20 @@ const LoadingScreenOverlay = ({ onComplete }) => {
 
     tl.to(spinnerRef.current, {
       opacity: 0,
-      scale: 0.8,
-      duration: 0.3,
-      ease: 'power2.out',
+      scale: 0.5,
+      duration: 0.4,
+      ease: 'power4.out',
     })
-      .to(leftDoorRef.current, {
-        x: '-100%',
-        duration: 1.2,
-        ease: 'power2.inOut',
-      }, '+=0.2')
-      .to(rightDoorRef.current, {
-        x: '100%',
-        duration: 1.2,
-        ease: 'power2.inOut',
-      }, '<');
+    .to(leftDoorRef.current, {
+      x: '-100%',
+      duration: 1,
+      ease: 'power2.inOut',
+    }, '+=0.2')
+    .to(rightDoorRef.current, {
+      x: '100%',
+      duration: 1,
+      ease: 'power2.inOut',
+    }, '<');
   };
 
   const cleanup = () => {
@@ -89,16 +87,10 @@ const LoadingScreenOverlay = ({ onComplete }) => {
     gsap.killTweensOf([leftDoorRef.current, rightDoorRef.current, spinnerRef.current]);
   };
 
-  if (!mounted) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-        <div className="w-40 h-40 border-4 border-white border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
+  if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-50 overflow-hidden pointer-events-none">
       {/* Left Door */}
       <div
         ref={leftDoorRef}
@@ -126,7 +118,7 @@ const LoadingScreenOverlay = ({ onComplete }) => {
         <div className="text-center">
           <div
             ref={spinnerRef}
-            className="w-40 h-40 border-4 border-white border-t-transparent rounded-full mx-auto mb-8"
+            className="w-40 h-40 border-8 border-white border-t-transparent rounded-full mx-auto mb-8"
             style={{
               transform: 'rotate(0deg)',
               willChange: 'transform',

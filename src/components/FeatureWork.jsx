@@ -67,7 +67,7 @@ export default function FeaturedWork() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black text-white">
+    <section ref={sectionRef} className="">
       <div className="flex justify-between items-center px-4 ">
         <h1 className="text-lg font-light text-center mb-2">Featured Work</h1>
         <h1 className="text-lg font-light text-center mb-2">
@@ -78,7 +78,7 @@ export default function FeaturedWork() {
         {images.map((item, index) => (
           <div key={index} className="flex flex-col space-y-2">
             {/* Image or 3D model box */}
-            <div className="relative overflow-hidden rounded-xl shadow-lg aspect-[3/2] w-full">
+            <div className="relative overflow-hidden rounded-xl  aspect-[3/2] w-full">
               {item.type === "image" ? (
                 <img
                   src={item.src}
@@ -99,14 +99,14 @@ export default function FeaturedWork() {
             </div>
 
             {/* Text below */}
-            <div className="text-white px-1">
+            <div className=" px-1">
               {item.title && (
                 <h2 className="text-[30px] font-semibold leading-tight">
                   {item.title}
                 </h2>
               )}
               {item.service && (
-                <p className="text-[16px] text-gray-400">{item.service}</p>
+                <p className="text-[16px] ">{item.service}</p>
               )}
             </div>
           </div>

@@ -45,10 +45,10 @@ export default function Page() {
   ];
 
   return (
-    <div className="m-0 p-0 overflow-x-hidden ">
+    <div className="m-0 py-20 overflow-x-hidden ">
       {/* Title */}
       <section className="w-full py-20 px-6 text-left  ">
-        <h1 className="text-4xl md:text-6xl font-bold">Clip Path</h1>
+        <h1 className="text-4xl lg:text-[128px] title font-bold">Clip Path</h1>
       </section>
 
       {/* Fullscreen Image */}

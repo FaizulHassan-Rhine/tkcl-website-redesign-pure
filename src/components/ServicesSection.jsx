@@ -88,24 +88,24 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-black text-white space-y-24 py-16">
+    <div ref={containerRef} className=" space-y-24 py-16">
         <div className='leading-[400%] '>
             <h1 className='text-[60px] font-semibold '>Services </h1>
         <h1 className='text-[60px] font-semibold '>At A Glance</h1>
 
         </div>
-        <div className='h-[1px] bg-gray-800'></div>
+        <div className='h-[1px] '></div>
       {services.map((s, index) => (
         <div
           key={index}
           className="service-item flex flex-col border-b-[1px] border-gray-800 py-10 md:flex-row items-start justify-between gap-8 px-6 md:px-24"
         >
           <div className="w-full md:w-1/2 space-y-2">
-            <p className="text-lg text-white/70">({s.number})</p>
+            <p className="text-lg ">({s.number})</p>
             <h2 className="text-3xl font-semibold">{s.title}</h2>
             <ul className="list-none mt-2 space-y-1">
               {s.services.map((service, i) => (
-                <li key={i} className="text-white/60">
+                <li key={i} className="">
                   {service}
                 </li>
               ))}
