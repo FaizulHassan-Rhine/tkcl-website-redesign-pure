@@ -5,6 +5,7 @@ import ThemeToggleProvider from './theme-provider';
 import SmoothScrollProvider from './smooth-scroll-provider';
 import Navbar from '@/components/Navbar';
 import RouteLoader from '@/components/RouteLoader';
+import ScrollToTop from '@/components/ScrollToTop'; // Import the scroll to top component
 
 export default function RootLayout({ children }) {
   const [loading, setLoading] = useState(true);
@@ -99,6 +100,8 @@ export default function RootLayout({ children }) {
             <Navbar />
             <RouteLoader onLoadingDone={() => setLoading(false)} />
             <main>{children}</main>
+            {/* Scroll to Top Button - Global */}
+            <ScrollToTop />
           </SmoothScrollProvider>
         </ThemeToggleProvider>
       </body>
