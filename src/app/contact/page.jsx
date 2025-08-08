@@ -13,8 +13,8 @@ export default function Contact() {
         {/* Section Divider */}
         <div className="border-t border-gray-700 my-12"></div>
 
-        <div className="mb-20">
-          <h2 className="text-4xl lg:text-[100px] leading-[95px] max-w-4xl mx-auto  sub-title text-left mb-8">
+        <div className="mb-10 lg:mb-20">
+          <h2 className="text-3xl lg:text-[100px] leading-[35px] lg:leading-[95px] max-w-4xl mx-auto  sub-title text-left mb-8">
             Let’s drop us a line and get the project started.
           </h2>
         </div>
@@ -26,26 +26,26 @@ export default function Contact() {
             <h2 className="uppercase text-sm text-gray-400 tracking-widest mb-4">
               Contact
             </h2>
-            <p className="text-[32px] leading-[33px] sub-title mb-4">
+            <p className="text-[16px] lg:text-[32px] leading-[20px] lg:leading-[33px] sub-title mb-4">
               We’re excited to hear from you and let’s start something special
               together
             </p>
             <a
               href="mailto:hello@thekowcompany.com"
-              className="underline text-[32px] sub-title "
+              className="underline text-[16px] lg:text-[32px] sub-title "
             >
               hello@thekowcompany.com
             </a>
             <div className="mt-8 space-y-2">
               <p className="text-sm text-gray-400">Follow</p>
               <div className="flex flex-col">
-                <a href="#" className="underline text-[32px] sub-title">
+                <a href="#" className="underline text-[16px] lg:text-[32px] sub-title">
                   Facebook
                 </a>
-                <a href="#" className="underline text-[32px] sub-title">
+                <a href="#" className="underline text-[16px] lg:text-[32px] sub-title">
                   LinkedIn
                 </a>
-                <a href="#" className="underline text-[32px] sub-title">
+                <a href="#" className="underline text-[16px] lg:text-[32px] sub-title">
                   Twitter
                 </a>
               </div>
@@ -117,7 +117,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="group relative mt-4 md:col-span-2 overflow-hidden bg-black text-white dark:bg-white dark:text-black font-semibold px-12 py-6 rounded-full w-fit"
+              className="group relative mt-4 md:col-span-2 overflow-hidden bg-black text-white dark:bg-white dark:text-black font-semibold px-6 lg:px-12 py-3 lg:py-6 rounded-full w-fit"
             >
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-white">
                 Send Message

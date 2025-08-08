@@ -8,7 +8,7 @@ const objectsData = [
   { 
     id: 1, 
     label: 'Image Editing', 
-    mobileLabel: 'Image Edit', // Shorter text for mobile
+    mobileLabel: 'Image Edit',
     color: '#22c55e', 
     link: '/shape/circle' 
   },
@@ -16,21 +16,21 @@ const objectsData = [
     id: 2, 
     label: 'Video Editing', 
     mobileLabel: 'Video Edit',
-    color: '#3b82f6', // Different color for variety
+    color: '#3b82f6',
     link: '/shape/rectangle' 
   },
   { 
     id: 3, 
     label: '3D Modeling', 
     mobileLabel: '3D Model',
-    color: '#8b5cf6', // Different color
+    color: '#8b5cf6',
     link: '/shape/triangle' 
   },
   { 
     id: 4, 
     label: 'CGI Rendering', 
     mobileLabel: 'CGI Render',
-    color: '#f59e0b', // Different color
+    color: '#f59e0b',
     link: 'https://youtube.com' 
   },
 ];
@@ -54,6 +54,19 @@ const Hero = () => {
     lastTouchTime: 0
   });
 
+  // --- Helper: ensure custom font is loaded before we render any text ---
+  const ensureFontLoaded = async (familyName = 'customFont') => {
+    // If already available (via @font-face in CSS), this resolves quickly
+    if (document.fonts && document.fonts.check(`16px "${familyName}"`)) return;
+    if (document.fonts && document.fonts.load) {
+      try {
+        await document.fonts.load(`16px "${familyName}"`);
+      } catch {
+        // swallow – we'll fall back to sans-serif if it fails
+      }
+    }
+  };
+
   const createCapsule = (x, y, width, height, options) => {
     const radius = height / 2;
     const rect = Matter.Bodies.rectangle(x, y, width - height, height, options);
@@ -71,6 +84,8 @@ const Hero = () => {
     capsule.fontSize = options.fontSize || 16;
     capsule.textColor = options.textColor || '#fff';
     capsule.customLink = options.customLink || '';
+    capsule.fontFamily = options.fontFamily || 'customFont'; // <— use your custom font
+
     return capsule;
   };
 
@@ -119,13 +134,27 @@ const Hero = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
+    // HiDPI scaling for crisp text/edges
+    const applyHiDPI = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // scale drawing to CSS pixels
+    };
+
     const baseOptions = { restitution: 0.8, frictionAir: 0.02 };
 
+    // Main draw loop
     const renderBodies = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       bodiesRef.current.forEach((body) => {
         const { vertices, position, angle } = body;
+
+        // Shape
         ctx.beginPath();
         ctx.moveTo(vertices[0].x, vertices[0].y);
         for (let j = 1; j < vertices.length; j++) {
@@ -135,14 +164,18 @@ const Hero = () => {
         ctx.fillStyle = body.customColor;
         ctx.fill();
 
-        // Draw text
+        // Text (with custom font)
         ctx.save();
         ctx.translate(position.x, position.y);
         ctx.rotate(angle);
         ctx.fillStyle = body.textColor;
-        ctx.font = `${body.fontSize}px Arial`;
+        const family = body.fontFamily || 'customFont';
+        const size = body.fontSize || 16;
+        // Add a generic fallback so we still draw text if the custom font failed to load
+        ctx.font = `${size}px "${family}", sans-serif`;
         ctx.textAlign = 'center';
-        ctx.fillText(body.customLabel, 0, 5);
+        ctx.textBaseline = 'middle';
+        ctx.fillText(body.customLabel, 0, 0);
         ctx.restore();
       });
 
@@ -151,29 +184,26 @@ const Hero = () => {
 
     const recreateWorld = () => {
       Matter.Composite.clear(world, false);
-      const width = canvas.width;
-      const height = canvas.height;
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
       const spacing = width / (objectsData.length + 1);
       const scale = width / 768;
-      
-      // Responsive sizing based on screen width
+
       const isMobile = width <= 768;
       const isTablet = width > 768 && width <= 1024;
-      
+
       let capsuleWidth, capsuleHeight, fontSize;
-      
+
       if (isMobile) {
-        // Mobile sizing - smaller, more compact
-        capsuleWidth = Math.min(240 * scale, width * 2); // Max 35% of screen width
-        capsuleHeight = Math.max(50 * scale, 40); // Minimum height of 30px
-        fontSize = Math.max(12 * scale, 11); // Minimum font size of 11px
+        capsuleWidth = Math.min(240 * scale, width * 2);
+        capsuleHeight = Math.max(50 * scale, 40);
+        fontSize = Math.max(12 * scale, 11);
       } else if (isTablet) {
-        // Tablet sizing - medium
         capsuleWidth = 170 * scale;
         capsuleHeight = 38 * scale;
         fontSize = 14 * scale;
       } else {
-        // Desktop sizing - original
         capsuleWidth = 200 * scale;
         capsuleHeight = 40 * scale;
         fontSize = 16 * scale;
@@ -189,21 +219,16 @@ const Hero = () => {
       ];
       Matter.Composite.add(world, walls);
 
-      // Capsules with responsive sizing
+      // Capsules
       bodiesRef.current = objectsData.map((obj, i) => {
         const x = spacing * (i + 1);
-        const y = isMobile ? height * 0.1 : 0; // Start lower on mobile for better visibility
-        
-        // Adjust physics properties for mobile
-        const mobileBaseOptions = isMobile ? {
-          ...baseOptions,
-          restitution: 0.6, // Less bouncy on mobile
-          frictionAir: 0.03, // Slightly more air friction
-        } : baseOptions;
-        
-        // Use shorter labels on mobile
+        const y = isMobile ? height * 0.1 : 0;
+        const mobileBaseOptions = isMobile
+          ? { ...baseOptions, restitution: 0.6, frictionAir: 0.03 }
+          : baseOptions;
+
         const displayLabel = isMobile && obj.mobileLabel ? obj.mobileLabel : obj.label;
-        
+
         const body = createCapsule(x, y, capsuleWidth, capsuleHeight, {
           ...mobileBaseOptions,
           fillStyle: obj.color,
@@ -211,6 +236,7 @@ const Hero = () => {
           fontSize: fontSize,
           textColor: '#fff',
           customLink: obj.link,
+          fontFamily: 'customFont', // <- your custom font family name
         });
 
         Matter.Composite.add(world, body);
@@ -219,9 +245,7 @@ const Hero = () => {
     };
 
     const resizeCanvas = () => {
-      const rect = canvas.parentElement.getBoundingClientRect();
-      canvas.width = rect.width;
-      canvas.height = rect.height;
+      applyHiDPI();
       recreateWorld();
     };
 
@@ -251,15 +275,12 @@ const Hero = () => {
       let currentConstraint = null;
 
       const createTouchConstraint = (body, pointX, pointY) => {
-        // Create a static body at the touch point
         const constraintBody = Matter.Bodies.circle(pointX, pointY, 5, {
           isStatic: true,
           render: { visible: false }
         });
-        
         Matter.Composite.add(world, constraintBody);
 
-        // Create constraint between touch point and physics body
         const constraint = Matter.Constraint.create({
           bodyA: constraintBody,
           bodyB: body,
@@ -270,7 +291,6 @@ const Hero = () => {
         });
 
         Matter.Composite.add(world, constraint);
-        
         return { constraint, constraintBody };
       };
 
@@ -291,11 +311,10 @@ const Hero = () => {
         }
       };
 
-      // Touch start
       const handleTouchStart = (event) => {
         const coords = getEventCoordinates(event);
         const body = findBodyAtPoint(coords.x, coords.y);
-        
+
         interactionStateRef.current.startX = coords.x;
         interactionStateRef.current.startY = coords.y;
         interactionStateRef.current.isDragging = false;
@@ -304,13 +323,11 @@ const Hero = () => {
         interactionStateRef.current.lastTouchTime = Date.now();
 
         if (body) {
-          // Create physics constraint for dragging
           currentConstraint = createTouchConstraint(body, coords.x, coords.y);
-          event.preventDefault(); // Prevent scrolling only when touching a physics object
+          event.preventDefault();
         }
       };
 
-      // Touch move
       const handleTouchMove = (event) => {
         if (!interactionStateRef.current.isInteracting) return;
 
@@ -324,21 +341,19 @@ const Hero = () => {
         }
 
         if (interactionStateRef.current.currentBody && currentConstraint) {
-          // Update constraint position
           updateTouchConstraint(currentConstraint, coords.x, coords.y);
-          event.preventDefault(); // Prevent scrolling while dragging
+          event.preventDefault();
         }
       };
 
-      // Touch end
       const handleTouchEnd = (event) => {
         const touchDuration = Date.now() - interactionStateRef.current.lastTouchTime;
 
-        // Handle tap (quick touch without dragging)
-        if (!interactionStateRef.current.isDragging && 
-            touchDuration < 200 && 
-            interactionStateRef.current.currentBody) {
-          
+        if (
+          !interactionStateRef.current.isDragging &&
+          touchDuration < 200 &&
+          interactionStateRef.current.currentBody
+        ) {
           const body = interactionStateRef.current.currentBody;
           if (body.customLink) {
             event.preventDefault();
@@ -352,25 +367,21 @@ const Hero = () => {
           }
         }
 
-        // Clean up constraint
         if (currentConstraint) {
           removeTouchConstraint(currentConstraint);
           currentConstraint = null;
         }
 
-        // Reset state
         interactionStateRef.current.currentBody = null;
         interactionStateRef.current.isInteracting = false;
         interactionStateRef.current.isDragging = false;
       };
 
-      // Add touch event listeners
       canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
       canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
       canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
       canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
 
-      // Store cleanup function
       canvas._cleanupTouch = () => {
         if (currentConstraint) {
           removeTouchConstraint(currentConstraint);
@@ -387,7 +398,7 @@ const Hero = () => {
       const handleClick = (event) => {
         const coords = getEventCoordinates(event);
         const body = findBodyAtPoint(coords.x, coords.y);
-        
+
         if (body && body.customLink) {
           if (body.customLink.startsWith('http')) {
             window.open(body.customLink, '_blank');
@@ -398,35 +409,38 @@ const Hero = () => {
       };
 
       canvas.addEventListener('click', handleClick);
-      
+
       canvas._cleanupClick = () => {
         canvas.removeEventListener('click', handleClick);
       };
     };
 
     // Initial setup
-    resizeCanvas();
+    applyHiDPI();
+    recreateWorld();
     setupMatterMouseConstraint(); // For desktop mouse drag
-    setupMobileTouch(); // For mobile touch
-    setupMouseClick(); // For desktop clicks
-    
+    setupMobileTouch();           // For mobile touch
+    setupMouseClick();            // For desktop clicks
+
     observerRef.current = new ResizeObserver(() => {
       resizeCanvas();
       setupMatterMouseConstraint();
     });
     observerRef.current.observe(canvas.parentElement);
 
-    // Start the engine
+    // Start the engine AFTER font is ready so we avoid font-flash
     runnerRef.current = Matter.Runner.create();
-    Matter.Runner.run(runnerRef.current, engine);
-    renderBodies();
+    ensureFontLoaded('customFont').finally(() => {
+      Matter.Runner.run(runnerRef.current, engine);
+      renderBodies();
+    });
 
     return () => {
       Matter.Runner.stop(runnerRef.current);
       Matter.Composite.clear(world, false);
       Matter.Engine.clear(engine);
       observerRef.current?.disconnect();
-      
+
       // Clean up all event listeners
       if (canvas._cleanupTouch) canvas._cleanupTouch();
       if (canvas._cleanupClick) canvas._cleanupClick();
