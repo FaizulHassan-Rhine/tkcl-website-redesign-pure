@@ -188,7 +188,7 @@ export default function HomePage() {
         </section>
 
         <Hero />
-        <InfiniteLine />
+        {/* <InfiniteLine /> */}
         <FeaturedWork />
         <ServicesSection />
         <ClientBrand />

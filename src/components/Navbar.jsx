@@ -270,18 +270,12 @@ export default function Navbar() {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="ml-4 mt-2 space-y-1">
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/image-video-services" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Image & Video Editing
                     </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/cgi-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       3D Modelling & CGI
-                    </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Web Development
-                    </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Digital Marketing
-                    </a>
+                    </a>              
                   </div>
                 </div>
               </li>
@@ -304,15 +298,13 @@ export default function Navbar() {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${mobileDropdowns.products ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="ml-4 mt-2 space-y-1">
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Software Solutions
+                    <a href="https://retouched.ai" target='_blank' className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                      Retouched.ai
                     </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Mobile Apps
+                    <a href="https://holosnap.ai" target='_blank' className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                      Holosnap
                     </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Templates & Themes
-                    </a>
+                   
                   </div>
                 </div>
               </li>
@@ -337,20 +329,25 @@ export default function Navbar() {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${mobileDropdowns.support ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="ml-4 mt-2 space-y-1">
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Help Center
-                    </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/contact" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Contact Us
                     </a>
                     <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Documentation
+                      About Us
+                    </a>
+                    <a href="/faq" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                      FAQ
+                    </a>
+                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                      Resources
                     </a>
                   </div>
                 </div>
               </li>
 
-              <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Blogs</li>
+            <a href="/blog">
+                <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Blogs</li>
+            </a>
               
               <li className="py-2 px-2">
                 <button className="relative w-full px-4 py-2 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">

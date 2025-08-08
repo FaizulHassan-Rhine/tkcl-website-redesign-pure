@@ -68,6 +68,7 @@ export default function FeaturedWork() {
 
   return (
     <section ref={sectionRef} className="">
+      <h1 className="text-[140px] title font-bold text-center mb-2">Feature Work</h1>
       <div className="flex justify-between items-center px-4 ">
         <h1 className="text-lg font-light text-center mb-2">Featured Work</h1>
         <h1 className="text-lg font-light text-center mb-2">
