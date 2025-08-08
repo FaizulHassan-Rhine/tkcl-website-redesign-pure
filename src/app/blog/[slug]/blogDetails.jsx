@@ -94,11 +94,11 @@ const BlogDetails = ({ blog, is2D, relatedBlogs }) => {
     ? blog.description
         .replace(
           /src="https:\/\/res\.cloudinary\.com[^"]*\/tkcl-backend\/blog\/([^"]+)"/g,
-          `src="${imagerealDomain}/images/blog/$1"`
+          `src="https://thekowcompany.com/images/blog/$1"`
         )
         .replace(
           /src="https:\/\/res\.cloudinary\.com[^"]*\/tkcl-backend\/thumbnail\/([^"]+)"/g,
-          `src="${imagerealDomain}/images/thumbnail/$1"`
+          `src="https://thekowcompany.com/images/thumbnail/$1"`
         )
     : '';
 useEffect(() => {
@@ -185,7 +185,7 @@ useEffect(() => {
       {/* Fullscreen Thumbnail */}
       <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden mb-8 mt-8">
         <img
-          src={`${imagerealDomain}/images/thumbnail/${thumbFileName}`}
+          src={`https://thekowcompany.com/images/thumbnail/${thumbFileName}`}
           alt={blog.title}
           className="absolute top-0 left-0 w-full h-full object-cover parallax-img will-change-transform"
         />
@@ -216,7 +216,7 @@ useEffect(() => {
                   >
                     <div className="relative h-48 bg-neutral-900">
                       <img
-                        src={`${imagerealDomain}/images/thumbnail/${getFileNameFromCloudinaryUrl(
+                        src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(
                           post.thumb
                         )}`}
                         alt={post.title}

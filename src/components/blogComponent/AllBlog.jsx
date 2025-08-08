@@ -86,7 +86,7 @@ const AllBlog = () => {
                     <div className="cardImage">
                       <div className="relative w-full aspect-[16/9]">
                         <img
-                          src={`${imagerealDomainallblogs}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                          src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                           alt={items.title}
                           className="w-full h-[300px] object-fill"
                         />
@@ -122,7 +122,7 @@ const AllBlog = () => {
                       {/* keep same image construction, just let it fill width */}
                       <div className="relative w-full aspect-[16/9]">
                         <img
-                          src={`${imagerealDomainallblogs}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                          src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                           alt={items.title}
                           className="object-cover"
                         />
@@ -156,7 +156,7 @@ const AllBlog = () => {
                     <div className="cardImage">
                       <div className="relative w-full aspect-[16/9]">
                         <img
-                          src={`${imagerealDomainallblogs}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                          src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                           alt={items.title}
                           className="w-full h-[300px] object-fill"
                         />

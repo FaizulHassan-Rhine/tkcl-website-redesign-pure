@@ -72,7 +72,7 @@ const Blog3D = () => {
                 <div className="cardImage">
                   <div className="relative w-full aspect-[16/9]">
                     <img
-                      src={`${imagerealDomaina3d}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                      src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                       alt={items.title}
                       className="w-full h-[300px] object-fill"
                     />
@@ -95,7 +95,7 @@ const Blog3D = () => {
                 <div className="cardImage">
                   <div className="relative w-full aspect-[16/9]">
                     <img
-                      src={`${imagerealDomaina3d}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                      src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                       alt={items.title}
                       className="object-cover"
                     />
@@ -118,7 +118,7 @@ const Blog3D = () => {
                 <div className="cardImage">
                   <div className="relative w-full aspect-[16/9]">
                     <img
-                      src={`${imagerealDomaina3d}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                      src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                       alt={items.title}
                       className="w-full h-[300px] object-fill"
                     />
