@@ -435,10 +435,10 @@ const Hero = () => {
 
   return (
     <div className="">
-      <div className="w-full mt-[-40px] lg:-mt-[450px] mx-auto h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+      <div className="w-full  lg:-mt-[450px] mx-auto h-[20vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
         <canvas
           ref={canvasRef}
-          className="w-full h-full bg-white dark:bg-black border-2 border-white dark:border-black"
+          className="w-full h-full bg-transparent dark:bg-transparent border-2 border-white dark:border-black"
           style={{ 
             touchAction: 'auto', // Allow normal touch behavior
             userSelect: 'none',

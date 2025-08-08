@@ -68,10 +68,10 @@ export default function FeaturedWork() {
 
   return (
     <section ref={sectionRef} className="">
-      <h1 className="text-[140px] title font-bold text-center mb-2">Feature Work</h1>
+      <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[140px] title font-bold text-center mb-2">Feature Work</h1>
       <div className="flex justify-between items-center px-4 ">
-        <h1 className="text-lg font-light text-center mb-2">Featured Work</h1>
-        <h1 className="text-lg font-light text-center mb-2">
+        <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">Featured Work</h1>
+        <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">
           Excellency in professional retouch
         </h1>
       </div>
@@ -102,12 +102,12 @@ export default function FeaturedWork() {
             {/* Text below */}
             <div className=" px-1">
               {item.title && (
-                <h2 className="text-[30px] font-semibold leading-tight">
+                <h2 className= "text-[20px] sm:text-[25px] lg:text-[30px] font-semibold leading-tight">
                   {item.title}
                 </h2>
               )}
               {item.service && (
-                <p className="text-[16px] ">{item.service}</p>
+                <p className="text-[12px] sm:text-[14px] lg:text-[16px] ">{item.service}</p>
               )}
             </div>
           </div>

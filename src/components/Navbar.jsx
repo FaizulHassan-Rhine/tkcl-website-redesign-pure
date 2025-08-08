@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { useTheme } from '@/app/theme-provider';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,6 +84,7 @@ export default function Navbar() {
                       >
                         Image & Video Editing
                       </a>
+                    
                       <a
                         href="cgi-service"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
@@ -273,6 +275,7 @@ export default function Navbar() {
                     <a href="/image-video-services" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Image & Video Editing
                     </a>
+                   
                     <a href="/cgi-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       3D Modelling & CGI
                     </a>              

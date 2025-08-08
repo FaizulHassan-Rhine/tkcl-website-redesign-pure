@@ -11,6 +11,7 @@ import ScrollTitle from '@/components/ScrollTitle';
 import ServicesSection from '@/components/ServicesSection';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import OurClient from '@/components/OurClient';
 
 // Animated Text Component
 const AnimatedText = ({ text, className, delay = 0 }) => {
@@ -50,7 +51,7 @@ const AnimatedText = ({ text, className, delay = 0 }) => {
 
   return (
     <motion.h1
-      style={{ overflow: 'hidden', display: 'flex', flexWrap: 'wrap' }}
+      style={{ overflow: 'hidden',  }}
       variants={container}
       initial="hidden"
       animate="visible"
@@ -143,7 +144,7 @@ export default function HomePage() {
       <main className="pt-20 space-y-40 transition-colors duration-500">
         {/* Hero Section - Animated Text */}
         <section className='px-4 md:px-6'>
-          <div className='flex flex-col md:flex-row justify-between gap-20 items-center'>
+          <div className='flex flex-col md:flex-row justify-between gap-3 lg:gap-20 items-center'>
             {pageLoaded ? (
               <div className="text-[32px] sm:text-[48px] md:text-[40px] lg:text-[60px] leading-[100%] lg:max-w-2xl">
                 <AnimatedSpan 
@@ -164,7 +165,7 @@ export default function HomePage() {
             )}
             
             <motion.div 
-              className='lg:max-w-2xl mt-10'
+              className='lg:max-w-2xl lg:mt-10'
               initial={{ opacity: 0, y: 30 }}
               animate={pageLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ delay: 1.5, duration: 0.8 }}
@@ -191,7 +192,8 @@ export default function HomePage() {
         {/* <InfiniteLine /> */}
         <FeaturedWork />
         <ServicesSection />
-        <ClientBrand />
+        {/* <ClientBrand /> */}
+        <OurClient/>
         <ScrollTitle />
         <NoteSection />
         <ParallaxImageSection />

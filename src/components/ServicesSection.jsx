@@ -73,7 +73,7 @@ export default function ServicesSection() {
         {
           x: 0,
           autoAlpha: 1,
-          duration: 0.8,
+          duration: 0.9,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: item,

@@ -32,7 +32,7 @@ export default function NoteSection() {
   };
 
   return (
-    <div className="py-40  flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="lg:py-40  flex items-center justify-center p-4 relative overflow-hidden">
       <div className="text-center max-w-4xl font-semibold text-4xl md:text-[90px] leading-[100%]   relative z-10">
         <p>
           It’s all about the unique{' '}
