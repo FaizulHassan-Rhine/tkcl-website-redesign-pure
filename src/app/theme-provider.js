@@ -1,5 +1,4 @@
 'use client';
-
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext();
@@ -17,16 +16,16 @@ export default function ThemeToggleProvider({ children }) {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
-    const defaultTheme = storedTheme || 'dark'; // ✅ force dark by default
-    
+    const defaultTheme = storedTheme || 'light'; // ✅ Set light as default
+        
     setTheme(defaultTheme);
-    
+        
     const root = document.documentElement;
-    
+        
     // CRITICAL: Clear inline styles from initial script
     root.style.removeProperty('background-color');
     root.style.removeProperty('color');
-    
+        
     // Apply theme to document
     root.classList.remove('dark', 'light');
     if (defaultTheme === 'dark') {
@@ -40,13 +39,13 @@ export default function ThemeToggleProvider({ children }) {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    
+        
     const root = document.documentElement;
-    
+        
     // CRITICAL: Clear inline styles before applying new theme
     root.style.removeProperty('background-color');
     root.style.removeProperty('color');
-    
+        
     // Apply theme to document
     root.classList.remove('dark', 'light');
     if (newTheme === 'dark') {

@@ -126,6 +126,7 @@ export default function Page() {
           className="absolute top-0 left-0 w-full h-full object-cover parallax-img will-change-transform"
         />
       </section>
+      
       <Footer/>
     </div>
   );

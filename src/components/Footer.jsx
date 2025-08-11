@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaTelegramPlane } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black  px-2 py-10">
+    <footer className=" px-2 py-10">
       <div className="w-full mx-auto">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 border-b border-gray-800 pb-10">

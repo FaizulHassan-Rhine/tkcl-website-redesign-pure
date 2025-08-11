@@ -12,6 +12,7 @@ import ServicesSection from '@/components/ServicesSection';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import OurClient from '@/components/OurClient';
+import FooterGrid from '@/components/FooterNew';
 
 // Animated Text Component
 const AnimatedText = ({ text, className, delay = 0 }) => {
@@ -141,26 +142,26 @@ export default function HomePage() {
 
   return (
     <>
-      <main className="pt-20 space-y-40 transition-colors duration-500">
+      <main className="pt-20  space-y-40 transition-colors duration-500">
         {/* Hero Section - Animated Text */}
         <section className='px-4 md:px-6'>
           <div className='flex flex-col md:flex-row justify-between gap-3 lg:gap-20 items-center'>
             {pageLoaded ? (
-              <div className="text-[32px] sm:text-[48px] md:text-[40px] lg:text-[60px] leading-[100%] lg:max-w-2xl">
+              <div className="text-[32px]  sm:text-[48px] md:text-[40px] lg:text-[55px] leading-[100%] lg:max-w-2xl">
                 <AnimatedSpan 
-                  text="Bring your visuals to life with expert" 
-                  className="text-[#6C6C6C]"
+                  text="Bring Your Visuals to Life with Ai Powered," 
+                  className=""
                   delay={0}
                 />
                 <AnimatedText 
-                  text=" 2D Image Editing Stunning 3D Post-Production" 
+                  text=" Human Perfection on Stunning 2D Image Editing and 3D Visualization" 
                   className="text-current"
                   delay={6} // Start after the first part
                 />
               </div>
             ) : (
               <h1 className="text-[32px] sm:text-[48px] md:text-[40px] lg:text-[70px] leading-[100%] lg:max-w-3xl opacity-0">
-                <span className='text-[#6C6C6C]'>Bring your visuals to life with expert</span> 2D Image Editing Stunning 3D Post-Production
+                Bring Your Visuals to Life with Ai Powered, Human Perfection on Stunning 2D Image Editing and 3D Visualization
               </h1>
             )}
             
@@ -173,23 +174,23 @@ export default function HomePage() {
               <div className='flex justify-center gap-10 items-center'>
                 <div>
                   <h1 className='text-[32px] sm:text-[48px] md:text-[40px] lg:text-[70px] font-sans text-green-500'>24/7</h1>
-                  <p className='text-[12px] sm:text-[16px] md:text-[12px] lg:text-[16px]'>We're here for you 24/7—anytime, anywhere.</p>
+                  <p className='text-[12px] sm:text-[16px] md:text-[12px] lg:text-[16px]'>Ready for you every second.</p>
                 </div>
                 <div>
-                  <h1 className='text-[32px] sm:text-[48px] md:text-[40px] lg:text-[70px] text-green-500'>100%</h1>
-                  <p className='text-[12px] sm:text-[16px] md:text-[12px] lg:text-[16px]'>Guaranteed 100% on-time delivery, every time.</p>
+                  <h1 className='text-[32px] sm:text-[48px] md:text-[40px] lg:text-[70px] text-green-500'>30,000+</h1>
+                  <p className='text-[12px] sm:text-[16px] md:text-[12px] lg:text-[16px]'>Processing over 30,000 assets every day.</p>
                 </div>
               </div>
               <div className="mt-5">
-                <h1 className='text-red-500 font-semibold text-[12px] lg:text-[32px]'>Attention : This section is temporary.</h1>
-                <p className='text-[12px] lg:text-[16px]'>We updated the Next.js library to follow Google's new rules. It can now check if content (like text or blogs) is made by AI with about 99% accuracy for text and 70% for images. Before uploading any text or blog, please check it with QuillBot and Grammarly to avoid being flagged as 0% AI-generated. Otherwise, thekowcompany.com could lose SEO ranking.</p>
+                {/* <h1 className='text-red-500 font-semibold text-[12px] lg:text-[32px]'>Attention : This section is temporary.</h1> */}
+                <p className='text-[12px] lg:text-[16px]'>The KOW Company is revolutionizing the world of content every second. Image retouching has become more accessible with our extraordinary pool of retouchers and ai software built in-house. We have not stopped there; we are producing 3D models at scale with software-driven solutions that not only save your time but also provide top-notch experiences. We are scaling up every day, as we are trusted by big brands, studios, and retailers worldwide. We ensure the visibility of your assets by meticulously crafting each piece of content by doing it right.</p>
               </div>
             </motion.div>
           </div>
         </section>
 
         <Hero />
-        {/* <InfiniteLine /> */}
+        <InfiniteLine />
         <FeaturedWork />
         <ServicesSection />
         {/* <ClientBrand /> */}
@@ -197,7 +198,8 @@ export default function HomePage() {
         <ScrollTitle />
         <NoteSection />
         <ParallaxImageSection />
-        <Footer />
+        {/* <Footer /> */}
+        <FooterGrid/>
       </main>
     </>
   );

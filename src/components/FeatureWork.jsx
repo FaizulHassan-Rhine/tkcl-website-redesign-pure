@@ -68,11 +68,11 @@ export default function FeaturedWork() {
 
   return (
     <section ref={sectionRef} className="">
-      <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[140px] title font-bold text-center mb-2">Feature Work</h1>
+      {/* <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[140px] title font-bold text-center mb-2">Feature Work</h1> */}
       <div className="flex justify-between items-center px-4 ">
-        <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">Featured Work</h1>
-        <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">
-          Excellency in professional retouch
+        {/* <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">Featured Work</h1> */}
+        <h1 className="text-[10px] lg:text-[24px] font-light text-center mb-2">
+          Feature Work
         </h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12  w-full h-full px-4 py-10 mx-auto">

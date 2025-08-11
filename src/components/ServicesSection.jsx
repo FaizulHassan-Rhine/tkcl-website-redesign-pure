@@ -90,8 +90,8 @@ export default function ServicesSection() {
   return (
     <div ref={containerRef} className=" space-y-24 py-16">
         <div className='leading-[400%] '>
-            <h1 className='text-[60px] font-semibold '>Services </h1>
-        <h1 className='text-[60px] font-semibold '>At A Glance</h1>
+            <h1 className='text-[60px] font-semibold '>Explore </h1>
+        <h1 className='text-[60px] font-semibold '>Our Creativity</h1>
 
         </div>
         <div className='h-[1px] '></div>

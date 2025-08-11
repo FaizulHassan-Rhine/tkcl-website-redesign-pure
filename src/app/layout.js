@@ -5,7 +5,7 @@ import ThemeToggleProvider from './theme-provider';
 import SmoothScrollProvider from './smooth-scroll-provider';
 import Navbar from '@/components/Navbar';
 import RouteLoader from '@/components/RouteLoader';
-import ScrollToTop from '@/components/ScrollToTop'; // Import the scroll to top component
+import ScrollToTop from '@/components/ScrollToTop';
 
 export default function RootLayout({ children }) {
   const [loading, setLoading] = useState(true);
@@ -34,13 +34,13 @@ export default function RootLayout({ children }) {
         root.style.visibility = 'hidden';
         
         try {
-          const theme = localStorage.getItem('theme') || 'dark';
+          const theme = localStorage.getItem('theme') || 'light'; // ✅ Changed default to light
           
           // Set theme immediately
           root.classList.remove('light', 'dark');
           root.classList.add(theme);
           
-          // Set background immediately to prevent white flash
+          // Set background immediately to prevent flash
           if (theme === 'dark') {
             root.style.backgroundColor = '#000000';
             root.style.color = '#ffffff';
@@ -50,10 +50,10 @@ export default function RootLayout({ children }) {
           }
           
         } catch(e) {
-          // Fallback to dark theme
-          root.classList.add('dark');
-          root.style.backgroundColor = '#000000';
-          root.style.color = '#ffffff';
+          // Fallback to light theme
+          root.classList.add('light');
+          root.style.backgroundColor = '#ffffff';
+          root.style.color = '#000000';
         }
         
         // Show content after theme is applied
@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         suppressHydrationWarning
-        className="2xl:container mx-auto antialiased transition-colors bg-white text-black dark:bg-black dark:text-white relative"
+        className="2xl:container mx-auto antialiased transition-colors bg-[#F8F9F6] text-black dark:bg-black dark:text-white relative"
         style={{
           visibility: themeLoaded ? 'visible' : 'hidden',
           minHeight: '100vh'
@@ -100,7 +100,6 @@ export default function RootLayout({ children }) {
             <Navbar />
             <RouteLoader onLoadingDone={() => setLoading(false)} />
             <main>{children}</main>
-            {/* Scroll to Top Button - Global */}
             <ScrollToTop />
           </SmoothScrollProvider>
         </ThemeToggleProvider>
