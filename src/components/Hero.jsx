@@ -116,41 +116,48 @@ const Hero = () => {
     return capsule;
   };
 
-  // Draw smooth capsule with rounded corners
+  // Draw smooth capsule with rounded corners and better color handling
   const drawSmoothCapsule = (ctx, x, y, width, height, angle, fillStyle, strokeStyle, isHovered) => {
     ctx.save();
-    ctx.translate(x, y);
+    
+    // Round coordinates to prevent subpixel rendering issues
+    const roundedX = Math.round(x);
+    const roundedY = Math.round(y);
+    
+    ctx.translate(roundedX, roundedY);
     ctx.rotate(angle);
 
     const radius = height / 2;
     const rectWidth = width - height;
 
-    // Enable smooth rendering
+    // Enhanced rendering settings
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
     
-    // Create smooth capsule path
+    // Create smooth capsule path with precise coordinates
     ctx.beginPath();
-    ctx.moveTo(-rectWidth / 2, -radius);
-    ctx.lineTo(rectWidth / 2, -radius);
-    ctx.arcTo(rectWidth / 2 + radius, -radius, rectWidth / 2 + radius, 0, radius);
-    ctx.arcTo(rectWidth / 2 + radius, radius, rectWidth / 2, radius, radius);
-    ctx.lineTo(-rectWidth / 2, radius);
-    ctx.arcTo(-rectWidth / 2 - radius, radius, -rectWidth / 2 - radius, 0, radius);
-    ctx.arcTo(-rectWidth / 2 - radius, -radius, -rectWidth / 2, -radius, radius);
+    ctx.moveTo(Math.round(-rectWidth / 2), Math.round(-radius));
+    ctx.lineTo(Math.round(rectWidth / 2), Math.round(-radius));
+    ctx.arcTo(Math.round(rectWidth / 2 + radius), Math.round(-radius), Math.round(rectWidth / 2 + radius), 0, radius);
+    ctx.arcTo(Math.round(rectWidth / 2 + radius), Math.round(radius), Math.round(rectWidth / 2), Math.round(radius), radius);
+    ctx.lineTo(Math.round(-rectWidth / 2), Math.round(radius));
+    ctx.arcTo(Math.round(-rectWidth / 2 - radius), Math.round(radius), Math.round(-rectWidth / 2 - radius), 0, radius);
+    ctx.arcTo(Math.round(-rectWidth / 2 - radius), Math.round(-radius), Math.round(-rectWidth / 2), Math.round(-radius), radius);
     ctx.closePath();
 
-    // Add subtle shadow for depth
+    // Add subtle shadow for depth (only on hover to prevent color bleeding)
     if (isHovered) {
       ctx.shadowColor = darkenColor(strokeStyle, 0.3);
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 6;
       ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 2;
+      ctx.shadowOffsetY = 1;
     }
 
-    // Fill background
-    ctx.fillStyle = fillStyle;
-    ctx.fill();
+    // Fill background with proper color handling
+    if (fillStyle !== 'transparent') {
+      ctx.fillStyle = fillStyle;
+      ctx.fill();
+    }
 
     // Reset shadow for border
     ctx.shadowColor = 'transparent';
@@ -158,20 +165,20 @@ const Hero = () => {
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
 
-    // Draw smooth border with better line caps
+    // Draw smooth border with consistent width
     ctx.strokeStyle = strokeStyle;
-    ctx.lineWidth = 2.5;
+    ctx.lineWidth = 2;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.stroke();
 
-    // Add inner highlight for polish
+    // Add subtle inner highlight on hover
     if (isHovered) {
       ctx.beginPath();
-      ctx.moveTo(-rectWidth / 2, -radius + 1);
-      ctx.lineTo(rectWidth / 2, -radius + 1);
-      ctx.arcTo(rectWidth / 2 + radius - 1, -radius + 1, rectWidth / 2 + radius - 1, 0, radius - 1);
-      ctx.strokeStyle = hexToRgba(strokeStyle, 0.3);
+      ctx.moveTo(Math.round(-rectWidth / 2), Math.round(-radius + 2));
+      ctx.lineTo(Math.round(rectWidth / 2), Math.round(-radius + 2));
+      ctx.arcTo(Math.round(rectWidth / 2 + radius - 2), Math.round(-radius + 2), Math.round(rectWidth / 2 + radius - 2), 0, radius - 2);
+      ctx.strokeStyle = hexToRgba(strokeStyle, 0.4);
       ctx.lineWidth = 1;
       ctx.stroke();
     }
@@ -224,26 +231,42 @@ const Hero = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    // HiDPI scaling for crisp rendering
+    // HiDPI scaling for crisp rendering with better color handling
     const applyHiDPI = () => {
       const dpr = window.devicePixelRatio || 1;
       const rect = canvas.parentElement.getBoundingClientRect();
-      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
-      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+      
+      // Use integer pixel values to prevent color bleeding
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
+      
+      // Apply transform with proper scaling
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       
-      // Enable high-quality rendering
+      // Enhanced rendering settings to prevent color issues
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
+      
+      // Prevent color blending issues
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.textRenderingOptimization = 'optimizeQuality';
+      
+      // Force integer positioning
+      ctx.translate(0.5, 0.5);
     };
 
     const baseOptions = { restitution: 0.8, frictionAir: 0.02 };
 
-    // Enhanced render loop with smooth capsules
+    // Enhanced render loop with stable color rendering
     const renderBodies = () => {
+      // Clear with proper background handling
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Set consistent rendering context
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
 
       bodiesRef.current.forEach((body) => {
         const { position, angle } = body;
@@ -253,7 +276,7 @@ const Hero = () => {
           ? hexToRgba(body.customColor, 0.15) 
           : 'transparent';
 
-        // Draw smooth capsule
+        // Draw smooth capsule with stable positioning
         drawSmoothCapsule(
           ctx,
           position.x,
@@ -266,12 +289,12 @@ const Hero = () => {
           body.isHovered
         );
 
-        // Enhanced text rendering
+        // Enhanced text rendering with stable positioning
         ctx.save();
-        ctx.translate(position.x, position.y);
+        ctx.translate(Math.round(position.x), Math.round(position.y));
         ctx.rotate(angle);
         
-        // Text with better antialiasing
+        // Text with better antialiasing and consistent rendering
         ctx.fillStyle = body.textColor;
         const family = body.fontFamily || 'customFont';
         const size = body.fontSize || 16;
@@ -279,17 +302,18 @@ const Hero = () => {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        // Add subtle text shadow for better readability
+        // Subtle text shadow only on hover
         if (body.isHovered) {
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.1)';
+          ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
           ctx.shadowBlur = 1;
           ctx.shadowOffsetX = 0;
-          ctx.shadowOffsetY = 1;
+          ctx.shadowOffsetY = 0.5;
         }
         
+        // Render text with pixel-perfect positioning
         ctx.fillText(body.customLabel, 0, 0);
         
-        // Reset shadow
+        // Reset shadow to prevent bleeding
         ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
         ctx.shadowOffsetX = 0;
@@ -328,10 +352,11 @@ const Hero = () => {
         fontSize = 14 * scale;
       }
 
-      // Walls
+      // Walls - adjusted floor position to keep capsules 10px above visible bottom
       const wallThickness = 50;
+      const floorOffset = 10; // Keep capsules 10px above visible floor
       const walls = [
-        Matter.Bodies.rectangle(width / 2, height + wallThickness / 2, width, wallThickness, { isStatic: true }),
+        Matter.Bodies.rectangle(width / 2, height - floorOffset + wallThickness / 2, width, wallThickness, { isStatic: true }),
         Matter.Bodies.rectangle(width / 2, -wallThickness / 2, width, wallThickness, { isStatic: true }),
         Matter.Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
         Matter.Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
@@ -608,7 +633,8 @@ const Hero = () => {
           }}
         />
       </div>
-      {/* <div className='h-[1px] mb-[3px] bg-black dark:bg-white'></div> */}
+      {/* <div className='h-[1px] mb-[3px] bg-black dark:bg-white'></div>
+      <div className='h-[1px] mb-[3px] bg-black dark:bg-white'></div> */}
     </div>
   );
 };

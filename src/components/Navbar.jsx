@@ -121,7 +121,7 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="/image-video-services"
+                        href="/image-editing-services"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Image Editing
