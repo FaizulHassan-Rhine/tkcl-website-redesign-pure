@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-       <script
+       {/* <script
   dangerouslySetInnerHTML={{
     __html: `
       (function () {
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
       })();
     `,
   }}
-/>
+/> */}
       </head>
       <body
         suppressHydrationWarning
