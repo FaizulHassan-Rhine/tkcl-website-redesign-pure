@@ -9,6 +9,8 @@ import OurClient from '@/components/OurClient';
 import FooterGrid from '@/components/FooterNew';
 import NoteSectionNew from '@/components/NoteSectionNew';
 import ServicesSectionNew from '@/components/ServiceSectionNew';
+import AnimatedHeadline from '@/components/Headline';
+import HeroNew from '@/components/HeroNew';
 
 export default function Page() {
   return (
@@ -16,9 +18,8 @@ export default function Page() {
       {/* Hero Section */}
       <section>
         <div className="flex flex-col  md:flex-row justify-between gap-6 lg:gap-20 items-center">
-          <h1 className="text-[32px] font-bold text-body sm:text-[48px] md:text-[54px] 2xl:text-[60px] leading-[100%] lg:max-w-3xl ">
-            Bring Your Visuals to Life with <span className="text-[#4FA59B]">AI-Powered</span>, Human Perfection on Stunning <br/> <span className='text-[#4FA59B]'>2D Image Editing</span>  and <br/> <span className='text-[#4FA59B]'>3D Visualization</span>
-          </h1>
+          
+          <AnimatedHeadline/>
 
          <div className='flex flex-col items-center pt-20 md:items-start'>
            <div className="flex justify-center gap-10 items-center">
@@ -45,7 +46,8 @@ export default function Page() {
         </div>
       </section>
 
-      <Hero />
+      {/* <Hero /> */}
+      <HeroNew/>
       <InfiniteLine />
       <FeaturedWork />
       <ServicesSectionNew />
