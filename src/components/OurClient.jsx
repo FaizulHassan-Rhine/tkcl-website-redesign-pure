@@ -35,9 +35,7 @@ const OurClient = () => {
       `}</style>
       
       <div className="overflow-hidden py-10 ">
-        <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[128px] font-bold text-center mb-8 ">
-          Our Clients
-        </h1>
+        <h1 className='text-[60px] text-left title font-semibold leading-[100%]'>Our Clients</h1>
 
         <div className="relative w-full lg:py-20">
           <div className="flex animate-slide gap-5 lg:gap-20 whitespace-nowrap">

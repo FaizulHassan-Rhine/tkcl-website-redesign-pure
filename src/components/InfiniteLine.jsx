@@ -35,7 +35,7 @@ export default function TextTrain({
 
   return (
     <div
-      className={`relative w-full overflow-hidden  ${className}`}
+      className={`relative w-full overflow-hidden ${className}`}
       aria-label="Scrolling list of services"
     >
       {/* Left & right fade masks */}
@@ -53,15 +53,18 @@ export default function TextTrain({
         aria-live="off"
       >
         {doubled.map((label, idx) => (
-          <span
-            key={`${label}-${idx}`}
-            role="listitem"
-            className="mx-[1.15rem] inline-flex items-center gap-2 rounded-2xl  px-4 py-6 text-sm md:text-[40px] font-medium text-neutral-700  whitespace-nowrap"
-          >
-            {/* Dot */}
-            {/* <span className="h-2 w-2 shrink-0 rounded-full bg-neutral-900/70" aria-hidden="true" /> */}
-            {label}
-          </span>
+          <React.Fragment key={`${label}-${idx}`}>
+            <span
+              role="listitem"
+              className="mx-[1.15rem] inline-flex  items-center gap-2 rounded-2xl px-4 py-6 text-sm md:text-[40px]  whitespace-nowrap"
+            >
+              {label}
+            </span>
+            {/* Dot separator - only show if not the last item */}
+            {idx < doubled.length - 1 && (
+              <span className="h-3 w-3 shrink-0 rounded-full bg-black" aria-hidden="true" />
+            )}
+          </React.Fragment>
         ))}
       </div>
 
@@ -88,22 +91,3 @@ export default function TextTrain({
     </div>
   );
 }
-
-/*
- * Example (optional):
- *
- * import TextTrain from "./TextTrain";
- *
- * export default function Page() {
- *   return (
- *     <main className="min-h-screen bg-white flex items-center justify-center p-6">
- *       <div className="w-full max-w-6xl">
- *         <h1 className="text-2xl md:text-4xl font-semibold tracking-tight text-neutral-900 mb-6">
- *           Our Services
- *         </h1>
- *         <TextTrain speed={30} />
- *       </div>
- *     </main>
- *   );
- * }
- */

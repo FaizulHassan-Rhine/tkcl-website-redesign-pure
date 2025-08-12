@@ -50,7 +50,7 @@ export default function Navbar() {
               {/* Logo */}
               <a href="/" className="">
                 <img
-                  src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo2.60f47440.webp&w=640&q=75&dpl=dpl_CkEYops9HRVi48wwLma1szyfnsWZ"
+                  src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
                   alt="Logo"                
                   width={100}
                   height={100}
@@ -87,7 +87,7 @@ export default function Navbar() {
            <a href="/" className="">
             
               <img
-                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo2.60f47440.webp&w=640&q=75&dpl=dpl_CkEYops9HRVi48wwLma1szyfnsWZ"
+                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
                 alt="Logo"                
                 width={100}
                 height={100}
@@ -258,8 +258,8 @@ export default function Navbar() {
               </button> */}
 
               {/* Let's Talk Button */}
-              <button className="relative px-8 py-4 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
-                <span className="absolute inset-0 bg-green-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+              <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
+                <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 border-[#3B837B] transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10">Let's Talk</span>
               </button>
             </div>

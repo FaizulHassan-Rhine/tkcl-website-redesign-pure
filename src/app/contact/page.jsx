@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import FooterGrid from "@/components/FooterNew";
 import React from "react";
 
 export default function Contact() {
@@ -127,7 +128,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
-      <Footer />
+      <FooterGrid/>
     </>
   );
 }

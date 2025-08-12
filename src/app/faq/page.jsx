@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '@/components/Footer';
+import FooterGrid from '@/components/FooterNew';
 
 const faqs = [
   {
@@ -95,7 +96,7 @@ export default function FAQPage() {
         </div>
       </div>
     </div>
-    <Footer/>
+    <FooterGrid/>
     </div>
   );
 }

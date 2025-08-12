@@ -13,9 +13,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
 
-
-@font-face {
+/* @font-face {
   font-family: 'CustomFont';
   src: url('/fonts/Thunder-BoldLC.ttf') format('truetype');
   font-weight: 700;
@@ -26,13 +28,26 @@ body {
   src: url('/public/fonts/Sequel\ Sans\ Roman\ Body.otf') format('truetype');
   font-weight: 500;
   font-style: normal;
-}
+} */
 
-.title {
-  font-family: 'CustomFont', sans-serif;
+ .title {
+  color: #285C37;
 }
 .sub-title {
-  font-family: 'CustomFont2', sans-serif;
+    color: #4FA59B;
+} 
+.text-body {
+    color: #6C757D;
+} 
+.footer-text-body {
+    color: #222222;
+} 
+
+.text-divider {
+    color: #EAEAEA;
+}
+.text-highlight {
+    color: #4FA59B;
 }
 
 

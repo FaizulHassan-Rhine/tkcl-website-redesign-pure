@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FooterGrid from "@/components/FooterNew";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,16 +52,17 @@ export default function ResponsiveZoomGrid({
   }, []);
 
   return (
+   <>
     <section ref={sectionRef} className="mx-auto px-4 md:px-6 py-20">
       <div className="mb-8 md:mb-12 text-center">
-        <h2 className="text-[128px] title font-semibold tracking-tight">
+        <h2 className="text-[100px] title font-semibold tracking-tight">
           Image Editing Services
         </h2>
       </div>
 
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20 max-w-8xl mx-auto"
       >
         {images.map((img, idx) => (
           <figure
@@ -75,12 +77,14 @@ export default function ResponsiveZoomGrid({
                 className="zoom-image w-full h-full object-cover will-change-transform select-none"
               />
             </div>
-            <figcaption className="mt-4 text-left text-lg font-medium text-gray-800">
+            <figcaption className="mt-4 text-left text-[32px] font-semibold sub-title">
               {img.alt || `Service ${idx + 1}`}
             </figcaption>
           </figure>
         ))}
       </div>
     </section>
+    <FooterGrid/>
+   </>
   );
 }

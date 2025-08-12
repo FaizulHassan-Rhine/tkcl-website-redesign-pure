@@ -7,21 +7,20 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from "re
 export default function FooterGrid() {
   return (
     <footer className="bg-gray-100">
-      <div className="mx-auto max-w-7xl px-4 py-14">
+      <div className="mx-auto  px-4 py-14">
         {/* 1 / 2 / 4 grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
           {/* Brand / Intro */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-600 text-white font-bold">
-                3D
-              </span>
-              <span className="text-xl font-semibold tracking-wide">ACE</span>
+              <img
+                className="w-24"
+                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
+                alt="The KOW Company Logo"
+              />
             </div>
-            <p className="text-sm leading-6 text-gray-600">
-              3D-Ace is a 2D/3D content production division of Program-Ace.
-              Since 2009 we’ve delivered 2D/3D art and AR/VR-ready assets for
-              Unity and Unreal Engine.
+            <p className="text-[16px] max-w-[320px] leading-6  footer-text-body">
+             The powerhouse of all your content-related needs. Refer to our image and video editing services to get the best content that meets your desire. Do not miss out on the exciting 3D services that we are ready to offer along with AI-driven solutions. 
             </p>
 
             <div className="space-y-2">
@@ -46,8 +45,8 @@ export default function FooterGrid() {
 
           {/* Our Services */}
           <div>
-            <h3 className="text-lg font-semibold">Our Services</h3>
-            <ul className="mt-4 space-y-3 text-sm text-gray-600">
+            <h3 className="text-2xl font-semibold sub-title">Our Services</h3>
+            <ul className="mt-4 space-y-2 text-[16px] footer-text-body">
               <li><Link href="#" className="hover:text-black">Image Editing</Link></li>
               <li><Link href="#" className="hover:text-black">Video Editing</Link></li>
               <li><Link href="#" className="hover:text-black">3D Modeling & Rendering</Link></li>
@@ -56,8 +55,8 @@ export default function FooterGrid() {
 
           {/* About Company */}
           <div>
-            <h3 className="text-lg font-semibold">About Company</h3>
-            <ul className="mt-4 space-y-3 text-sm text-gray-600">
+            <h3 className="text-2xl font-semibold sub-title">About Company</h3>
+            <ul className="mt-4 space-y-2 text-[16px] footer-text-body">
               <li><Link href="#" className="hover:text-black">API Resources</Link></li>
               <li><Link href="#" className="hover:text-black">Career</Link></li>
               <li><Link href="#" className="hover:text-black">Blogs</Link></li>
@@ -67,8 +66,8 @@ export default function FooterGrid() {
 
           {/* Get in Touch */}
           <div>
-            <h3 className="text-lg font-semibold">Get in touch</h3>
-            <div className="mt-4 space-y-4 text-sm text-gray-600">
+            <h3 className="text-2xl font-semibold sub-title">Get in touch</h3>
+            <div className="mt-4 space-y-2 text-[16px] footer-text-body">
               <div>
                 <p className="text-xs uppercase tracking-wide text-gray-500">Address</p>
                 <p>Plot:06, 2nd Floor, Navana, D. H. Tower, Panthapath, Dhaka 1215</p>
@@ -111,7 +110,7 @@ export default function FooterGrid() {
         {/* Divider & bottom bar */}
         <div className="mt-10 border-t border-gray-300 pt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="text-xs text-gray-500">
-            © 1992–2025 All Rights Reserved by 3D-Ace.
+            © 2025 All Rights Reserved by The KOW Company.
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-600">
             <Link href="#" className="hover:text-black">Privacy Policy</Link>

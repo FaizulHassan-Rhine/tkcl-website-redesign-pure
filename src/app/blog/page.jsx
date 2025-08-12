@@ -4,6 +4,7 @@
 
 import { metadata as pageMeta } from '@/seo/metadatas';
 import AllBlog from "@/components/blogComponent/AllBlog";
+import FooterGrid from '@/components/FooterNew';
 
 export const metadata = {
   title: pageMeta.blog.title,
@@ -19,6 +20,7 @@ export default  function Page() {
   return (
     <>
       <AllBlog />
+      <FooterGrid/>
     </>
   );
 }
