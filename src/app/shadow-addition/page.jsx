@@ -7,6 +7,8 @@ import { ReactCompareSlider, ReactCompareSliderImage, ReactCompareSliderHandle }
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FooterGrid from '@/components/FooterNew';
+import ContactForm from '@/components/ContactForm';
+import FAQ from '@/components/Faq';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +71,46 @@ function BeforeAfterSlider({ beforeSrc, afterSrc, alt = 'Before After', initial 
 }
 
 export default function Page() {
+
+      const blog3dApidomain = "https://tkclbackendev.onrender.com";
+      const [faqs, setFaqs] = useState([]);
+      const [loading, setLoading] = useState(true);
+      const [errorMsg, setErrorMsg] = useState("");
+    
+      useEffect(() => {
+        const controller = new AbortController();
+    
+        const load = async () => {
+          try {
+            setLoading(true);
+            setErrorMsg("");
+    
+            const res = await fetch(
+              `${blog3dApidomain}/api/faqs-clip-path-details`,
+              {
+                headers: {
+                  Accept: "application/json",
+                  "x-api-key": process.env.NEXT_PUBLIC_API_SECRET_KEY, // client env var
+                },
+              }
+            );
+    
+            if (!res.ok) {
+              throw new Error(`HTTP ${res.status}`);
+            }
+    
+            const data = await res.json();
+            setFaqs(data);
+          } catch (err) {
+            setErrorMsg("Could not load FAQs.");
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        load();
+        return () => controller.abort();
+      }, []);
   useLenis();
 
   useEffect(() => {
@@ -246,7 +288,38 @@ export default function Page() {
             />
           </div>
         </section>
+
+
       </div>
+         <section className="w-full h-full px-4 py-10 mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
+                {/* Left Column */}
+                <div className="flex flex-col space-y-2">
+                  <h1 className="text-[40px] md:text-[60px] lg:text-[80px] title font-extrabold text-left">
+                    FAQ
+                  </h1>
+      
+                  {loading && (
+                    <p className="text-center mt-6 opacity-70">Loading FAQs…</p>
+                  )}
+      
+                  {!loading && errorMsg && (
+                    <p className="text-center mt-3 text-sm opacity-60">{errorMsg}</p>
+                  )}
+                  <div className="mt-16 w-full mx-auto divide-y divide-black dark:divide-white/10">
+                    {!loading && !errorMsg && faqs.length > 0 && <FAQ faqs={faqs} />}
+                  </div>
+                </div>
+      
+                {/* Right Column */}
+                <div className="flex flex-col space-y-2">
+                   <h1 className="text-[40px] md:text-[60px] lg:text-[80px] title font-extrabold text-left">
+                    CONTACT US
+                  </h1>
+                  <ContactForm />
+                </div>
+              </div>
+            </section>
       <FooterGrid />
     </>
   );
