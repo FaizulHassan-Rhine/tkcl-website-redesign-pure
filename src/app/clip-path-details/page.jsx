@@ -172,6 +172,7 @@ export default function Page() {
           className="absolute top-0 left-0 w-full h-full object-cover parallax-img will-change-transform"
         />
       </section>
+
       <section className="w-full h-full px-4 py-10 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
           {/* Left Column */}
@@ -203,6 +204,8 @@ export default function Page() {
       </section>
 
       <Footer />
+
+      
     </div>
   );
 }

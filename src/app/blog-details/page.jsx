@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FaTelegramPlane } from 'react-icons/fa';
+import FooterGrid from '@/components/FooterNew';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -339,7 +340,8 @@ export default function Page() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
+      <FooterGrid/>
     </div>
   );
 }

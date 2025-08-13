@@ -1,36 +1,43 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import Matter from 'matter-js';
 import { useRouter } from 'next/navigation';
 
 const objectsData = [
   { 
     id: 1, 
-    label: 'Image Editing', 
+    label: 'CGI Rendering ', 
     mobileLabel: 'Image Edit',
-    color: '#22c55e', 
+    color: '#B8D65C', 
     link: '/shape/circle' 
   },
   { 
     id: 2, 
-    label: 'Video Editing', 
+    label: 'AI Products ', 
     mobileLabel: 'Video Edit',
-    color: '#3b82f6',
+    color: '#D3E7D9',
     link: '/shape/rectangle' 
   },
   { 
     id: 3, 
-    label: '3D Modeling', 
+    label: '3D Modelling ', 
     mobileLabel: '3D Model',
-    color: '#8b5cf6',
+    color: '#206035',
     link: '/shape/triangle' 
   },
   { 
     id: 4, 
-    label: 'CGI Rendering', 
+    label: 'Image Editing ', 
     mobileLabel: 'CGI Render',
-    color: '#f59e0b',
+    color: '#4DB3B3',
+    link: 'https://youtube.com' 
+  },
+  { 
+    id: 5, 
+    label: 'Video Editing ', 
+    mobileLabel: 'CGI Render',
+    color: '#FFC839',
     link: 'https://youtube.com' 
   },
 ];
@@ -43,6 +50,8 @@ const Hero = () => {
   const observerRef = useRef(null);
   const mouseConstraintRef = useRef(null);
   const router = useRouter();
+  const renderRef = useRef(null);
+  const worldDimensionsRef = useRef({ width: 0, height: 0 });
 
   // Track interaction state
   const interactionStateRef = useRef({
@@ -51,22 +60,37 @@ const Hero = () => {
     startY: 0,
     currentBody: null,
     isInteracting: false,
-    lastTouchTime: 0
+    lastTouchTime: 0,
+    hoveredBody: null
   });
 
-  // --- Helper: ensure custom font is loaded before we render any text ---
+  // Helper functions
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const darkenColor = (hex, amount = 0.2) => {
+    const r = Math.max(0, parseInt(hex.slice(1, 3), 16) * (1 - amount));
+    const g = Math.max(0, parseInt(hex.slice(3, 5), 16) * (1 - amount));
+    const b = Math.max(0, parseInt(hex.slice(5, 7), 16) * (1 - amount));
+    return `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
+  };
+
   const ensureFontLoaded = async (familyName = 'customFont') => {
-    // If already available (via @font-face in CSS), this resolves quickly
     if (document.fonts && document.fonts.check(`16px "${familyName}"`)) return;
     if (document.fonts && document.fonts.load) {
       try {
         await document.fonts.load(`16px "${familyName}"`);
       } catch {
-        // swallow – we'll fall back to sans-serif if it fails
+        // Fallback to sans-serif
       }
     }
   };
 
+  // Create capsule body
   const createCapsule = (x, y, width, height, options) => {
     const radius = height / 2;
     const rect = Matter.Bodies.rectangle(x, y, width - height, height, options);
@@ -79,19 +103,93 @@ const Hero = () => {
       label: options.label,
     });
 
-    capsule.customColor = options.fillStyle || '#000';
-    capsule.customLabel = options.label;
-    capsule.fontSize = options.fontSize || 16;
-    capsule.textColor = options.textColor || '#fff';
-    capsule.customLink = options.customLink || '';
-    capsule.fontFamily = options.fontFamily || 'customFont'; // <— use your custom font
+    // Add custom properties
+    Object.assign(capsule, {
+      customColor: options.fillStyle || '#000',
+      borderColor: options.borderColor || '#000',
+      customLabel: options.label,
+      fontSize: options.fontSize || 16,
+      textColor: '#000000',
+      customLink: options.customLink || '',
+      fontFamily: options.fontFamily || 'customFont',
+      isHovered: false,
+      width: width,
+      height: height
+    });
 
     return capsule;
   };
 
-  // Helper function to get coordinates from mouse or touch event
-  const getEventCoordinates = (event) => {
-    const rect = canvasRef.current.getBoundingClientRect();
+  // Draw capsule function
+  const drawSmoothCapsule = (ctx, x, y, width, height, angle, fillStyle, strokeStyle, isHovered) => {
+    ctx.save();
+    ctx.translate(Math.round(x), Math.round(y));
+    ctx.rotate(angle);
+
+    const radius = height / 2;
+    const rectWidth = width - height;
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    // Create capsule path
+    ctx.beginPath();
+    ctx.moveTo(-rectWidth / 2, -radius);
+    ctx.lineTo(rectWidth / 2, -radius);
+    ctx.arcTo(rectWidth / 2 + radius, -radius, rectWidth / 2 + radius, 0, radius);
+    ctx.arcTo(rectWidth / 2 + radius, radius, rectWidth / 2, radius, radius);
+    ctx.lineTo(-rectWidth / 2, radius);
+    ctx.arcTo(-rectWidth / 2 - radius, radius, -rectWidth / 2 - radius, 0, radius);
+    ctx.arcTo(-rectWidth / 2 - radius, -radius, -rectWidth / 2, -radius, radius);
+    ctx.closePath();
+
+    // Add shadow on hover
+    if (isHovered) {
+      ctx.shadowColor = darkenColor(strokeStyle, 0.3);
+      ctx.shadowBlur = 6;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 1;
+    }
+
+    // Fill
+    if (fillStyle !== 'transparent') {
+      ctx.fillStyle = fillStyle;
+      ctx.fill();
+    }
+
+    // Reset shadow
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+
+    // Stroke
+    ctx.strokeStyle = strokeStyle;
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+
+    ctx.restore();
+  };
+
+  // Fixed coordinate conversion
+  const getPhysicsCoordinates = useCallback((clientX, clientY) => {
+    if (!canvasRef.current) return { x: 0, y: 0 };
+    
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const { width, height } = worldDimensionsRef.current;
+    
+    // Convert screen coordinates to physics world coordinates
+    const x = ((clientX - rect.left) / rect.width) * width;
+    const y = ((clientY - rect.top) / rect.height) * height;
+    
+    return { x, y };
+  }, []);
+
+  // Get event coordinates
+  const getEventCoordinates = useCallback((event) => {
     let clientX, clientY;
 
     if (event.touches && event.touches[0]) {
@@ -105,364 +203,468 @@ const Hero = () => {
       clientY = event.clientY;
     }
 
-    return {
-      x: clientX - rect.left,
-      y: clientY - rect.top
-    };
-  };
+    return getPhysicsCoordinates(clientX, clientY);
+  }, [getPhysicsCoordinates]);
 
-  // Find body at coordinates
-  const findBodyAtPoint = (x, y) => {
+  // Find body at point
+  const findBodyAtPoint = useCallback((x, y) => {
     for (const body of bodiesRef.current) {
-      if (
-        Matter.Bounds.contains(body.bounds, { x, y }) &&
-        Matter.Vertices.contains(body.vertices, { x, y })
-      ) {
+      if (Matter.Bounds.contains(body.bounds, { x, y }) &&
+          Matter.Vertices.contains(body.vertices, { x, y })) {
         return body;
       }
     }
     return null;
-  };
+  }, []);
 
-  useEffect(() => {
-    // Initialize engine
-    engineRef.current = Matter.Engine.create();
-    const engine = engineRef.current;
-    const world = engine.world;
-    engine.gravity.y = 0.4;
-
+  // Setup canvas with proper scaling
+  const setupCanvas = useCallback(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const container = canvas.parentElement;
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+
+    // Set logical dimensions (physics world size)
+    const logicalWidth = containerRect.width;
+    const logicalHeight = containerRect.height;
+    
+    // Store world dimensions
+    worldDimensionsRef.current = { 
+      width: logicalWidth, 
+      height: logicalHeight 
+    };
+
+    // Set canvas display size
+    canvas.style.width = `${logicalWidth}px`;
+    canvas.style.height = `${logicalHeight}px`;
+
+    // Set canvas actual size (for HiDPI)
+    canvas.width = Math.round(logicalWidth * dpr);
+    canvas.height = Math.round(logicalHeight * dpr);
+
     const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 
-    // HiDPI scaling for crisp text/edges
-    const applyHiDPI = () => {
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.parentElement.getBoundingClientRect();
-      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
-      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // scale drawing to CSS pixels
-    };
+    return { width: logicalWidth, height: logicalHeight, ctx };
+  }, []);
 
+  // Create world
+  const createWorld = useCallback(() => {
+    if (!engineRef.current) return;
+
+    const { width, height } = worldDimensionsRef.current;
+    if (width === 0 || height === 0) return;
+
+    const world = engineRef.current.world;
+    
+    // Clear existing world
+    Matter.Composite.clear(world, false);
+    bodiesRef.current = [];
+
+    // Calculate dimensions
+    const spacing = width / (objectsData.length + 1);
+    const scale = width / 768;
+    const isMobile = width <= 768;
+    const isTablet = width > 768 && width <= 1024;
+
+    let capsuleWidth, capsuleHeight, fontSize;
+
+    if (isMobile) {
+      capsuleWidth = Math.min(240 * scale, width * 0.8);
+      capsuleHeight = Math.max(50 * scale, 45);
+      fontSize = Math.max(12 * scale, 12);
+    } else if (isTablet) {
+      capsuleWidth = 180 * scale;
+      capsuleHeight = 42 * scale;
+      fontSize = 14 * scale;
+    } else {
+      capsuleWidth = 140 * scale;
+      capsuleHeight = 30 * scale;
+      fontSize = 14 * scale;
+    }
+
+    // Create boundaries
+    const wallThickness = 50;
+    const floorOffset = 10;
+    const walls = [
+      Matter.Bodies.rectangle(width / 2, height - floorOffset + wallThickness / 2, width, wallThickness, { isStatic: true }),
+      Matter.Bodies.rectangle(width / 2, -wallThickness / 2, width, wallThickness, { isStatic: true }),
+      Matter.Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
+      Matter.Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
+    ];
+    Matter.Composite.add(world, walls);
+
+    // Create capsules
     const baseOptions = { restitution: 0.8, frictionAir: 0.02 };
+    
+    bodiesRef.current = objectsData.map((obj, i) => {
+      const x = spacing * (i + 1);
+      const y = isMobile ? height * 0.15 : height * 0.05;
+      const mobileBaseOptions = isMobile
+        ? { ...baseOptions, restitution: 0.7, frictionAir: 0.025 }
+        : { ...baseOptions, restitution: 0.8, frictionAir: 0.02 };
 
-    // Main draw loop
-    const renderBodies = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const displayLabel = isMobile && obj.mobileLabel ? obj.mobileLabel : obj.label;
 
-      bodiesRef.current.forEach((body) => {
-        const { vertices, position, angle } = body;
-
-        // Shape
-        ctx.beginPath();
-        ctx.moveTo(vertices[0].x, vertices[0].y);
-        for (let j = 1; j < vertices.length; j++) {
-          ctx.lineTo(vertices[j].x, vertices[j].y);
-        }
-        ctx.closePath();
-        ctx.fillStyle = body.customColor;
-        ctx.fill();
-
-        // Text (with custom font)
-        ctx.save();
-        ctx.translate(position.x, position.y);
-        ctx.rotate(angle);
-        ctx.fillStyle = body.textColor;
-        const family = body.fontFamily || 'customFont';
-        const size = body.fontSize || 16;
-        // Add a generic fallback so we still draw text if the custom font failed to load
-        ctx.font = `${size}px "${family}", sans-serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(body.customLabel, 0, 0);
-        ctx.restore();
+      const body = createCapsule(x, y, capsuleWidth, capsuleHeight, {
+        ...mobileBaseOptions,
+        fillStyle: obj.color,
+        borderColor: obj.color,
+        label: displayLabel,
+        fontSize: fontSize,
+        textColor: '#000',
+        customLink: obj.link,
+        fontFamily: 'customFont',
       });
 
-      requestAnimationFrame(renderBodies);
+      Matter.Composite.add(world, body);
+      return body;
+    });
+
+    // Setup mouse constraint with proper coordinate handling
+    if (mouseConstraintRef.current) {
+      Matter.Composite.remove(world, mouseConstraintRef.current);
+    }
+
+    const mouse = Matter.Mouse.create(canvasRef.current);
+    mouse.pixelRatio = window.devicePixelRatio || 1;
+    
+    // Custom mouse position handling for zoom compatibility
+    const updateMousePosition = (clientX, clientY) => {
+      const rect = canvasRef.current.getBoundingClientRect();
+      const { width: worldWidth, height: worldHeight } = worldDimensionsRef.current;
+      
+      mouse.position.x = ((clientX - rect.left) / rect.width) * worldWidth;
+      mouse.position.y = ((clientY - rect.top) / rect.height) * worldHeight;
+      
+      mouse.absolute.x = clientX;
+      mouse.absolute.y = clientY;
     };
 
-    const recreateWorld = () => {
-      Matter.Composite.clear(world, false);
-      const rect = canvas.parentElement.getBoundingClientRect();
-      const width = rect.width;
-      const height = rect.height;
-      const spacing = width / (objectsData.length + 1);
-      const scale = width / 768;
+    // Override mouse event handling
+    const originalMouseMove = mouse.mousemove;
+    mouse.mousemove = function(event) {
+      updateMousePosition(event.clientX, event.clientY);
+    };
 
-      const isMobile = width <= 768;
-      const isTablet = width > 768 && width <= 1024;
+    const originalMouseDown = mouse.mousedown;
+    mouse.mousedown = function(event) {
+      updateMousePosition(event.clientX, event.clientY);
+    };
 
-      let capsuleWidth, capsuleHeight, fontSize;
+    const originalMouseUp = mouse.mouseup;
+    mouse.mouseup = function(event) {
+      updateMousePosition(event.clientX, event.clientY);
+    };
 
-      if (isMobile) {
-        capsuleWidth = Math.min(240 * scale, width * 2);
-        capsuleHeight = Math.max(50 * scale, 40);
-        fontSize = Math.max(12 * scale, 11);
-      } else if (isTablet) {
-        capsuleWidth = 170 * scale;
-        capsuleHeight = 38 * scale;
-        fontSize = 14 * scale;
+    const mouseConstraint = Matter.MouseConstraint.create(engineRef.current, {
+      mouse: mouse,
+      constraint: {
+        stiffness: 0.8,
+        damping: 0.1,
+        render: { visible: false }
+      }
+    });
+
+    Matter.Composite.add(world, mouseConstraint);
+    mouseConstraintRef.current = mouseConstraint;
+  }, []);
+
+  // Render loop
+  const render = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !bodiesRef.current.length) {
+      renderRef.current = requestAnimationFrame(render);
+      return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    const { width, height } = worldDimensionsRef.current;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, width, height);
+
+    // Render bodies
+    bodiesRef.current.forEach((body) => {
+      const { position, angle } = body;
+      const backgroundColor = body.isHovered 
+        ? hexToRgba(body.customColor, 0.15) 
+        : 'transparent';
+
+      // Draw capsule
+      drawSmoothCapsule(
+        ctx,
+        position.x,
+        position.y,
+        body.width,
+        body.height,
+        angle,
+        backgroundColor,
+        body.borderColor,
+        body.isHovered
+      );
+
+      // Draw text
+      ctx.save();
+      ctx.translate(Math.round(position.x), Math.round(position.y));
+      ctx.rotate(angle);
+      
+      ctx.fillStyle = body.textColor;
+      const family = body.fontFamily || 'customFont';
+      const size = body.fontSize || 16;
+      ctx.font = `${size}px "${family}", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      if (body.isHovered) {
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
+        ctx.shadowBlur = 1;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0.5;
+      }
+      
+      ctx.fillText(body.customLabel, 0, 0);
+      
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+      
+      ctx.restore();
+    });
+
+    renderRef.current = requestAnimationFrame(render);
+  }, []);
+
+  // Handle resize
+  const handleResize = useCallback(() => {
+    const result = setupCanvas();
+    if (result) {
+      createWorld();
+    }
+  }, [setupCanvas, createWorld]);
+
+  // Mouse move handler
+  const handleMouseMove = useCallback((event) => {
+    const coords = getEventCoordinates(event);
+    const hoveredBody = findBodyAtPoint(coords.x, coords.y);
+
+    bodiesRef.current.forEach(body => {
+      body.isHovered = false;
+    });
+
+    if (hoveredBody) {
+      hoveredBody.isHovered = true;
+      canvasRef.current.style.cursor = 'pointer';
+    } else {
+      canvasRef.current.style.cursor = 'default';
+    }
+
+    interactionStateRef.current.hoveredBody = hoveredBody;
+  }, [getEventCoordinates, findBodyAtPoint]);
+
+  // Click handler
+  const handleClick = useCallback((event) => {
+    const coords = getEventCoordinates(event);
+    const body = findBodyAtPoint(coords.x, coords.y);
+
+    if (body && body.customLink) {
+      if (body.customLink.startsWith('http')) {
+        window.open(body.customLink, '_blank');
       } else {
-        capsuleWidth = 200 * scale;
-        capsuleHeight = 40 * scale;
-        fontSize = 16 * scale;
+        router.push(body.customLink);
       }
+    }
+  }, [getEventCoordinates, findBodyAtPoint, router]);
 
-      // Walls
-      const wallThickness = 50;
-      const walls = [
-        Matter.Bodies.rectangle(width / 2, height + wallThickness / 2, width, wallThickness, { isStatic: true }),
-        Matter.Bodies.rectangle(width / 2, -wallThickness / 2, width, wallThickness, { isStatic: true }),
-        Matter.Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
-        Matter.Bodies.rectangle(width + wallThickness / 2, height / 2, wallThickness, height, { isStatic: true }),
-      ];
-      Matter.Composite.add(world, walls);
+  // Touch handlers with improved dragging
+  const handleTouchStart = useCallback((event) => {
+    const coords = getEventCoordinates(event);
+    const body = findBodyAtPoint(coords.x, coords.y);
 
-      // Capsules
-      bodiesRef.current = objectsData.map((obj, i) => {
-        const x = spacing * (i + 1);
-        const y = isMobile ? height * 0.1 : 0;
-        const mobileBaseOptions = isMobile
-          ? { ...baseOptions, restitution: 0.6, frictionAir: 0.03 }
-          : baseOptions;
+    interactionStateRef.current = {
+      ...interactionStateRef.current,
+      startX: coords.x,
+      startY: coords.y,
+      isDragging: false,
+      currentBody: body,
+      isInteracting: true,
+      lastTouchTime: Date.now(),
+      touchConstraint: null
+    };
 
-        const displayLabel = isMobile && obj.mobileLabel ? obj.mobileLabel : obj.label;
-
-        const body = createCapsule(x, y, capsuleWidth, capsuleHeight, {
-          ...mobileBaseOptions,
-          fillStyle: obj.color,
-          label: displayLabel,
-          fontSize: fontSize,
-          textColor: '#fff',
-          customLink: obj.link,
-          fontFamily: 'customFont', // <- your custom font family name
-        });
-
-        Matter.Composite.add(world, body);
-        return body;
+    bodiesRef.current.forEach(b => b.isHovered = false);
+    if (body) {
+      body.isHovered = true;
+      
+      // Create touch constraint for dragging
+      const constraintBody = Matter.Bodies.circle(coords.x, coords.y, 5, {
+        isStatic: true,
+        render: { visible: false }
       });
-    };
+      Matter.Composite.add(engineRef.current.world, constraintBody);
 
-    const resizeCanvas = () => {
-      applyHiDPI();
-      recreateWorld();
-    };
-
-    // Setup Matter.js mouse constraint for desktop
-    const setupMatterMouseConstraint = () => {
-      if (mouseConstraintRef.current) {
-        Matter.Composite.remove(world, mouseConstraintRef.current);
-      }
-
-      const mouse = Matter.Mouse.create(canvas);
-      const mouseConstraint = Matter.MouseConstraint.create(engine, {
-        mouse: mouse,
-        constraint: {
-          stiffness: 0.2,
-          render: { visible: false }
-        }
+      const constraint = Matter.Constraint.create({
+        bodyA: constraintBody,
+        bodyB: body,
+        pointB: { x: 0, y: 0 },
+        stiffness: 0.8,
+        damping: 0.1,
+        render: { visible: false }
       });
 
-      mouse.element = canvas;
-      mouse.pixelRatio = window.devicePixelRatio;
-      Matter.Composite.add(world, mouseConstraint);
-      mouseConstraintRef.current = mouseConstraint;
-    };
+      Matter.Composite.add(engineRef.current.world, constraint);
+      interactionStateRef.current.touchConstraint = { constraint, constraintBody };
+      
+      event.preventDefault();
+    }
+  }, [getEventCoordinates, findBodyAtPoint]);
 
-    // Custom mobile touch handling
-    const setupMobileTouch = () => {
-      let currentConstraint = null;
+  const handleTouchMove = useCallback((event) => {
+    if (!interactionStateRef.current.isInteracting) return;
 
-      const createTouchConstraint = (body, pointX, pointY) => {
-        const constraintBody = Matter.Bodies.circle(pointX, pointY, 5, {
-          isStatic: true,
-          render: { visible: false }
-        });
-        Matter.Composite.add(world, constraintBody);
+    const coords = getEventCoordinates(event);
+    const dx = coords.x - interactionStateRef.current.startX;
+    const dy = coords.y - interactionStateRef.current.startY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
 
-        const constraint = Matter.Constraint.create({
-          bodyA: constraintBody,
-          bodyB: body,
-          pointB: { x: 0, y: 0 },
-          stiffness: 0.8,
-          damping: 0.1,
-          render: { visible: false }
-        });
+    if (distance > 5) {
+      interactionStateRef.current.isDragging = true;
+    }
 
-        Matter.Composite.add(world, constraint);
-        return { constraint, constraintBody };
-      };
+    // Update touch constraint position
+    if (interactionStateRef.current.touchConstraint && interactionStateRef.current.currentBody) {
+      const { constraintBody } = interactionStateRef.current.touchConstraint;
+      Matter.Body.setPosition(constraintBody, { x: coords.x, y: coords.y });
+      event.preventDefault();
+    }
+  }, [getEventCoordinates]);
 
-      const updateTouchConstraint = (constraintData, pointX, pointY) => {
-        if (constraintData && constraintData.constraintBody) {
-          Matter.Body.setPosition(constraintData.constraintBody, { x: pointX, y: pointY });
-        }
-      };
+  const handleTouchEnd = useCallback((event) => {
+    const touchDuration = Date.now() - interactionStateRef.current.lastTouchTime;
 
-      const removeTouchConstraint = (constraintData) => {
-        if (constraintData) {
-          if (constraintData.constraint) {
-            Matter.Composite.remove(world, constraintData.constraint);
-          }
-          if (constraintData.constraintBody) {
-            Matter.Composite.remove(world, constraintData.constraintBody);
-          }
-        }
-      };
-
-      const handleTouchStart = (event) => {
-        const coords = getEventCoordinates(event);
-        const body = findBodyAtPoint(coords.x, coords.y);
-
-        interactionStateRef.current.startX = coords.x;
-        interactionStateRef.current.startY = coords.y;
-        interactionStateRef.current.isDragging = false;
-        interactionStateRef.current.currentBody = body;
-        interactionStateRef.current.isInteracting = true;
-        interactionStateRef.current.lastTouchTime = Date.now();
-
-        if (body) {
-          currentConstraint = createTouchConstraint(body, coords.x, coords.y);
-          event.preventDefault();
-        }
-      };
-
-      const handleTouchMove = (event) => {
-        if (!interactionStateRef.current.isInteracting) return;
-
-        const coords = getEventCoordinates(event);
-        const dx = coords.x - interactionStateRef.current.startX;
-        const dy = coords.y - interactionStateRef.current.startY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance > 5) {
-          interactionStateRef.current.isDragging = true;
-        }
-
-        if (interactionStateRef.current.currentBody && currentConstraint) {
-          updateTouchConstraint(currentConstraint, coords.x, coords.y);
-          event.preventDefault();
-        }
-      };
-
-      const handleTouchEnd = (event) => {
-        const touchDuration = Date.now() - interactionStateRef.current.lastTouchTime;
-
-        if (
-          !interactionStateRef.current.isDragging &&
-          touchDuration < 200 &&
-          interactionStateRef.current.currentBody
-        ) {
-          const body = interactionStateRef.current.currentBody;
-          if (body.customLink) {
-            event.preventDefault();
-            setTimeout(() => {
-              if (body.customLink.startsWith('http')) {
-                window.open(body.customLink, '_blank');
-              } else {
-                router.push(body.customLink);
-              }
-            }, 50);
-          }
-        }
-
-        if (currentConstraint) {
-          removeTouchConstraint(currentConstraint);
-          currentConstraint = null;
-        }
-
-        interactionStateRef.current.currentBody = null;
-        interactionStateRef.current.isInteracting = false;
-        interactionStateRef.current.isDragging = false;
-      };
-
-      canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
-      canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
-      canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
-      canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
-
-      canvas._cleanupTouch = () => {
-        if (currentConstraint) {
-          removeTouchConstraint(currentConstraint);
-        }
-        canvas.removeEventListener('touchstart', handleTouchStart);
-        canvas.removeEventListener('touchmove', handleTouchMove);
-        canvas.removeEventListener('touchend', handleTouchEnd);
-        canvas.removeEventListener('touchcancel', handleTouchEnd);
-      };
-    };
-
-    // Desktop mouse click handling
-    const setupMouseClick = () => {
-      const handleClick = (event) => {
-        const coords = getEventCoordinates(event);
-        const body = findBodyAtPoint(coords.x, coords.y);
-
-        if (body && body.customLink) {
+    // Handle click if not dragging
+    if (
+      !interactionStateRef.current.isDragging &&
+      touchDuration < 200 &&
+      interactionStateRef.current.currentBody
+    ) {
+      const body = interactionStateRef.current.currentBody;
+      if (body.customLink) {
+        event.preventDefault();
+        setTimeout(() => {
           if (body.customLink.startsWith('http')) {
             window.open(body.customLink, '_blank');
           } else {
             router.push(body.customLink);
           }
-        }
-      };
+        }, 50);
+      }
+    }
 
-      canvas.addEventListener('click', handleClick);
+    // Clean up touch constraint
+    if (interactionStateRef.current.touchConstraint) {
+      const { constraint, constraintBody } = interactionStateRef.current.touchConstraint;
+      Matter.Composite.remove(engineRef.current.world, constraint);
+      Matter.Composite.remove(engineRef.current.world, constraintBody);
+    }
 
-      canvas._cleanupClick = () => {
-        canvas.removeEventListener('click', handleClick);
-      };
-    };
-
-    // Initial setup
-    applyHiDPI();
-    recreateWorld();
-    setupMatterMouseConstraint(); // For desktop mouse drag
-    setupMobileTouch();           // For mobile touch
-    setupMouseClick();            // For desktop clicks
-
-    observerRef.current = new ResizeObserver(() => {
-      resizeCanvas();
-      setupMatterMouseConstraint();
-    });
-    observerRef.current.observe(canvas.parentElement);
-
-    // Start the engine AFTER font is ready so we avoid font-flash
-    runnerRef.current = Matter.Runner.create();
-    ensureFontLoaded('customFont').finally(() => {
-      Matter.Runner.run(runnerRef.current, engine);
-      renderBodies();
-    });
-
-    return () => {
-      Matter.Runner.stop(runnerRef.current);
-      Matter.Composite.clear(world, false);
-      Matter.Engine.clear(engine);
-      observerRef.current?.disconnect();
-
-      // Clean up all event listeners
-      if (canvas._cleanupTouch) canvas._cleanupTouch();
-      if (canvas._cleanupClick) canvas._cleanupClick();
+    // Reset states
+    bodiesRef.current.forEach(b => b.isHovered = false);
+    interactionStateRef.current = {
+      ...interactionStateRef.current,
+      currentBody: null,
+      isInteracting: false,
+      isDragging: false,
+      touchConstraint: null
     };
   }, [router]);
 
+  useEffect(() => {
+    // Initialize engine
+    engineRef.current = Matter.Engine.create();
+    engineRef.current.gravity.y = 0.2;
+
+    // Setup canvas and world
+    const result = setupCanvas();
+    if (result) {
+      createWorld();
+    }
+
+    // Setup event listeners
+    const canvas = canvasRef.current;
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('click', handleClick);
+    canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+    canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+    canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
+
+    // Setup resize observer
+    observerRef.current = new ResizeObserver(handleResize);
+    observerRef.current.observe(canvas.parentElement);
+
+    // Setup viewport change listeners
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    // Start engine and rendering
+    runnerRef.current = Matter.Runner.create();
+    ensureFontLoaded('customFont').then(() => {
+      Matter.Runner.run(runnerRef.current, engineRef.current);
+      render();
+    });
+
+    return () => {
+      // Cleanup
+      if (renderRef.current) {
+        cancelAnimationFrame(renderRef.current);
+      }
+      
+      if (runnerRef.current) {
+        Matter.Runner.stop(runnerRef.current);
+      }
+      
+      if (engineRef.current) {
+        Matter.Composite.clear(engineRef.current.world, false);
+        Matter.Engine.clear(engineRef.current);
+      }
+
+      observerRef.current?.disconnect();
+      
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('click', handleClick);
+      canvas.removeEventListener('touchstart', handleTouchStart);
+      canvas.removeEventListener('touchmove', handleTouchMove);
+      canvas.removeEventListener('touchend', handleTouchEnd);
+      canvas.removeEventListener('touchcancel', handleTouchEnd);
+    };
+  }, [setupCanvas, createWorld, handleResize, handleMouseMove, handleClick, handleTouchStart, handleTouchMove, handleTouchEnd, render]);
+
   return (
     <div className="">
-      <div className="w-full  lg:-mt-[450px] mx-auto h-[20vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+      <div className="w-full lg:-mt-[480px] mx-auto h-[20vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
         <canvas
           ref={canvasRef}
-          className="w-full h-full bg-transparent dark:bg-transparent border-2 border-white dark:border-black"
+          className="w-full h-full bg-transparent"
           style={{ 
-            touchAction: 'auto', // Allow normal touch behavior
+            touchAction: 'auto',
             userSelect: 'none',
             WebkitUserSelect: 'none'
           }}
         />
       </div>
-      <div className='h-[1px] mb-[3px] bg-black dark:bg-white'></div>
-      <div className='h-[1px] mb-[3px] bg-black dark:bg-white'></div>
-      <div className='h-[1px] mb-[3px] bg-black dark:bg-white'></div>
+      <div className='h-[3px] bg-black'></div>
+      {/* <div className='h-[1px] bg-black mt-1'></div> */}
     </div>
   );
 };

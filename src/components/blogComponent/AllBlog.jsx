@@ -368,7 +368,7 @@ const AllBlog = () => {
             </div>
           </div>
         </div>
-      <Footer />
+    
     </>
   );
 };

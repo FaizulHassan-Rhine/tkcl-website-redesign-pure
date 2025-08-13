@@ -1,8 +1,6 @@
-
-
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '@/app/theme-provider';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,7 +13,13 @@ export default function Navbar() {
     products: false,
     support: false
   });
+  const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
+
+  // Handle client-side mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -36,6 +40,44 @@ export default function Navbar() {
     }));
   };
 
+  // Don't render theme-dependent UI until mounted
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 w-full">
+        <div className="backdrop-blur-sm bg-white/90 border-b border-black/10 shadow-sm transition-all duration-300">
+          <nav className="2xl:container mx-auto px-4 py-4">
+            <div className="flex justify-between items-center">
+              {/* Logo */}
+              <a href="/" className="">
+                <img
+                  src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
+                  alt="Logo"                
+                  width={100}
+                  height={100}
+                />
+              </a>
+              
+              {/* Placeholder for loading state */}
+              <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
+                <div className="h-6 w-96 bg-gray-200 rounded animate-pulse"></div>
+              </div>
+              
+              <div className="hidden lg:flex items-center gap-4">
+                <div className="w-10 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                <div className="w-24 h-10 bg-gray-200 rounded-full animate-pulse"></div>
+              </div>
+              
+              <div className="lg:hidden flex items-center gap-2">
+                <div className="w-10 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                <div className="w-10 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
       <div className="backdrop-blur-sm bg-white/90 dark:bg-black/90 border-b border-black/10 dark:border-white/10 shadow-sm transition-all duration-300">
@@ -45,7 +87,7 @@ export default function Navbar() {
            <a href="/" className="">
             
               <img
-                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo2.60f47440.webp&w=640&q=75&dpl=dpl_CkEYops9HRVi48wwLma1szyfnsWZ"
+                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
                 alt="Logo"                
                 width={100}
                 height={100}
@@ -55,8 +97,8 @@ export default function Navbar() {
 
             {/* Desktop Navigation - Centered Routes */}
             <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-              <ul className="flex gap-8 text-black/80 dark:text-white/80">
-                <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
+              <ul className="flex gap-8 ">
+                <li className="hover:text-green-500 text-[16px] transition-colors duration-200 cursor-pointer">
                   Home
                 </li>
                 
@@ -79,17 +121,24 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="/image-video-services"
+                        href="/image-editing-services"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
-                        Image & Video Editing
+                        Image Editing
                       </a>
                     
                       <a
-                        href="cgi-service"
+                        href="/video-service"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
-                        3D Modelling & CGI
+                        Video Editing
+                      </a>
+                     
+                      <a
+                        href="/cgi-service"
+                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+                      >
+                        3D Modelling & Rendering
                       </a>
                      
                     </div>
@@ -159,12 +208,12 @@ export default function Navbar() {
                       >
                         Contact Us
                       </a>
-                      <a
+                      {/* <a
                         href="#"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         About Us
-                      </a>
+                      </a> */}
                       <a
                         href="faq"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
@@ -191,7 +240,7 @@ export default function Navbar() {
 
             {/* Right Side - Dark Mode Toggle & Let's Talk Button */}
             <div className="hidden lg:flex items-center gap-4">
-              {/* Dark Mode Toggle */}
+
               {/* <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-all duration-200 text-black dark:text-white"
@@ -209,8 +258,8 @@ export default function Navbar() {
               </button> */}
 
               {/* Let's Talk Button */}
-              <button className="relative px-8 py-4 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
-                <span className="absolute inset-0 bg-green-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+              <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
+                <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 border-[#3B837B] transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10">Let's Talk</span>
               </button>
             </div>

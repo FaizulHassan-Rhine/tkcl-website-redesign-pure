@@ -13,7 +13,7 @@ export default function SmoothScrollProvider({ children }) {
     const lenis = new Lenis({
       smooth: true,
       smoothWheel: true,
-      duration: 0.003,
+      duration: 0.001,
     });
 
     function raf(time) {

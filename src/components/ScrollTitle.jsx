@@ -109,7 +109,7 @@ export default function ScrollTitle() {
           {/* Growing circle behind */}
           <div
             ref={circleRef}
-            className="rounded-full bg-green-600"
+            className="rounded-full bg-[#4FA59B] "
             style={{
               width: "clamp(160px, 45vw, 520px)",
               height: "clamp(160px, 45vw, 520px)",

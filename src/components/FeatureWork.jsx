@@ -10,25 +10,25 @@ gsap.registerPlugin(ScrollTrigger);
 const images = [
   {
     type: "image",
-    title: "Clipping Path",
+    title: "Image Editing",
     service: "Photo Editing Services",
     src: "/images/image-1.webp",
     alt: "Clipping Path",
   },
-  { type: "image", title: "Masking", service: "Photo Editing Services", src: "/images/image-2.webp", alt: "Masking" },
+  { type: "image", title: "Video Editing", service: "Photo Editing Services", src: "/images/image-2.webp", alt: "Masking" },
   {
     type: "3d",
     src: "https://sketchfab.com/models/20a01f39619f47a6a656778239db3ff8/embed?autospin=1&autostart=1&preload=1", // Example 3D Model #1
-    title: "3D Product",
+    title: "3D Modelling & Rendering",
     service: "3D Services",
   },
   {
     type: "3d",
     src: "https://sketchfab.com/models/f3e6f16527af4465858a34cc1e9e7a2b/embed?autostart=1", // Example 3D Model #2
-    title: "CGI Rendering",
+    title: "CAD to Campaign",
     service: "3D Services",
   },
-  { type: "image", title: "HoloSnap", service: "AI Services", src: "/images/image-5.webp", alt: "HoloSnap" },
+  { type: "image", title: "Holosnap", service: "AI Services", src: "/images/image-5.webp", alt: "Holosnap" },
   { type: "image", title: "Retouched AI", service: "AI Services", src: "/images/image-6.webp", alt: "Retouched AI" },
 ];
 
@@ -68,12 +68,12 @@ export default function FeaturedWork() {
 
   return (
     <section ref={sectionRef} className="">
-      <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[140px] title font-bold text-center mb-2">Feature Work</h1>
+      {/* <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[140px] title font-bold text-center mb-2">Feature Work</h1> */}
       <div className="flex justify-between items-center px-4 ">
-        <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">Featured Work</h1>
-        <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">
-          Excellency in professional retouch
-        </h1>
+        {/* <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">Featured Work</h1> */}
+        {/* <h1 className="text-[10px] lg:text-[24px] font-light text-center mb-2">
+          Feature Work
+        </h1> */}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12  w-full h-full px-4 py-10 mx-auto">
         {images.map((item, index) => (
@@ -102,13 +102,11 @@ export default function FeaturedWork() {
             {/* Text below */}
             <div className=" px-1">
               {item.title && (
-                <h2 className= "text-[20px] sm:text-[25px] lg:text-[30px] font-semibold leading-tight">
+                <h2 className= "text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight">
                   {item.title}
                 </h2>
               )}
-              {item.service && (
-                <p className="text-[12px] sm:text-[14px] lg:text-[16px] ">{item.service}</p>
-              )}
+             
             </div>
           </div>
         ))}
