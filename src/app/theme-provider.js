@@ -16,6 +16,7 @@ export default function ThemeToggleProvider({ children }) {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
+
     const defaultTheme = storedTheme || 'light'; // ✅ Set light as default
         
     setTheme(defaultTheme);

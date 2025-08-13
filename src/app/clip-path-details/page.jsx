@@ -1,39 +1,80 @@
-'use client';
+"use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ContactForm from "@/components/ContactForm";
+import FAQ from "@/components/Faq";
 
 export default function Page() {
- useEffect(() => {
-  const ctx = gsap.context(() => {
-    gsap.utils.toArray(".parallax-img").forEach((img) => {
-      gsap.fromTo(
-        img,
-        { y: "-30%", scale: 1 },
-        {
-          y: "30%",
-          scale: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: img.parentElement,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1.5,
-          },
+  const blog3dApidomain = "https://tkclbackendev.onrender.com";
+  const [faqs, setFaqs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const load = async () => {
+      try {
+        setLoading(true);
+        setErrorMsg("");
+
+        const res = await fetch(
+          `${blog3dApidomain}/api/faqs-clip-path-details`,
+          {
+            headers: {
+              Accept: "application/json",
+              "x-api-key": process.env.NEXT_PUBLIC_API_SECRET_KEY, // client env var
+            },
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
         }
-      );
+
+        const data = await res.json();
+        setFaqs(data);
+      } catch (err) {
+        setErrorMsg("Could not load FAQs.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    load();
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray(".parallax-img").forEach((img) => {
+        gsap.fromTo(
+          img,
+          { y: "-30%", scale: 1 },
+          {
+            y: "30%",
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img.parentElement,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1.5,
+            },
+          }
+        );
+      });
     });
-  });
 
-  return () => {
-    ctx.revert(); // clean up animations
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-  };
-}, []);
-
+    return () => {
+      ctx.revert(); // clean up animations
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const images = [
     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1000&q=80",
@@ -64,7 +105,8 @@ export default function Page() {
       <section className="w-full py-16 px-6 flex justify-center  mb-5">
         <div className="max-w-2xl text-center">
           <p className="text-lg md:text-xl leading-relaxed">
-            This visual journey combines balance, beauty, and depth through immersive imagery and thoughtful layout.
+            This visual journey combines balance, beauty, and depth through
+            immersive imagery and thoughtful layout.
           </p>
         </div>
       </section>
@@ -99,7 +141,10 @@ export default function Page() {
       {/* 3 images same width */}
       <section className="w-full flex flex-col md:flex-row gap-5 h-[50vh] mb-5">
         {[images[1], images[4], images[2]].map((img, i) => (
-          <div key={i} className="w-full md:w-1/3 relative overflow-hidden h-[50vh]">
+          <div
+            key={i}
+            className="w-full md:w-1/3 relative overflow-hidden h-[50vh]"
+          >
             <img
               src={img}
               alt={`Three Col ${i + 1}`}
@@ -113,7 +158,8 @@ export default function Page() {
       <section className="w-full py-16 px-6 flex justify-center  mb-5">
         <div className="max-w-2xl text-center">
           <p className="text-lg md:text-xl leading-relaxed">
-            Carefully selected visual moments, paced with whitespace and layout rhythm, evoke emotion and elegance.
+            Carefully selected visual moments, paced with whitespace and layout
+            rhythm, evoke emotion and elegance.
           </p>
         </div>
       </section>
@@ -126,8 +172,40 @@ export default function Page() {
           className="absolute top-0 left-0 w-full h-full object-cover parallax-img will-change-transform"
         />
       </section>
+
+      <section className="w-full h-full px-4 py-10 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
+          {/* Left Column */}
+          <div className="flex flex-col space-y-2">
+            <h1 className="text-[40px] md:text-[60px] lg:text-[80px] title font-extrabold text-left">
+              FAQ
+            </h1>
+
+            {loading && (
+              <p className="text-center mt-6 opacity-70">Loading FAQs…</p>
+            )}
+
+            {!loading && errorMsg && (
+              <p className="text-center mt-3 text-sm opacity-60">{errorMsg}</p>
+            )}
+            <div className="mt-16 w-full mx-auto divide-y divide-black dark:divide-white/10">
+              {!loading && !errorMsg && faqs.length > 0 && <FAQ faqs={faqs} />}
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex flex-col space-y-2">
+             <h1 className="text-[40px] md:text-[60px] lg:text-[80px] title font-extrabold text-left">
+              CONTACT US
+            </h1>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+
       
-      <Footer/>
     </div>
   );
 }
