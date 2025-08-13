@@ -7,7 +7,7 @@ export default function Contact() {
     <>
       <div className="bg-white text-black dark:bg-black dark:text-white  px-6 md:px-20 py-32">
         {/* Header */}
-        <h1 className="text-6xl lg:text-[250px] title  font-semibold text-center">
+        <h1 className="text-6xl lg:text-[100px] title  font-semibold text-center">
           CONTACT
         </h1>
 
@@ -15,7 +15,7 @@ export default function Contact() {
         <div className="border-t border-gray-700 my-12"></div>
 
         <div className="mb-10 lg:mb-20">
-          <h2 className="text-3xl lg:text-[100px] leading-[35px] lg:leading-[95px] max-w-4xl mx-auto  sub-title text-left mb-8">
+          <h2 className="text-3xl lg:text-[60px] leading-[35px] lg:leading-[65px] max-w-4xl mx-auto  sub-title text-left mb-8">
             Let’s drop us a line and get the project started.
           </h2>
         </div>
@@ -37,7 +37,7 @@ export default function Contact() {
             >
               hello@thekowcompany.com
             </a>
-            <div className="mt-8 space-y-2">
+            {/* <div className="mt-8 space-y-2">
               <p className="text-sm text-gray-400">Follow</p>
               <div className="flex flex-col">
                 <a href="#" className="underline text-[16px] lg:text-[32px] sub-title">
@@ -50,7 +50,7 @@ export default function Contact() {
                   Twitter
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column - Form */}

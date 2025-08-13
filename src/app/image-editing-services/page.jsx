@@ -1,22 +1,32 @@
 'use client';
 
 import React, { useEffect, useRef } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FooterGrid from "@/components/FooterNew";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function slugify(str = "") {
+  return String(str)
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}
+
 export default function ResponsiveZoomGrid({
   images = [
-    { src: "/images/image-1.webp", alt: "Clipping Path" },
-    { src: "/images/image-2.webp", alt: "Background Removal" },
-    { src: "/images/image-3.webp", alt: "Shadow Creation" },
-    { src: "/images/image-4.webp", alt: "Color Correction" },
-    { src: "/images/image-5.webp", alt: "Photo Retouching" },
-    { src: "/images/image-6.webp", alt: "Image Masking" },
-    { src: "/images/image-7.webp", alt: "Ghost Mannequin" },
-    { src: "/images/image-8.webp", alt: "Product Photo Editing" },
+    { src: "/images/image-1.webp", alt: "Shadow Addition", href: "/shadow-addition" },
+    { src: "/images/image-2.webp", alt: "Background Replacement", href: "/services/background-replacement" },
+    { src: "/images/image-3.webp", alt: "Image Manipulation", href: "/services/image-manipulation" },
+    { src: "/images/image-4.webp", alt: "Ghost Mannequin", href: "/services/ghost-mannequin" },
+    { src: "/images/image-5.webp", alt: "Photo Recolor", href: "/services/photo-recolor" },
+    { src: "/images/image-6.webp", alt: "Photo Masking", href: "/services/photo-masking" },
+    { src: "/images/image-7.webp", alt: "Photo Retouch", href: "/services/photo-retouch" },
+    { src: "/images/image-8.webp", alt: "Color Correction", href: "/services/color-correction" },
   ]
 }) {
   const sectionRef = useRef(null);
@@ -51,40 +61,49 @@ export default function ResponsiveZoomGrid({
     };
   }, []);
 
-  return (
-   <>
-    <section ref={sectionRef} className="mx-auto px-4 md:px-6 py-20">
-      <div className="mb-8 md:mb-12 text-center">
-        <h2 className="text-[100px] title font-semibold tracking-tight">
-          Image Editing Services
-        </h2>
-      </div>
+  const getHref = (img) => img.href || `/services/${slugify(img.alt || "")}`;
 
-      <div
-        ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20 max-w-8xl mx-auto"
-      >
-        {images.map((img, idx) => (
-          <figure
-            key={idx}
-            className="flex flex-col relative overflow-hidden rounded-t-lg"
-          >
-            <div className="aspect-[4/3] overflow-hidden " >
-              <img
-                src={img.src}
-                alt={img.alt || `Grid image ${idx + 1}`}
-                loading="lazy"
-                className="zoom-image w-full h-full object-cover will-change-transform select-none"
-              />
-            </div>
-            <figcaption className="mt-4 text-left text-[32px] font-semibold sub-title">
-              {img.alt || `Service ${idx + 1}`}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-    <FooterGrid/>
-   </>
+  return (
+    <>
+      <section ref={sectionRef} className="mx-auto px-4 md:px-6 py-20">
+        <div className="mb-8 md:mb-12 text-center">
+          <h2 className="text-[100px] title font-semibold tracking-tight">
+            Image Editing Services
+          </h2>
+        </div>
+
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20 max-w-8xl mx-auto"
+        >
+          {images.map((img, idx) => {
+            const href = getHref(img);
+            return (
+              <figure
+                key={idx}
+                className="flex flex-col relative overflow-hidden rounded-t-lg group"
+              >
+                <Link href={href} aria-label={img.alt || `Service ${idx + 1}`} className="block">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt || `Grid image ${idx + 1}`}
+                      loading="lazy"
+                      className="zoom-image w-full h-full object-cover will-change-transform select-none transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                </Link>
+                <figcaption className="mt-4 text-left text-[32px] font-semibold sub-title">
+                  <Link href={href} className="hover:underline">
+                    {img.alt || `Service ${idx + 1}`}
+                  </Link>
+                </figcaption>
+              </figure>
+            );
+          })}
+        </div>
+      </section>
+      <FooterGrid />
+    </>
   );
 }

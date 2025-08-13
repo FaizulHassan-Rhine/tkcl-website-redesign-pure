@@ -97,8 +97,8 @@ export default function Navbar() {
 
             {/* Desktop Navigation - Centered Routes */}
             <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-              <ul className="flex gap-8 text-black/80 dark:text-white/80">
-                <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
+              <ul className="flex gap-8 ">
+                <li className="hover:text-green-500 text-[16px] transition-colors duration-200 cursor-pointer">
                   Home
                 </li>
                 

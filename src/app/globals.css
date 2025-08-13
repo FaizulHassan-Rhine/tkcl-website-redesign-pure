@@ -30,26 +30,6 @@ html, body {
   font-style: normal;
 } */
 
- .title {
-  color: #285C37;
-}
-.sub-title {
-    color: #4FA59B;
-} 
-.text-body {
-    color: #6C757D;
-} 
-.footer-text-body {
-    color: #222222;
-} 
-
-.text-divider {
-    color: #EAEAEA;
-}
-.text-highlight {
-    color: #4FA59B;
-}
-
 
 
 
@@ -85,6 +65,28 @@ html, body {
 html:not(.dark):not(.light) {
   visibility: hidden;
 }
+/* Common Color---------------------------------------------- */
+
+ .title {
+  color: #285C37;
+}
+.sub-title {
+    color: #4FA59B;
+} 
+.text-body {
+    color: #6C757D;
+} 
+.footer-text-body {
+    color: #222222;
+} 
+
+.text-divider {
+    color: #EAEAEA;
+}
+.text-highlight {
+    color: #4FA59B;
+}
+
 
 
 
