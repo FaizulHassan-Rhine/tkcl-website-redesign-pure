@@ -192,7 +192,7 @@ export default function Navbar() {
             {/* Right Side - Dark Mode Toggle & Let's Talk Button */}
             <div className="hidden lg:flex items-center gap-4">
               {/* Dark Mode Toggle */}
-              <button
+              {/* <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-all duration-200 text-black dark:text-white"
                 aria-label="Toggle dark mode"
@@ -206,7 +206,7 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                 )}
-              </button>
+              </button> */}
 
               {/* Let's Talk Button */}
               <button className="relative px-8 py-4 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
@@ -218,7 +218,7 @@ export default function Navbar() {
             {/* Mobile Menu Button & Dark Mode Toggle */}
             <div className="lg:hidden flex items-center gap-2">
               {/* Mobile Dark Mode Toggle */}
-              <button
+              {/* <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-all duration-200 text-black dark:text-white"
                 aria-label="Toggle dark mode"
@@ -232,7 +232,7 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                 )}
-              </button>
+              </button> */}
 
               {/* Mobile Menu Button */}
               <button
