@@ -86,19 +86,17 @@ export default function FooterGrid() {
               <div className="pt-2">
                 <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Stay connected</p>
                 <div className="flex items-center gap-3">
-                  <Link href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
+                  <Link href="https://www.facebook.com/KOWCompany" target="_blank" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
                     <FaFacebookF size={14} />
                   </Link>
-                  <Link href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
+                  <Link href="https://x.com/the_kow_company/" target="_blank" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
                     <FaTwitter size={14} />
                   </Link>
-                  <Link href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
+                  <Link href="https://www.linkedin.com/company/the-kow-company/" target="_blank" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
                     <FaLinkedinIn size={14} />
                   </Link>
-                  <Link href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
-                    <FaInstagram size={14} />
-                  </Link>
-                  <Link href="#" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
+                
+                  <Link href="https://www.youtube.com/@thekowcompany" target="_blank" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 hover:border-gray-500 hover:bg-gray-100">
                     <FaYoutube size={14} />
                   </Link>
                 </div>
@@ -113,7 +111,7 @@ export default function FooterGrid() {
             © 2025 All Rights Reserved by The KOW Company.
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-600">
-            <Link href="#" className="hover:text-black">Privacy Policy</Link>
+            <Link href="privacy-policy"  className="hover:text-black">Privacy Policy</Link>
             <Link href="#" className="hover:text-black">Cookie Policy</Link>
             <Link href="#" className="hover:text-black">Terms &amp; Conditions</Link>
           </div>

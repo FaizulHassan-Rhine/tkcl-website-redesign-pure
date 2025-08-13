@@ -156,6 +156,7 @@ export default function Page() {
     '/images/Shadow-Addition/shadow-addition-3-after.webp',
     '/images/Shadow-Addition/shadow-addition-4-after.webp',
     '/images/Shadow-Addition/shadow-addition-8-after.webp',
+    '/images/Shadow-Addition/shadow-addition-12-before.webp',
   ];
 
   // Replace with your real Before/After sources
@@ -220,7 +221,7 @@ export default function Page() {
           <div className="w-full md:w-[30%] relative overflow-hidden h-[50vh] md:h-full rounded-2xl">
             <div className="absolute inset-0 bg-gray-100">
               <img
-                src={images[2]}
+                src={images[10]}
                 alt="Narrow"
                 className="absolute inset-0 w-full h-full object-cover parallax-img will-change-transform"
                 loading="lazy"
