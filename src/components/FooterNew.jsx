@@ -14,7 +14,7 @@ export default function FooterGrid() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                className="w-24"
+                className="w-40"
                 src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
                 alt="The KOW Company Logo"
               />
@@ -25,18 +25,19 @@ export default function FooterGrid() {
 
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-wide text-gray-500">Our AI Tools</p>
-              <div className="flex gap-3">
+              <div className="flex gap-6">
                 <Link
-                  href="#"
-                  className="inline-flex items-center rounded-lg border border-gray-300 px-3 py-2 text-sm hover:border-gray-500 hover:bg-gray-100"
+                  href="https://www.holosnap.ai" target="
+                  _blank"
+                  className="inline-flex items-center rounded-lg   py-2 text-sm hover:border-gray-500 hover:bg-gray-100"
                 >
-                  Holosnap
+                  <img className="w-24" src="/images/logo/Holosnap-Logo_H_Color.png" alt="" />
                 </Link>
                 <Link
-                  href="#"
-                  className="inline-flex items-center rounded-lg border border-gray-300 px-3 py-2 text-sm hover:border-gray-500 hover:bg-gray-100"
+                  href="https://retouched.ai" target="_blank"
+                  className="inline-flex items-center rounded-lg py-2 text-sm hover:border-gray-500 hover:bg-gray-100"
                 >
-                  Retouched.ai
+                  <img className="w-36" src="https://retouched.ai/images/newlogoBlack.png" alt="" />
                 </Link>
               </div>
              

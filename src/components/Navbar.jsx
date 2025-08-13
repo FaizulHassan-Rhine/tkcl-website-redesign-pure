@@ -80,7 +80,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full">
-      <div className="backdrop-blur-sm bg-white/90 dark:bg-black/90 border-b border-black/10 dark:border-white/10 shadow-sm transition-all duration-300">
+      <div className="backdrop-blur-md bg-white/40 border-b border-black/10 dark:border-white/10 shadow-sm transition-all duration-300">
         <nav className="2xl:container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}

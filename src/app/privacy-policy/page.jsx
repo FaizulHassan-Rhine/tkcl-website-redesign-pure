@@ -1,10 +1,12 @@
+import FooterGrid from "@/components/FooterNew";
 import React from "react";
 
 const page = () => {
   return (
-    <div className="w-full">
-      <div className="w-full h-[90vh]">
-        <img className="w-full h-full" src="/images/image-2.webp" alt="" />
+    <>
+    <div className="w-full pt-10 mb-20">
+      <div className="w-full h-[60vh] mt-20">
+        <img className="w-full h-full" src="/images/privacy-policy.webp" alt="" />
       </div>
       <div>
         <h1 className="text-center text-[50px] font-semibold title py-10">
@@ -131,6 +133,8 @@ Changes/Amendments to this Policy
         </div>
       </div>
     </div>
+    <FooterGrid/>
+    </>
   );
 };
 

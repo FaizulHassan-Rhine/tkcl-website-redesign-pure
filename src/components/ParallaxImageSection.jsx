@@ -38,13 +38,13 @@ export default function ParallaxImageSection() {
     >
       <img
         ref={imageRef}
-        src="https://futurestartup.com/wp-content/uploads/2021/03/Kow-AV_Sub_01.00_01_46_22.Still001.jpg"
+        src="/images/tkcl-house.webp"
         alt="Parallax"
         className="absolute hidden md:block top-0 left-0 w-full h-full object-cover"
       />
       <img
         // ref={imageRef}
-        src="https://futurestartup.com/wp-content/uploads/2021/03/Kow-AV_Sub_01.00_01_46_22.Still001.jpg"
+        src="/images/tkcl-house.webp"
         alt="Parallax"
         className="absolute top-0 block md:hidden left-0 w-full h-full object-cover"
       />
