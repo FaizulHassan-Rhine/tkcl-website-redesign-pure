@@ -20,13 +20,13 @@ function slugify(str = "") {
 export default function ResponsiveZoomGrid({
   images = [
     { src: "/images/image-1.webp", alt: "Shadow Addition", href: "/shadow-addition" },
-    { src: "/images/image-2.webp", alt: "Background Replacement", href: "/services/background-replacement" },
-    { src: "/images/image-3.webp", alt: "Image Manipulation", href: "/services/image-manipulation" },
-    { src: "/images/image-4.webp", alt: "Ghost Mannequin", href: "/services/ghost-mannequin" },
-    { src: "/images/image-5.webp", alt: "Photo Recolor", href: "/services/photo-recolor" },
-    { src: "/images/image-6.webp", alt: "Photo Masking", href: "/services/photo-masking" },
-    { src: "/images/image-7.webp", alt: "Photo Retouch", href: "/services/photo-retouch" },
-    { src: "/images/image-8.webp", alt: "Color Correction", href: "/services/color-correction" },
+    { src: "/images/image-2.webp", alt: "Background Replacement", href: "/background-replacement" },
+    { src: "/images/image-3.webp", alt: "Image Manipulation", href: "/image-manipulation" },
+    { src: "/images/image-4.webp", alt: "Ghost Mannequin", href: "/ghost-mannequin" },
+    { src: "/images/image-5.webp", alt: "Photo Recolor", href: "/photo-recolor" },
+    { src: "/images/image-6.webp", alt: "Photo Masking", href: "/photo-masking" },
+    { src: "/images/image-7.webp", alt: "Photo Retouch", href: "/photo-retouch" },
+    { src: "/images/image-8.webp", alt: "Color Correction", href: "/color-correction" },
   ]
 }) {
   const sectionRef = useRef(null);
