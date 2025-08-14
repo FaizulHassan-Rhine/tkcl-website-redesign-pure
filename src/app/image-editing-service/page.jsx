@@ -40,22 +40,22 @@ export default function ImageEditingGridPage() {
 
     const imagesEls = gsap.utils.toArray('.zoom-image');
     imagesEls.forEach((img) => {
-      gsap.fromTo(
-        img,
-        { scale: 1.4, y: 20 },
-        {
-          scale: 1,
-          y: -20,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: img,
-            start: 'top 80%',
-            end: 'bottom top',
-            scrub: true,
-          },
-        }
-      );
-    });
+         gsap.fromTo(
+           img,
+           { scale: 1, y: 0 },
+           {
+             scale: 1,
+             y: 0,
+             ease: "power2.out",
+             scrollTrigger: {
+               trigger: img,
+               start: "top 80%",
+               end: "bottom top",
+               scrub: true,
+             },
+           }
+         );
+       });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -76,21 +76,25 @@ export default function ImageEditingGridPage() {
             const slug = svc.slug || slugify(svc.title || svc.alt || `service-${idx+1}`);
             const href = `/image-editing-service/${slug}`;
             return (
-              <figure key={svc.id || slug} className="flex flex-col relative overflow-hidden rounded-t-lg group">
+             <div className='flex flex-col'>
+              <figure key={svc.id || slug} className="flex flex-col relative overflow-hidden shadow-xl rounded group">
                 <Link href={href} aria-label={svc.alt || svc.title || `Service ${idx + 1}`} className="block">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
-                      src={svc.cardImage || svc.src}
+                      src={svc.hero || svc.src}
                       alt={svc.alt || svc.title || `Grid image ${idx + 1}`}
                       loading="lazy"
-                      className="zoom-image w-full h-full object-cover will-change-transform select-none transition-transform duration-300 group-hover:scale-[1.03]"
+                      className=" w-full h-full object-cover will-change-transform select-none transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                 </Link>
-                <figcaption className="mt-4 text-left text-[32px] font-semibold sub-title">
+                
+              </figure>
+              <figcaption className="mt-4 text-left text-[32px] font-semibold sub-title">
                   <Link href={href} className="hover:underline">{svc.title || svc.alt || `Service ${idx + 1}`}</Link>
                 </figcaption>
-              </figure>
+             
+             </div>
             );
           })}
         </div>

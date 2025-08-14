@@ -8,12 +8,9 @@ const models = [
   },
   {
     title: "Exterior Visualization",
-    src: "https://sketchfab.com/models/7d6938c0c0b54b06a0210a982a73023e/embed",
+    src: "https://sketchfab.com/models/432e1295065b487590d6851a52634181/embed",
   },
-  // {
-  //   title: "Cosmetics",
-  //   src: "https://sketchfab.com/models/e5c03e987c5a4542b6ff73332ff980e3/embed",
-  // },
+
   {
     title: "Packaging",
     src: "https://sketchfab.com/models/4d1a1935d61246fd98b58e24c0536746/embed",
@@ -26,10 +23,10 @@ const models = [
     title: "Furniture",
     src: "https://sketchfab.com/models/ff101cef30c140eb8f6893898aa5ca2f/embed",
   },
-  {
-    title: "Fashion Accessories",
-    src: "https://sketchfab.com/models/370d12feadb6473a81e54169ca01f834/embed",
-  },
+  // {
+  //   title: "Fashion Accessories",
+  //   src: "https://sketchfab.com/models/f30ed2d5db0c43a9a54d6d39f7a35358/embed",
+  // },
   {
     title: "Fashion Accessories",
     src: "https://sketchfab.com/models/258b85f028f84d25a672d44cf4cacfb5/embed",
@@ -37,6 +34,10 @@ const models = [
   {
     title: "Tech Equipment ",
     src: "https://sketchfab.com/models/901e0858c5dc4924b572728f008bf68d/embed",
+  },
+    {
+    title: "Cosmetics",
+    src: "https://sketchfab.com/models/e5c03e987c5a4542b6ff73332ff980e3/embed",
   },
 ];
 

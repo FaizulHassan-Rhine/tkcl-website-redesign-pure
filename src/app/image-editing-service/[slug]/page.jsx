@@ -172,9 +172,9 @@ export default function ServiceDetailsPage() {
 
         {/* Triptych Before/After */}
         {pairs?.length > 0 && (
-          <section className="w-full flex flex-col md:flex-row gap-5 h-[50vh] mb-5 px-6">
+          <section className="w-full flex flex-col md:flex-row gap-5 h-[80vh] mb-5 px-6">
             {pairs.slice(0,3).map((p, i) => (
-              <div key={`pair-${i}`} className="w-full h-[50vh]">
+              <div key={`pair-${i}`} className="w-full h-full object-cover">
                 <BeforeAfterSlider beforeSrc={p.before} afterSrc={p.after} alt={`${title} Compare ${i+1}`} initial={50} />
               </div>
             ))}

@@ -70,29 +70,29 @@
       "whereList": ["Pages for online shop items", "Promotional resources", "Designs ready for printing", "Creative mixes"],
       "stylesTitle": "Common backdrop removal methods",
       "stylesList": ["Manual path clipping", "Background removal assisted by artificial intelligence", "Transparent PNG", "Custom background replacement"]
-      ,
+    },
+      
       "gallery": [
       "/images/Background-Removal/background-removal-2-after.webp",
       "/images/Background-Removal/background-removal-8-after.webp",
       "/images/Background-Removal/background-removal-7-after.webp",
       "/images/Background-Removal/background-removal-1-after.webp"
-      
-    ],
+      ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Background-Removal/Slider/background-removal-4-before.webp",
+        "after": "/images/Background-Removal/Slider/background-removal-4-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Background-Removal/Slider/background-removal-5-before.webp",
+        "after": "/images/Background-Removal/Slider/background-removal-5-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Background-Removal/Slider/background-removal-6-before.webp",
+        "after": "/images/Background-Removal/Slider/background-removal-6-after.webp"
       }
-    ]
-    },
+    ],
+    
      "faqApi": {
       "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
       "headerKey": "x-api-key",
@@ -123,22 +123,23 @@
     "gallery": [
       "/images/Image-Manipulation/image-manipulation-8-after.webp",
       "/images/Image-Manipulation/image-manipulation-2-after.webp",
-      "/images/Shadow-Addition/shadow-addition-4-after.webp",
-      "/images/Shadow-Addition/shadow-addition-1-after.webp"
+      "/images/Image-Manipulation/image-manipulation-4-after.webp",
+      "/images/Image-Manipulation/image-manipulation-3-after.webp"
+     
       
     ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Image-Manipulation/Slider/image-manipulation-1-before.webp",
+        "after": "/images/Image-Manipulation/Slider/image-manipulation-1-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Image-Manipulation/Slider/image-manipulation-5-before.webp",
+        "after": "/images/Image-Manipulation/Slider/image-manipulation-5-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Image-Manipulation/Slider/image-manipulation-9-before.webp",
+        "after": "/images/Image-Manipulation/Slider/image-manipulation-9-after.webp"
       }
     ],
       "faqApi": {
@@ -158,7 +159,7 @@
       "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
       "long": "Ghost mannequin editing takes out the mannequin or model from fashion clothing photos but maintains the form of the garment, so that it seems as though it 'floats' on its own."
     },
-    "hero": "/images/Bg-Replacement/hero.webp",
+    "hero": "/images/Ghost-Mannequin/ghost-mannequin-4-after.webp",
     "sections": {
       "whyTitle": "Why choose The KOW Company?",
       "whyBody": "We have been fortunate enough to work with fashion brands worldwide, building replicable, high-quality ghost mannequin shots that elevate online and print catalogues to premium status. ",
@@ -168,24 +169,24 @@
       "stylesList": ["Neck joint ", "Bottom joint ", "Sleeve joint ", "Full 3D hollow effect "]
     },
     "gallery": [
-      "/images/Shadow-Addition/shadow-addition-3-after.webp",
-      "/images/Shadow-Addition/shadow-addition-12-before.webp",
-      "/images/Shadow-Addition/shadow-addition-4-after.webp",
-      "/images/Shadow-Addition/shadow-addition-1-after.webp",
-      ""
+      "/images/Ghost-Mannequin/ghost-mannequin-1-after.webp",
+      "/images/Ghost-Mannequin/ghost-mannequin-after.webp",
+      "/images/Ghost-Mannequin/ghost-mannequin-2-after.webp",
+      "/images/Ghost-Mannequin/ghost-mannequin-6-after.webp"
+    
     ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Ghost-Mannequin/Slider/ghost-mannequin-3-before.webp",
+        "after": "/images/Ghost-Mannequin/Slider/ghost-mannequin-3-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Ghost-Mannequin/Slider/ghost-mannequin-8-before.webp",
+        "after": "/images/Ghost-Mannequin/Slider/ghost-mannequin-8-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Ghost-Mannequin/Slider/ghost-mannequin-5-before.webp",
+        "after": "/images/Ghost-Mannequin/Slider/ghost-mannequin-5-after.webp"
       }
     ],
      "faqApi": {
@@ -205,7 +206,7 @@
       "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
       "long": "Photo recoloring alters or scales colours in a photo — from subtle tone adjustments to full colour overhauls — without compromising texture or detail."
     },
-    "hero": "/images/Bg-Replacement/hero.webp",
+    "hero": "/images/Photo-Recolor/photo-recolor-7-after.webp",
     "sections": {
       "whyTitle": "Why choose The KOW Company?",
       "whyBody": "Our editors can reproduce precise colour duplications for brand consistency or try out fresh versions for campaign season without the expense of reshoots. ",
@@ -216,24 +217,25 @@
     },
 
     "gallery": [
-      "/images/Shadow-Addition/shadow-addition-3-after.webp",
-      "/images/Shadow-Addition/shadow-addition-12-before.webp",
-      "/images/Shadow-Addition/shadow-addition-4-after.webp",
-      "/images/Shadow-Addition/shadow-addition-1-after.webp",
-      ""
+      "/images/Photo-Recolor/photo-recolor-4-after.webp",
+      "/images/Photo-Recolor/photo-recolor-2-after.webp",
+      "/images/Photo-Recolor/photo-recolor-8-after.webp",
+      "/images/Photo-Recolor/photo-recolor-1-after.webp"
+      
+      
     ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Photo-Recolor/Slider/photo-recolor-3-before.webp",
+        "after": "/images/Photo-Recolor/Slider/photo-recolor-3-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Photo-Recolor/Slider/photo-recolor-5-before.webp",
+        "after": "/images/Photo-Recolor/Slider/photo-recolor-5-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Photo-Recolor/Slider/photo-recolor-6-before.webp",
+        "after": "/images/Photo-Recolor/Slider/photo-recolor-6-after.webp"
       }
     ],
       "faqApi": {
@@ -248,12 +250,12 @@
     "slug": "photo-masking",
     "cardImage": "/images/image-2.webp",
     "alt": "Photo Masking",
-    "href": "/image-editing-service/photo-masking",
+    "href": "/images/photo-masking",
     "intro": {
       "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
       "long": "Photo masking is an accurate method of choosing and adjusting delicate details such as hair, fur, or transparent objects — ideal when simple background removal won't do the trick."
     },
-    "hero": "/images/Bg-Replacement/hero.webp",
+    "hero": "/images/Photo-Masking/photo-masking-9-after.webp",
     "sections": {
       "whyTitle": "Why The KOW Company?",
       "whyBody": "We specialize in working with delicate details. Masking from us maintains edges looking natural and transparent regions free of noise, so even the most intricate images appear perfect.",
@@ -264,24 +266,24 @@
     },
 
     "gallery": [
-      "/images/Shadow-Addition/shadow-addition-3-after.webp",
-      "/images/Shadow-Addition/shadow-addition-12-before.webp",
-      "/images/Shadow-Addition/shadow-addition-4-after.webp",
-      "/images/Shadow-Addition/shadow-addition-1-after.webp",
-      ""
+      "/images/Photo-Masking/photo-masking-10-after.webp",
+      "/images/Photo-Masking/photo-masking-11-after.webp",
+      "/images/Photo-Masking/photo-masking-8-after.webp",
+      "/images/Photo-Masking/photo-masking-12-after.webp"
+   
     ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Photo-Masking/Slider/photo-masking-7-before.webp",
+        "after": "/images/Photo-Masking/Slider/photo-masking-7-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Photo-Masking/Slider/photo-masking-6-before.webp",
+        "after": "/images/Photo-Masking/Slider/photo-masking-6-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Photo-Masking/Slider/photo-masking-3-before.webp",
+        "after": "/images/Photo-Masking/Slider/photo-masking-3-after.webp"
       }
     ],
      "faqApi": {
@@ -301,7 +303,7 @@
       "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
       "long": "Photo retouch improves pictures by eliminating spots, softening light, and adding detail — all without making the subject appear artificial."
     },
-    "hero": "/images/Bg-Replacement/hero.webp",
+    "hero": "/images/Photo-Retouch/photo-retouch-4-after.webp",
     "sections": {
       "whyTitle": "Why The KOW Company?",
       "whyBody": "We create that ideal balance between beauty and reality. Whether you are photographing high-end fashion or a standard product image, our retouching brings it to its best potential.",
@@ -312,24 +314,24 @@
     },
 
     "gallery": [
-      "/images/Shadow-Addition/shadow-addition-3-after.webp",
-      "/images/Shadow-Addition/shadow-addition-12-before.webp",
-      "/images/Shadow-Addition/shadow-addition-4-after.webp",
-      "/images/Shadow-Addition/shadow-addition-1-after.webp",
-      ""
+      "/images/Photo-Retouch/photo-retouch-6-after.webp",
+      "/images/Photo-Retouch/photo-retouch-7-after.webp",
+      "/images/Photo-Retouch/photo-retouch-5-after.webp",
+      "/images/Photo-Retouch/photo-retouch-2-after.webp"
+
     ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Photo-Retouch/Slider/photo-retouch-1-before.webp",
+        "after": "/images/Photo-Retouch/Slider/photo-retouch-1-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Photo-Retouch/Slider/photo-retouch-3-before.webp",
+        "after": "/images/Photo-Retouch/Slider/photo-retouch-3-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Photo-Retouch/Slider/photo-retouch-before.webp",
+        "after": "/images/Photo-Retouch/Slider/photo-retouch-after.webp"
       }
     ],
      "faqApi": {
@@ -349,7 +351,7 @@
       "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
       "long": "Color correction alters tones, brightness, and saturation so that your pictures fit the desired style, brand color scheme, or actual look."
     },
-    "hero": "/images/Bg-Replacement/hero.webp",
+    "hero": "/images/Color-Correction/color-correction-4-after.webp",
     "sections": {
       "whyTitle": "Why The KOW Company?",
       "whyBody": "We know how colour affects perception. Our corrections make your images more uniform, richer, and engaging — without over-editing. ",
@@ -360,24 +362,25 @@
     },
 
     "gallery": [
-      "/images/Shadow-Addition/shadow-addition-3-after.webp",
-      "/images/Shadow-Addition/shadow-addition-12-before.webp",
-      "/images/Shadow-Addition/shadow-addition-4-after.webp",
-      "/images/Shadow-Addition/shadow-addition-1-after.webp",
-      ""
+      "/images/Color-Correction/color-correction-9-after.webp",
+      "/images/Color-Correction/color-correction-1-after.webp",
+      "/images/Color-Correction/color-correction-2-after.webp",
+      "/images/Color-Correction/color-correction-after.webp"
+      
+      
     ],
     "pairs": [
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+        "before": "/images/Color-Correction/Slider/color-correction-8-before.webp",
+        "after": "/images/Color-Correction/Slider/color-correction-8-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+        "before": "/images/Color-Correction/Slider/color-correction-10-before.webp",
+        "after": "/images/Color-Correction/Slider/color-correction-10-after.webp"
       },
       {
-        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
-        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+        "before": "/images/Color-Correction/Slider/color-correction-11-before.webp",
+        "after": "/images/Color-Correction/Slider/color-correction-11-after.webp"
       }
     ],
       "faqApi": {
