@@ -1,0 +1,389 @@
+[
+  {
+    "id": "shadow-addition",
+    "title": "Shadow Addition",
+    "slug": "shadow-addition",
+    "cardImage": "/images/image-1.webp",
+    "alt": "Shadow Addition",
+    "href": "/image-editing-service/shadow-addition",
+    "intro": {
+      "summary": "To make a product look realistic and add dimension, shadow work is imperative.",
+      "long": "To make a product look realistic and to add dimensions, adding shadow is imperative. Being precise with the shadow addition gives the illusion that the image was shot in perfect lighting as it makes the subject more vibrant and visible."
+    }, 
+    "hero": "/images/Shadow-Addition/shadow-addition-8-after.webp",
+    "sections": {
+      "whyTitle": "Why choose The KOW Company?",
+      "whyBody": "We have a talented pool of retouchers who meticulously add shadows that make each image look genuine, natural and professionally shot. From subtle drop shadows to dramatic cast effects, we match light direction, texture, and intensity. The team have mastered the art of shadows by exceeding the expectations of all our clients.",
+      "whereTitle": "Where it is used",
+      "whereList": [
+        "eCommerce product displays",
+        "Lifestyle and catalogue photography",
+        "Advertising layouts",
+        "Social media product promotions"
+      ],
+      "stylesTitle": "Common shadow styles",
+      "stylesList": ["Drop shadow", "Natural shadow", "Reflection shadow", "Cast shadow"]
+    },
+    "gallery": [
+      "/images/Shadow-Addition/shadow-addition-3-after.webp",
+      "/images/Shadow-Addition/shadow-addition-12-before.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp"
+      
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+    "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "background-replacement",
+    "title": "Background Replacement",
+    "slug": "background-replacement",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Background Replacement",
+    "href": "/image-editing-service/background-replacement",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Background replacement separates the main subject from an image and presents it on a tidy, isolated background whether clear, basic white, or totally changed."
+    },
+    "hero": "/images/Background-Removal/background-removal-3-after.webp",
+    "sections": {
+      "whyTitle": "Why should you pick The KOW Company?",
+      "whyBody": "Sharp edges and flawless detail result from our fusing of precise hand-editing with cutting-edge programs. No halos; no crude borders; only polished, professional cutouts suitable for any platform. ",
+      "whereTitle": "Where it is used",
+      "whereList": ["Pages for online shop items", "Promotional resources", "Designs ready for printing", "Creative mixes"],
+      "stylesTitle": "Common backdrop removal methods",
+      "stylesList": ["Manual path clipping", "Background removal assisted by artificial intelligence", "Transparent PNG", "Custom background replacement"]
+      ,
+      "gallery": [
+      "/images/Background-Removal/background-removal-2-after.webp",
+      "/images/Background-Removal/background-removal-8-after.webp",
+      "/images/Background-Removal/background-removal-7-after.webp",
+      "/images/Background-Removal/background-removal-1-after.webp"
+      
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ]
+    },
+     "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "image-manipulation",
+    "title": "Image Manipulation",
+    "slug": "image-manipulation",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Image Manipulation",
+    "href": "/image-editing-service/image-manipulation",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Image manipulation is the process of changing or blending images to produce new images, remove blemishes, or create a specific effect. It can be subtle or sensational — it's in your artistic imagination."
+    },
+    "hero": "/images/Image-Manipulation/image-manipulation-6-after.webp",
+    "sections": {
+      "whyTitle": "Why should you choose The KOW Company?",
+      "whyBody": "Our editors are experts. We merge images so professionally that users cannot distinguish between original and manipulated ones. From product exchange to surreal photoshopping, we bring your imagination to life.",
+      "whereTitle": "Where it's applied ",
+      "whereList": ["Advertising campaigns ", "Social media pictures ", "Editorial and creative content ", "Concept art "],
+      "stylesTitle": "Image manipulation types ",
+      "stylesList": ["Merging images ", "Creative or surreal edits ", "Object elimination or addition ", "Facial and feature enhancements "]
+    },
+
+    "gallery": [
+      "/images/Image-Manipulation/image-manipulation-8-after.webp",
+      "/images/Image-Manipulation/image-manipulation-2-after.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp"
+      
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+      "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "ghost-mannequin",
+    "title": "Ghost Mannequin",
+    "slug": "ghost-mannequin",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Ghost Mannequin",
+    "href": "/image-editing-service/ghost-mannequin",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Ghost mannequin editing takes out the mannequin or model from fashion clothing photos but maintains the form of the garment, so that it seems as though it 'floats' on its own."
+    },
+    "hero": "/images/Bg-Replacement/hero.webp",
+    "sections": {
+      "whyTitle": "Why choose The KOW Company?",
+      "whyBody": "We have been fortunate enough to work with fashion brands worldwide, building replicable, high-quality ghost mannequin shots that elevate online and print catalogues to premium status. ",
+      "whereTitle": "Where it's used ",
+      "whereList": ["Fashion eCommerce listings", "Clothing catalogues", "Seasonal lookbooks ", "Brand marketing campaigns "],
+      "stylesTitle": "Ghost mannequin techniques ",
+      "stylesList": ["Neck joint ", "Bottom joint ", "Sleeve joint ", "Full 3D hollow effect "]
+    },
+    "gallery": [
+      "/images/Shadow-Addition/shadow-addition-3-after.webp",
+      "/images/Shadow-Addition/shadow-addition-12-before.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp",
+      ""
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+     "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "photo-recolor",
+    "title": "Photo Recolor",
+    "slug": "photo-recolor",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Photo Recolor",
+    "href": "/image-editing-service/photo-recolor",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Photo recoloring alters or scales colours in a photo — from subtle tone adjustments to full colour overhauls — without compromising texture or detail."
+    },
+    "hero": "/images/Bg-Replacement/hero.webp",
+    "sections": {
+      "whyTitle": "Why choose The KOW Company?",
+      "whyBody": "Our editors can reproduce precise colour duplications for brand consistency or try out fresh versions for campaign season without the expense of reshoots. ",
+      "whereTitle": "Where it's applied ",
+      "whereList": ["Including product color variations ", "Matching brand palettes ", "Seasonal promotions ", "Fashion and décor previews "],
+      "stylesTitle": "Recoloring services ",
+      "stylesList": ["Object-specific colour changes ", "Full image recolor ", "Selective tone adjustment ", "Pattern colour matching "]
+    },
+
+    "gallery": [
+      "/images/Shadow-Addition/shadow-addition-3-after.webp",
+      "/images/Shadow-Addition/shadow-addition-12-before.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp",
+      ""
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+      "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "photo-masking",
+    "title": "Photo Masking",
+    "slug": "photo-masking",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Photo Masking",
+    "href": "/image-editing-service/photo-masking",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Photo masking is an accurate method of choosing and adjusting delicate details such as hair, fur, or transparent objects — ideal when simple background removal won't do the trick."
+    },
+    "hero": "/images/Bg-Replacement/hero.webp",
+    "sections": {
+      "whyTitle": "Why The KOW Company?",
+      "whyBody": "We specialize in working with delicate details. Masking from us maintains edges looking natural and transparent regions free of noise, so even the most intricate images appear perfect.",
+      "whereTitle": "Where it's used ",
+      "whereList": ["Hair and fashion photography ", "Glass or liquid packaging ", "Nature and wildlife shots ", "Composite designs "],
+      "stylesTitle": "Masking techniques ",
+      "stylesList": ["Layer masking", "Alpha channel masking ", "Hair & fur masking", "Transparent object masking "]
+    },
+
+    "gallery": [
+      "/images/Shadow-Addition/shadow-addition-3-after.webp",
+      "/images/Shadow-Addition/shadow-addition-12-before.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp",
+      ""
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+     "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "photo-retouch",
+    "title": "Photo Retouch",
+    "slug": "photo-retouch",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Photo Retouch",
+    "href": "/image-editing-service/photo-retouch",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Photo retouch improves pictures by eliminating spots, softening light, and adding detail — all without making the subject appear artificial."
+    },
+    "hero": "/images/Bg-Replacement/hero.webp",
+    "sections": {
+      "whyTitle": "Why The KOW Company?",
+      "whyBody": "We create that ideal balance between beauty and reality. Whether you are photographing high-end fashion or a standard product image, our retouching brings it to its best potential.",
+      "whereTitle": "Where it's used ",
+      "whereList": ["Portrait photography ", "Editorial spreads ", "Product close-ups ", "Corporate profiles "],
+      "stylesTitle": "Retouching services ",
+      "stylesList": ["Basic skin and blemish fixes ", "High-end beauty retouching ", "Product polishing ", "Commercial retouching "]
+    },
+
+    "gallery": [
+      "/images/Shadow-Addition/shadow-addition-3-after.webp",
+      "/images/Shadow-Addition/shadow-addition-12-before.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp",
+      ""
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+     "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  },
+  {
+    "id": "color-correction",
+    "title": "Color Correction",
+    "slug": "color-correction",
+    "cardImage": "/images/image-2.webp",
+    "alt": "Color Correction",
+    "href": "/image-editing-service/color-correction",
+    "intro": {
+      "summary": "Swap busy or off-brand backgrounds with clean, on‑brand scenes.",
+      "long": "Color correction alters tones, brightness, and saturation so that your pictures fit the desired style, brand color scheme, or actual look."
+    },
+    "hero": "/images/Bg-Replacement/hero.webp",
+    "sections": {
+      "whyTitle": "Why The KOW Company?",
+      "whyBody": "We know how colour affects perception. Our corrections make your images more uniform, richer, and engaging — without over-editing. ",
+      "whereTitle": "Where it's used ",
+      "whereList": ["Online product catalogs ", "Wedding and event books ", "Video stills and movie frames ", "Marketing campaigns "],
+      "stylesTitle": "Correction services ",
+      "stylesList": ["White balance corrects ", "Adjustment of exposure and tone ", "Hue and saturation adjustment ", "Shadow/highlight adjustment "]
+    },
+
+    "gallery": [
+      "/images/Shadow-Addition/shadow-addition-3-after.webp",
+      "/images/Shadow-Addition/shadow-addition-12-before.webp",
+      "/images/Shadow-Addition/shadow-addition-4-after.webp",
+      "/images/Shadow-Addition/shadow-addition-1-after.webp",
+      ""
+    ],
+    "pairs": [
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-2-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-2-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-5-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-5-after.webp"
+      },
+      {
+        "before": "/images/Shadow-Addition/Slider/shadow-addition-6-before.webp",
+        "after": "/images/Shadow-Addition/Slider/shadow-addition-6-after.webp"
+      }
+    ],
+      "faqApi": {
+      "url": "https://tkclbackendev.onrender.com/api/faqs-clip-path-details",
+      "headerKey": "x-api-key",
+      "env": "NEXT_PUBLIC_API_SECRET_KEY"
+    }
+  }
+]
