@@ -182,9 +182,11 @@ export default function Navbar() {
                   </div>
                 </li>
 
-                {/* <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
+               <a href='/career'>
+                 <li className="hover:text-green-500 transition-colors text-[20px] font-semibold duration-200 cursor-pointer">
                   Career
-                </li> */}
+                </li>
+               </a>
                 
                 {/* Support Dropdown */}
                 <li
