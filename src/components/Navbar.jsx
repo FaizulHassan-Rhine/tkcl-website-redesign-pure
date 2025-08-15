@@ -370,7 +370,9 @@ export default function Navbar() {
                 </div>
               </li>
 
-              <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Career</li>
+             <a href='/career'>
+               <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Career</li>
+             </a>
               
               {/* Support Mobile Dropdown */}
               <li>
