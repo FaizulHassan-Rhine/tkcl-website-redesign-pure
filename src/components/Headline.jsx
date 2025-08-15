@@ -29,7 +29,7 @@ export default function AnimatedHeadline() {
 
   return (
     <motion.h1
-      className="text-[28px] mt-3 md:pt-20 font-bold text-body sm:text-[40px] md:text-[44px] xl:text-[60px] leading-[100%] lg:max-w-3xl"
+      className="text-[28px] mt-3 md:pt-20 font-bold text-body sm:text-[40px] md:text-[44px]  2xl:text-[60px] leading-[100%] lg:max-w-3xl"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
