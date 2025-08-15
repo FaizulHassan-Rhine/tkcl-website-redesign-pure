@@ -30,8 +30,8 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, alt = 'Before A
         }
         style={{ width: '100%', height: '100%', borderRadius: '1rem' }}
       />
-      <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">Before</div>
-      <div className="pointer-events-none absolute right-4 top-4 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">After</div>
+      {/* <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">Before</div>
+      <div className="pointer-events-none absolute right-4 top-4 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">After</div> */}
     </div>
   );
 }

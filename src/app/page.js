@@ -17,19 +17,19 @@ export default function Page() {
     <main className="pt-20 space-y-20 transition-colors duration-500">
       {/* Hero Section */}
       <section>
-        <div className="flex flex-col  md:flex-row justify-between gap-6 lg:gap-20 items-center">
+        <div className="flex flex-col  md:flex-row justify-between gap-6 lg:gap-20 items-start">
           
           <AnimatedHeadline/>
 
-         <div className='flex flex-col items-center pt-20 md:items-start'>
+         <div className='flex flex-col items-center md:pt-20 md:items-start'>
            <div className="flex justify-center gap-10 items-center">
             <div className='leading-[280%]'>
               <h1 className="text-[32px] sm:text-[48px] md:text-[40px] lg:text-[70px] title ">24/7</h1>
-              <p className="text-[12px] text-body sm:text-[16px] md:text-[12px] lg:text-[16px]">Ready for you every second.</p>
+              <p className="text-[12px] leading-4 sm:leading-5 lg:leading-7 xl:leading-10  text-body sm:text-[16px] md:text-[12px] lg:text-[16px]">Ready for you every second.</p>
             </div>
             <div className='leading-[280%]'>
               <h1 className="text-[32px] sm:text-[48px] md:text-[40px] lg:text-[70px] title">30,000+</h1>
-              <p className="text-[12px] text-body sm:text-[16px] md:text-[12px] lg:text-[16px]">Processing over 30,000 assets every day.</p>
+              <p className="text-[12px] leading-4 lg:leading-7 xl:leading-10 text-body sm:text-[16px] md:text-[12px] lg:text-[16px]">Processing over 30,000 assets every day.</p>
             </div>
           </div>
 

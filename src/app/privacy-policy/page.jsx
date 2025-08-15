@@ -5,18 +5,18 @@ const page = () => {
   return (
     <>
     <div className="w-full pt-10 mb-20">
-      <div className="w-full h-[60vh] mt-20">
+      <div className="w-full h-[30vh] md:h-[60vh] mt-20">
         <img className="w-full h-full" src="/images/privacy-policy.webp" alt="" />
       </div>
       <div>
-        <h1 className="text-center text-[50px] font-semibold title py-10">
+        <h1 className="text-center text-[32px] md:text-[40px] lg:text-[50px] font-semibold title py-10">
           PRIVACY POLICY
         </h1>
       </div>
       {/* section one ----------- */}
       <div className="flex flex-col md:flex-row justify-center items-center  gap-40 p-4 md:p-6 lg:p-8">
         <div className="w-full md:w-[40%]">
-          <h1 className="text-[32px] sub-title">Brief Introduction</h1>
+          <h1 className="text-[24px] md:text-[32px] sub-title">Brief Introduction</h1>
           <p className="text-body">
             We know that you care how information about you is used and shared,
             and we appreciate your trust. This Privacy Policy explains how The
@@ -35,7 +35,7 @@ const page = () => {
           </p>
         </div>
         <div className="w-full  md:w-[40%]">
-          <h1 className="text-[32px] sub-title">
+          <h1 className="text-[24px] md:text-[32px] sub-title">
             What Information Are We Collecting From You?
           </h1>
           <ul className="list-disc pl-5 text-body">
@@ -61,7 +61,7 @@ const page = () => {
       {/* section two ----------- */}
       <div className="flex flex-col md:flex-row justify-center items-center  gap-40 p-4 md:p-6 lg:p-8">
         <div className="w-full md:w-[40%]">
-          <h1 className="text-[32px] sub-title leading-9">
+          <h1 className="text-[24px] md:text-[32px] sub-title leading-9">
             Disclosure of Personal Information to Third Parties?
           </h1>
           <h2 className="text-body">
@@ -87,7 +87,7 @@ const page = () => {
           </p>
         </div>
         <div className="w-full md:w-[40%]">
-          <h1 className="text-[32px] sub-title">
+          <h1 className="text-[24px] md:text-[32px] sub-title">
            How May We Use Your Personal Information?
           </h1>
           <ul className="list-disc pl-5 text-body">
@@ -113,7 +113,7 @@ const page = () => {
       {/* section three ----------- */}
       <div className="flex flex-col md:flex-row justify-center items-center  gap-40 p-4 md:p-6 lg:p-8">
         <div className="w-full md:w-[40%]">
-          <h1 className="text-[32px] sub-title leading-9">
+          <h1 className="text-[24px] md:text-[32px] sub-title leading-9">
             How to Make a Complaint About a Privacy Breach?
           </h1>
         
@@ -124,7 +124,7 @@ to info@thekowcompany.com.
           </p>
         </div>
         <div className="w-full md:w-[40%]">
-          <h1 className="text-[32px] sub-title">
+          <h1 className="text-[24px] md:text-[32px] sub-title">
           
 Changes/Amendments to this Policy
 

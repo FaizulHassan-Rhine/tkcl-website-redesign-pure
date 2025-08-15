@@ -23,6 +23,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+            {/* Google Fonts Embed */}
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        `}</style>
        {/* <script
   dangerouslySetInnerHTML={{
     __html: `
@@ -89,7 +93,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         suppressHydrationWarning
-        className="2xl:container mx-auto antialiased transition-colors bg-[#F8F9F6] text-black dark:bg-black dark:text-white relative"
+        className="2xl:container md:mx-auto mx-4 antialiased transition-colors bg-[#F8F9F6] text-black dark:bg-black dark:text-white relative"
         style={{
           visibility: themeLoaded ? 'visible' : 'hidden',
           minHeight: '100vh'

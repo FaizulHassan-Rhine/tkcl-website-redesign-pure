@@ -104,8 +104,8 @@ export default function ScrollTitle() {
 
   return (
     <div>
-      <div ref={containerRef} className="relative w-full ">
-        <div className="sticky top-0 z-10 flex h-screen w-full items-center justify-center overflow-hidden">
+      <div ref={containerRef} className="relative w-full  ">
+        <div className="sticky top-0 z-10 -mt-[200px] sm:-mt-[0px] flex h-screen w-full items-center justify-center overflow-hidden">
           {/* Growing circle behind */}
           <div
             ref={circleRef}

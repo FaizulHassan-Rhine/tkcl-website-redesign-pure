@@ -8,12 +8,12 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
   return (
     <>
      
-        <h1 className="text-[128px] font-bold title text-center mb-10">
-          NEWSLETTER
+        <h1 className="text-[32px] md:text-[40px] lg:text-[100px]  font-bold title text-center mb-10">
+          BLOGS
         </h1>
 
         {/* Toggle Buttons */}
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+        <div className="flex justify-center gap-4 mb-12 md:flex-wrap">
           <Link
             href="/blog"
             className={clsx(

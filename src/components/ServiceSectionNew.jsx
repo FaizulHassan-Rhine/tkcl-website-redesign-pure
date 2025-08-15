@@ -11,11 +11,14 @@ const services = [
     number: '01',
     title: 'Image Editing',
     services: [
-      'Background Removal',
-      'Ghost Mannequine',
-      'Color Correction',
-      'Masing & Clipping',
+      'Shadow Addition',
+      'Background Replacement',
+      'Image Manipulation',
+      'Ghost Mannequin',
+      'Photo Recolor',
+      'Photo Masking',
       'Photo Retouch',
+      'Color Correction',
     ],
     image: '/images/image-7.webp',
   },
@@ -23,11 +26,11 @@ const services = [
     number: '02',
     title: 'Video Editing',
     services: [
-      'Cosmetics',
-      'Tech Accessories',
-      'Packaging',
-      'Furniture',
-      'Interior/Exterior Design',
+      'Subtitle Addition',
+      'Title Addition',
+      'Video Cropping',
+      'Audio Editing',
+      
     ],
     image: '/images/image-8.webp',
   },
@@ -35,11 +38,14 @@ const services = [
     number: '03',
     title: '3D Visualization',
     services: [
-      'Cosmetics',
-      'Tech Accessories',
+      'Interior Visualization',
+      'Exterior Visualization',
+      'Fashion Accessories',
+      'Tech Accessories  ',
       'Packaging',
+      'Cosmetics',
       'Furniture',
-      'Interior/Exterior Design',
+      'Tech Equipment',
     ],
     image: '/images/image-9.webp',
   },
@@ -47,11 +53,8 @@ const services = [
     number: '04',
     title: 'AI Solutions',
     services: [
-      'Cosmetics',
-      'Tech Accessories',
-      'Packaging',
-      'Furniture',
-      'Interior/Exterior Design',
+      'Holosnap',
+      'Retouched.ai',
     ],
     image: '/images/image-10.webp',
   },
@@ -87,9 +90,9 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <div ref={containerRef} className="space-y-24 py-16">
-      <div className='leading-[400%] '>
-        <h1 className='text-[60px] title font-semibold'>Explore <br/> Our Creativity</h1>
+    <div ref={containerRef} className="space-y-12 xl:space-y-24 py-16">
+      <div className='leading-[250%] xl:leading-[400%] '>
+        <h1 className='text-[40px] md:text-[50px] xl:text-[60px] title font-semibold'>Explore <br/> Our Creativity</h1>
         
       </div>
       <div className='h-[1px]'></div>
@@ -101,7 +104,7 @@ export default function ServicesSection() {
         >
           {/* Column 1: Number */}
           <div className="flex items-start justify-start">
-            <p className="text-6xl font-bold text-body">({s.number})</p>
+            <p className="text-3xl xl:text-6xl font-bold text-body">({s.number})</p>
           </div>
           
           {/* Column 2: Title and Services */}
@@ -118,14 +121,21 @@ export default function ServicesSection() {
           </div>
           
           {/* Column 3: Image Card */}
-          <div className="flex justify-end">
+          <div className=" flex justify-end">
             <div
-              className="service-image w-full max-w-[500px] h-[300px] bg-gray-100 object-cover rounded-lg opacity-0 translate-x-10"
+              className="service-image hidden md:block w-full max-w-[500px] h-[300px] bg-gray-100 object-cover rounded-lg opacity-0 translate-x-10"
             >
                 <h1 className='flex items-center justify-center h-full text-[50px] sub-title'>{s.title}</h1>
               {/* Image would go here */}
             </div>
+            <div
+              className="service-image block md:hidden w-full max-w-[500px] h-[300px] bg-gray-100 object-cover rounded-lg opacity-1 translate-x-0"
+            >
+                <h1 className='flex items-center justify-center h-full text-[30px] sub-title'>{s.title}</h1>
+              {/* Image would go here */}
+            </div>
           </div>
+         
         </div>
       ))}
     </div>

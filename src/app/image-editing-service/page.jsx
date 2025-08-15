@@ -66,19 +66,19 @@ export default function ImageEditingGridPage() {
     <>
       <section ref={sectionRef} className="mx-auto px-4 md:px-6 py-20">
         <div className="mb-8 md:mb-12 text-center">
-          <h2 className="text-[100px] title font-semibold tracking-tight">Image Editing Services</h2>
+          <h2 className="text-[32px] md:text-[48px] xl:text-[100px] title font-semibold tracking-tight">Image Editing Services</h2>
           {loading && <p className="opacity-70 mt-2">Loading…</p>}
           {!loading && error && <p className="opacity-70 mt-2">{error}</p>}
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20 max-w-8xl mx-auto">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 max-w-8xl mx-auto">
           {!loading && !error && services.map((svc, idx) => {
             const slug = svc.slug || slugify(svc.title || svc.alt || `service-${idx+1}`);
             const href = `/image-editing-service/${slug}`;
             return (
-             <div className='flex flex-col'>
+             <div className='flex flex-col '>
               <figure key={svc.id || slug} className="flex flex-col relative overflow-hidden shadow-xl rounded group">
-                <Link href={href} aria-label={svc.alt || svc.title || `Service ${idx + 1}`} className="block">
+                <a href={href} aria-label={svc.alt || svc.title || `Service ${idx + 1}`} className="block">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={svc.hero || svc.src}
@@ -87,11 +87,11 @@ export default function ImageEditingGridPage() {
                       className=" w-full h-full object-cover will-change-transform select-none transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
-                </Link>
+                </a>
                 
               </figure>
-              <figcaption className="mt-4 text-left text-[32px] font-semibold sub-title">
-                  <Link href={href} className="hover:underline">{svc.title || svc.alt || `Service ${idx + 1}`}</Link>
+              <figcaption className="mt-4 text-left text-[24px] md:text-[36px]  font-semibold sub-title">
+                  <a href={href} className="hover:underline">{svc.title || svc.alt || `Service ${idx + 1}`}</a>
                 </figcaption>
              
              </div>

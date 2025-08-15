@@ -87,15 +87,16 @@ export default function FeaturedWork() {
                   className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
                 />
               ) : (
-                <iframe
-                  className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
-                  src={item.src}
-                  title={item.title}
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; vr"
-                  mozallowfullscreen="true"
-                  webkitallowfullscreen="true"
-                ></iframe>
+              <iframe
+  className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+  src={`${item.src}${item.src.includes('?') ? '&' : '?'}autostart=0`}
+  title={item.title}
+  frameBorder="0"
+  allow="fullscreen; vr"
+  mozallowfullscreen="true"
+  webkitallowfullscreen="true"
+></iframe>
+
               )}
             </div>
 

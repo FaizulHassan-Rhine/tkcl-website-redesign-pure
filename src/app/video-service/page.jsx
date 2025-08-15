@@ -15,7 +15,7 @@ export default function VideoGrid() {
   return (
     <>
       <div className="py-20">
-        <h1 className="text-[100px] mb-20 font-semibold title text-center">
+        <h1 className="text-[32px] md:text-[48px] xl:text-[100px] mb-6 lg:mb-20 font-semibold title text-center">
           Video Editing Services
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
@@ -33,7 +33,7 @@ export default function VideoGrid() {
                 <source src={item.srcWebm} type="video/webm" />
               </video>
 
-              <h1 className="text-[32px] font-semibold sub-title">
+              <h1 className="text-[24px] lg:text-[32px] font-semibold sub-title">
                 {item.title}
               </h1>
               <p className="text-body">{item.subtitle}</p>

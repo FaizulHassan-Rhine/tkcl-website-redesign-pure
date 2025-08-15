@@ -47,11 +47,11 @@ export default function FAQPage() {
     <div>
       <div className=" bg-white text-black dark:bg-black dark:text-white px-4 sm:px-10 py-20 font-sans">
         <div className=" mx-auto">
-          <h1 className=" text-[200px] title font-extrabold text-center">
+          <h1 className="  text-[40px] md:text-[60px] xl:text-[100px] title font-bold text-center">
             FAQ
           </h1>
           <div className="h-[1px] bg-gray-800"></div>
-          <h2 className="text-[90px] leading-[80px] title font-medium text-center mt-6">
+          <h2 className="text-[24px] md:text-[40px] xl:text-[60px] leading-7 xl:leading-[80px] title font-medium text-center mt-6">
             Learn some common <br />
             answers about <span className="font-semibold">TKCL</span>
           </h2>

@@ -98,9 +98,11 @@ export default function Navbar() {
             {/* Desktop Navigation - Centered Routes */}
             <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
               <ul className="flex gap-8 ">
-                <li className="hover:text-green-500 text-[16px] transition-colors duration-200 cursor-pointer">
+               <a href="/" >
+                 <li className="hover:text-green-500 text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
                   Home
                 </li>
+               </a>
                 
                 {/* Services Dropdown */}
                 <li
@@ -108,7 +110,7 @@ export default function Navbar() {
                   onMouseEnter={() => handleDropdownEnter('services')}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <span className="hover:text-black dark:hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1">
+                  <span className="text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
                     Services
                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -122,7 +124,7 @@ export default function Navbar() {
                     <div className="py-2">
                       <a
                         href="/image-editing-service"
-                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white  hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Image Editing
                       </a>
@@ -151,7 +153,7 @@ export default function Navbar() {
                   onMouseEnter={() => handleDropdownEnter('products')}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <span className="hover:text-black dark:hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1">
+                  <span className="text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
                     Products
                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -180,9 +182,9 @@ export default function Navbar() {
                   </div>
                 </li>
 
-                <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
+                {/* <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
                   Career
-                </li>
+                </li> */}
                 
                 {/* Support Dropdown */}
                 <li
@@ -190,7 +192,7 @@ export default function Navbar() {
                   onMouseEnter={() => handleDropdownEnter('support')}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <span className="hover:text-black dark:hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1">
+                  <span className="text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
                     Support
                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -221,7 +223,7 @@ export default function Navbar() {
                         FAQ
                       </a>
                       <a
-                        href="#"
+                        href="https://thekowcompany.com/api-resources/retouched" target='_blank'
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Resources
@@ -231,7 +233,7 @@ export default function Navbar() {
                 </li>
 
                <a href="/blog" >
-                 <li className="hover:text-green-500 transition-colors duration-200 cursor-pointer">
+                 <li className="hover:text-green-500 text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
                   Blogs
                 </li>
                </a>
@@ -258,10 +260,12 @@ export default function Navbar() {
               </button> */}
 
               {/* Let's Talk Button */}
-              <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
+              <a href="/contact">
+                <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
                 <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 border-[#3B837B] transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10">Let's Talk</span>
               </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button & Dark Mode Toggle */}
@@ -286,7 +290,7 @@ export default function Navbar() {
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMenu}
-                className="p-2 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-all duration-200 text-black dark:text-white"
+                className="p-2 rounded-lg"
                 aria-label="Toggle menu"
               >
                 <div className="w-6 h-6 flex flex-col justify-center items-center">
@@ -299,8 +303,8 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Navigation Menu */}
-          <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
-            <ul className="pt-4 pb-2 space-y-2 text-black/80 dark:text-white/80">
+          <div className={`lg:hidden bg-gray-200   rounded-md transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
+            <ul className="pt-4 pb-2 space-y-2">
               <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Home</li>
               
               {/* Services Mobile Dropdown */}
@@ -321,8 +325,11 @@ export default function Navbar() {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="ml-4 mt-2 space-y-1">
-                    <a href="/image-video-services" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
-                      Image & Video Editing
+                    <a href="/image-editing-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                      Image Editing
+                    </a>
+                    <a href="/video-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                      Video Editing
                     </a>
                    
                     <a href="/cgi-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
@@ -390,7 +397,7 @@ export default function Navbar() {
                     <a href="/faq" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       FAQ
                     </a>
-                    <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="https://thekowcompany.com/api-resources/retouched" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Resources
                     </a>
                   </div>
@@ -401,12 +408,14 @@ export default function Navbar() {
                 <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Blogs</li>
             </a>
               
-              <li className="py-2 px-2">
+              <a href="/contact">
+                <li className="py-2 px-2">
                 <button className="relative w-full px-4 py-2 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
                   <span className="absolute inset-0 bg-green-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                   <span className="relative z-10">Let's Talk</span>
                 </button>
               </li>
+              </a>
             </ul>
           </div>
         </nav>

@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FaTelegramPlane } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import FooterGrid from '@/components/FooterNew';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -266,24 +267,9 @@ useEffect(() => {
 
        
       {/* Newsletter */}
-      <section className="px-6 mt-10">
-        <h2 className="sub-title text-3xl md:text-4xl">Newsletter Signup</h2>
-        <form className="mt-4 flex w-full max-w-xl">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="flex-grow bg-gray-300 dark:bg-[#0a0a0a] text-black dark:text-white px-5 py-4 md:px-10 md:py-7 rounded-l-full focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="bg-gray-300 dark:bg-[#0a0a0a] text-black dark:text-white px-6 md:px-8 rounded-r-full hover:bg-gray-400 dark:hover:bg-gray-800 flex items-center justify-center"
-          >
-            <FaTelegramPlane className="text-white" />
-          </button>
-        </form>
-      </section>
+     
 
-      <Footer />
+      <FooterGrid/>
     </div>
   );
 };

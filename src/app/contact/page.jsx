@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="border-t border-gray-700 my-12"></div>
 
         <div className="mb-10 lg:mb-20">
-          <h2 className="text-3xl lg:text-[60px] leading-[35px] lg:leading-[65px] max-w-4xl mx-auto  sub-title text-left mb-8">
+          <h2 className="text-[40px] lg:text-[60px] leading-[35px] lg:leading-[65px] max-w-4xl mx-auto  sub-title text-left mb-8">
             Let’s drop us a line and get the project started.
           </h2>
         </div>

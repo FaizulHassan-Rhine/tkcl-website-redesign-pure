@@ -666,7 +666,7 @@ const HeroNew = () => {
 
   return (
     <div className="">
-      <div className="w-full lg:-mt-[480px] mx-auto h-[20vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+      <div className="w-full -mt-[50px] lg:-mt-[480px] mx-auto h-[25vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
         <canvas
           ref={canvasRef}
           className="w-full h-full bg-transparent"

@@ -56,7 +56,7 @@ export default function TextTrain({
           <React.Fragment key={`${label}-${idx}`}>
             <span
               role="listitem"
-              className="mx-[1.15rem] inline-flex  items-center gap-2 rounded-2xl px-4 py-6 text-sm md:text-[40px]  whitespace-nowrap"
+              className="mx-[1.15rem] inline-flex  items-center gap-2 rounded-2xl px-4 py-6 text-[24px] md:text-[40px]  whitespace-nowrap"
             >
               {label}
             </span>
