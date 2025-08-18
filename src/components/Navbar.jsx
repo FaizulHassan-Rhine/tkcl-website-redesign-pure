@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '@/app/theme-provider';
 import Image from 'next/image';
 import Link from 'next/link';
+import Language from './language/language';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,9 +98,9 @@ export default function Navbar() {
 
             {/* Desktop Navigation - Centered Routes */}
             <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-              <ul className="flex gap-8 ">
+              <ul className="flex gap-4 xl:gap-8 ">
                <a href="/" >
-                 <li className="hover:text-green-500 text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
+                 <li className="hover:text-[#4FA59B] text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
                   Home
                 </li>
                </a>
@@ -110,7 +111,7 @@ export default function Navbar() {
                   onMouseEnter={() => handleDropdownEnter('services')}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <span className="text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
+                  <span className="text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
                     Services
                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -153,7 +154,7 @@ export default function Navbar() {
                   onMouseEnter={() => handleDropdownEnter('products')}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <span className="text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
+                  <span className="text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
                     Products
                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -183,7 +184,7 @@ export default function Navbar() {
                 </li>
 
                <a href='/career'>
-                 <li className="hover:text-green-500 transition-colors text-[20px] font-semibold duration-200 cursor-pointer">
+                 <li className="hover:text-[#4FA59B] transition-colors text-[14px] xl:text-[20px] font-semibold duration-200 cursor-pointer">
                   Career
                 </li>
                </a>
@@ -194,7 +195,7 @@ export default function Navbar() {
                   onMouseEnter={() => handleDropdownEnter('support')}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <span className="text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
+                  <span className="text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1">
                     Support
                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -235,7 +236,7 @@ export default function Navbar() {
                 </li>
 
                <a href="/blog" >
-                 <li className="hover:text-green-500 text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
+                 <li className="hover:text-[#4FA59B] text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
                   Blogs
                 </li>
                </a>
@@ -265,9 +266,10 @@ export default function Navbar() {
               <a href="/contact">
                 <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
                 <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 border-[#3B837B] transition-transform duration-300 ease-out"></span>
-                <span className="relative z-10">Let's Talk</span>
+                <span className="relative z-10 text-[14px] xl:text-[20px]">Let's Talk</span>
               </button>
               </a>
+              <Language/>
             </div>
 
             {/* Mobile Menu Button & Dark Mode Toggle */}
@@ -412,14 +414,17 @@ export default function Navbar() {
                 <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Blogs</li>
             </a>
               
-              <a href="/contact">
+             <div className='flex justify-center items-center'>
+               <a href="/contact">
                 <li className="py-2 px-2">
-                <button className="relative w-full px-4 py-2 bg-white text-black rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
-                  <span className="absolute inset-0 bg-green-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+                <button className="relative w-40 px-4 py-4 bg-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 text-white">
+                  <span className="absolute inset-0 bg-[#4FA59B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                   <span className="relative z-10">Let's Talk</span>
                 </button>
               </li>
               </a>
+              <Language/>
+             </div>
             </ul>
           </div>
         </nav>

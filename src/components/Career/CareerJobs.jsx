@@ -152,7 +152,7 @@ export default function CareerJobs() {
   }, [filteredJobs]);
 
   return (
-    <div id="open-positions" ref={sectionRef} className="bg-white text-black px-6 md:px-20 py-24">
+    <div id="open-positions" ref={sectionRef} className="mt-[100px] px-6 md:px-20 py-24">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div ref={titleRef} className="mb-16">

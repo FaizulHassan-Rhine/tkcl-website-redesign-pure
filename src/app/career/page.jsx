@@ -9,11 +9,11 @@ import React from 'react';
 const page = () => {
     return (
         <div>
-            <CareerHero/>
+            {/* <CareerHero/> */}
             <CareerJobs/>
-            <CareerCulture/>
+            {/* <CareerCulture/>
             <CareerBenefits/>
-            <CareerApplication/>
+            <CareerApplication/> */}
             <FooterGrid/>
 
         </div>
