@@ -7,7 +7,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from "re
 export default function FooterGrid() {
   return (
     <footer className="bg-gray-100">
-      <div className="mx-auto  px-4 py-14">
+      <div className="container mx-auto  px-4 py-14">
         {/* 1 / 2 / 4 grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
           {/* Brand / Intro */}

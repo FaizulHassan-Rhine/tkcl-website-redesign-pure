@@ -37,7 +37,7 @@ export default function AnimatedHeadline() {
   ];
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen text-center px-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center mx-auto h-screen text-center  overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -56,13 +56,13 @@ export default function AnimatedHeadline() {
       {/* Content */}
       <div className="relative z-20">
         <motion.h1
-          className="text-[28px] font-bold sm:text-[40px] md:text-[44px] 2xl:text-[60px] leading-[100%] mb-8 text-white drop-shadow-lg"
+          className="text-[28px] font-bold sm:text-[40px] md:text-[44px]  2xl:text-[60px]  leading-[100%] mb-8 text-white drop-shadow-lg"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {words.map((word, i) => (
-            <motion.span key={i} variants={wordVariants} className="inline-block mr-1">
+            <motion.span key={i} variants={wordVariants} className="inline-block mr-1 ">
               {word}
             </motion.span>
           ))}

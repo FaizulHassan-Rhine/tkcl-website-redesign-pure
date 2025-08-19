@@ -3,7 +3,7 @@ import React from "react";
 const OurClient = () => {
   // Put client images in an array so you can map them easily
   const clients = [
-    "/images/logo/Holosnap-Logo_H_Color.png",
+    
     "/images/logo/3. Nureg.png",
     "/images/logo/7. Mother Denim.png",
     "/images/logo/6. LJG.png",
@@ -28,7 +28,7 @@ const OurClient = () => {
         }
         
         .animate-slide {
-          animation: slide 10s linear infinite;
+          animation: slide 20s linear infinite;
         }
         
         .animate-slide:hover {
@@ -36,7 +36,9 @@ const OurClient = () => {
         }
       `}</style>
       
-      <div className="overflow-hidden py-10 ">
+      <div className="container mx-auto">
+
+        <div className="overflow-hidden py-10 ">
         <h1 className='text-[40px] md:text-[50px] xl:text-[60px] text-left title font-semibold leading-[100%]'>Our Clients</h1>
 
         <div className="relative w-full lg:py-20">
@@ -52,6 +54,7 @@ const OurClient = () => {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </>
   );

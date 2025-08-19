@@ -86,8 +86,8 @@ export default function FeaturedWork() {
   }, []);
 
   return (
-    <section ref={sectionRef}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 w-full h-full px-4 py-10 mx-auto">
+    <section ref={sectionRef} className="container mx-auto ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 w-full h-full  py-10 mx-auto">
         {/* 1st: Image */}
         <MediaBox item={items[0]} />
 

@@ -21,7 +21,7 @@ export default function Page() {
     <main className="pt-20 space-y-20 transition-colors duration-500">
       {/* Hero Section */}
       <section>
-        <div className="flex flex-col  md:flex-row justify-between gap-6 lg:gap-20 items-start mx-4">
+        <div className="flex flex-col  md:flex-row justify-between gap-6 lg:gap-20 items-start ">
           
           <AnimatedHeadline/>
 

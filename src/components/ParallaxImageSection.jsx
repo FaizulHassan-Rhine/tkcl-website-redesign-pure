@@ -34,7 +34,7 @@ export default function ParallaxImageSection() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[200px] lg:h-[800px] w-full overflow-hidden"
+      className="relative h-[200px] lg:h-[900px] w-full overflow-hidden"
     >
       <img
         ref={imageRef}
