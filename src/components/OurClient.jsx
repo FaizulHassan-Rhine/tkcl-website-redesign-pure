@@ -49,7 +49,7 @@ const OurClient = () => {
         }
       `}</style>
       
-      <div className="container mx-auto">
+      <div className="container mx-auto h-full" >
 
         <div className="overflow-hidden py-10 ">
         <h1 className='text-[40px] md:text-[50px] xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our Clients</h1>
