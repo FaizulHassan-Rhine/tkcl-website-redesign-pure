@@ -13,6 +13,7 @@ const video = {
   service: "Photo Editing Services",
   src: "https://tkcl-website-redesign-pure.vercel.app/videos/crop.webm",
   alt: "Masking",
+  link: "/video-service",
 };
 
 // Other media items
@@ -23,12 +24,14 @@ const items = [
     service: "Photo Editing Services",
     src: "https://tkcl-website-redesign-pure.vercel.app/images/Photo-Retouch/photo-retouch-2-after.webp",
     alt: "Clipping Path",
+    link: "/image-editing-service",
   },
   {
     type: "3d",
     src: "https://sketchfab.com/models/ff101cef30c140eb8f6893898aa5ca2f/embed",
     title: "3D Modelling & Rendering",
     service: "3D Services",
+    link: "/cgi-service",
   },
   {
     type: "image",
@@ -36,6 +39,8 @@ const items = [
     service: "3D Services",
     src: "/images/AI model for web.png",
     alt: "AI Modelling",
+    link:"https://aimodelling.thekowcompany.com/"
+    
   },
   // {
   //   type: "image",
@@ -106,9 +111,12 @@ export default function FeaturedWork() {
     />
   </div>
   <div className="px-1">
-    <h2 className="text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight">
-      {video.title}
-    </h2>
+   <a href={video.link}>
+  <h2 className="text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight hover:underline">
+    {video.title}
+  </h2>
+</a>
+
   </div>
 </div>
 
@@ -133,7 +141,7 @@ function MediaBox({ item }) {
           <img
             src={item.src}
             alt={item.alt}
-            className="zoom-image absolute top-0 left-0 w-full h-full object-contain will-change-transform"
+            className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
           />
         ) : (
           <iframe
@@ -148,9 +156,12 @@ function MediaBox({ item }) {
         )}
       </div>
       <div className="px-1">
-        <h2 className="text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight">
-          {item.title}
-        </h2>
+       <a href={item.link}>
+  <h2 className="text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight hover:underline">
+    {item.title}
+  </h2>
+</a>
+
       </div>
     </div>
   );
