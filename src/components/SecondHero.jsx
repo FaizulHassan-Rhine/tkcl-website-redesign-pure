@@ -3,16 +3,16 @@ import React from 'react';
 const SecondHero = () => {
     return (
       <div className='container mx-auto mt-9 '>
-          <div className='bg-white pb-9 pt-12 md:pt-[72px] rounded-xl'>
+          <div className=' pb-9 pt-12 md:pt-[72px] rounded-xl'>
             <div className='flex flex-row justify-center items-end gap-2 md:gap-4 lg:gap-7  px-2 lg:px-0'>
                 <div>
-                    <img src='/images/Image-1.webp'/>
+                    <img src='/images/first.webp'/>
                 </div>
                 <div>
-                    <img src='/images/Image-2.webp'/>
+                    <img src='/images/second.webp'/>
                 </div>
                 <div>
-                    <img src='/images/Image-3.webp'/>
+                    <img src='/images/third.webp'/>
                 </div>
             </div>
             <div className='flex  flex-col-reverse lg:flex-row justify-center items-center gap-4  lg:gap-12 mt-6 lg:mt-12'>
