@@ -28,17 +28,19 @@ export default function AnimatedHeadline() {
   ];
 
   return (
-    <motion.h1
-      className="text-[28px] mt-3 md:pt-20 font-bold text-body sm:text-[40px] md:text-[44px]  2xl:text-[60px] leading-[100%] lg:max-w-3xl"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {words.map((word, i) => (
-        <motion.span key={i} variants={wordVariants} className="inline-block mr-1">
-          {word}
-        </motion.span>
-      ))}
-    </motion.h1>
+    <div className="flex items-center justify-center h-screen text-center px-4">
+      <motion.h1
+        className="text-[28px] font-bold sm:text-[40px] md:text-[44px] 2xl:text-[60px] leading-[100%]"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {words.map((word, i) => (
+          <motion.span key={i} variants={wordVariants} className="inline-block mr-1">
+            {word}
+          </motion.span>
+        ))}
+      </motion.h1>
+    </div>
   );
 }

@@ -11,6 +11,9 @@ import NoteSectionNew from '@/components/NoteSectionNew';
 import ServicesSectionNew from '@/components/ServiceSectionNew';
 import AnimatedHeadline from '@/components/Headline';
 import HeroNew from '@/components/HeroNew';
+import SecondHero from '@/components/SecondHero';
+import ClientBrand from '@/components/ClientBrand';
+import Retouched from '@/components/Retouched';
 
 export default function Page() {
   return (
@@ -21,7 +24,7 @@ export default function Page() {
           
           <AnimatedHeadline/>
 
-         <div className='flex flex-col items-center md:pt-20 md:items-start'>
+         {/* <div className='flex flex-col items-center md:pt-20 md:items-start'>
            <div className="flex justify-center gap-10 items-center">
             <div className='leading-[280%]'>
               <h1 className="text-[32px] sm:text-[48px] md:text-[40px] lg:text-[50px] 2xl:text-[70px] title ">24/7</h1>
@@ -42,16 +45,19 @@ export default function Page() {
               by meticulously crafting each piece of content the right way.
             </p>
           </div>
-         </div>
+         </div> */}
         </div>
       </section>
 
       {/* <Hero /> */}
-      <HeroNew/>
-      <InfiniteLine />
+      {/* <HeroNew/> */}
+      {/* <InfiniteLine /> */}
+      <SecondHero/>
       <FeaturedWork />
-      <ServicesSectionNew />
-      <OurClient />
+      <Retouched/>
+      {/* <ServicesSectionNew /> */}
+      {/* <OurClient /> */}
+      <ClientBrand/>
       <ScrollTitle />
       <NoteSectionNew />
       <ParallaxImageSection />

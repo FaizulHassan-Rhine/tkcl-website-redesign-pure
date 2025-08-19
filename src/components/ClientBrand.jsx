@@ -361,7 +361,7 @@ const ClientBrand = () => {
 
     {/* ✨ Center text paragraph */}
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-      <p className="text-center text-lg sm:text-xl md:text-2xl text-white dark:text-white px-4 max-w-2xl">
+      <p className="text-center text-lg sm:text-xl md:text-2xl text-body px-4 max-w-2xl">
        We’re a great team of creatives with a strongest capabilities to helping progressive fields achieve their goals. With the best talent on every project done successfully
       </p>
     </div>
