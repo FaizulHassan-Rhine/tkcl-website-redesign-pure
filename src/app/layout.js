@@ -93,7 +93,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         suppressHydrationWarning
-        className="2xl:container md:mx-auto mx-4 antialiased transition-colors bg-[#F8F9F6] text-black dark:bg-black dark:text-white relative"
+        className=" md:mx-auto antialiased transition-colors bg-[#F8F9F6] text-black dark:bg-black dark:text-white relative"
         style={{
           visibility: themeLoaded ? 'visible' : 'hidden',
           minHeight: '100vh'

@@ -6,6 +6,11 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      'sans': ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+      'tartuffo': ['Tartuffo', 'serif'],
+    },
     container: {
       center: true,
       padding: '1rem',

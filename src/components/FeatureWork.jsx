@@ -37,20 +37,20 @@ const items = [
     src: "/images/cad-to-campaign.webp",
     alt: "CAD to Campaign",
   },
-  {
-    type: "image",
-    title: "Holosnap",
-    service: "AI Services",
-    src: "https://tkcl-redesigned.vercel.app/assets/imgs/project/image-65.webp",
-    alt: "Holosnap",
-  },
-  {
-    type: "image",
-    title: "Retouched AI",
-    service: "AI Services",
-    src: "https://tkcl-redesigned.vercel.app/assets/imgs/project/image-66.webp",
-    alt: "Retouched AI",
-  },
+  // {
+  //   type: "image",
+  //   title: "Holosnap",
+  //   service: "AI Services",
+  //   src: "https://tkcl-redesigned.vercel.app/assets/imgs/project/image-65.webp",
+  //   alt: "Holosnap",
+  // },
+  // {
+  //   type: "image",
+  //   title: "Retouched AI",
+  //   service: "AI Services",
+  //   src: "https://tkcl-redesigned.vercel.app/assets/imgs/project/image-66.webp",
+  //   alt: "Retouched AI",
+  // },
 ];
 
 export default function FeaturedWork() {

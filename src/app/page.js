@@ -14,6 +14,7 @@ import HeroNew from '@/components/HeroNew';
 import SecondHero from '@/components/SecondHero';
 import ClientBrand from '@/components/ClientBrand';
 import Retouched from '@/components/Retouched';
+import HoloSnap from '@/components/Holosnap';
 
 export default function Page() {
   return (
@@ -55,9 +56,10 @@ export default function Page() {
       <SecondHero/>
       <FeaturedWork />
       <Retouched/>
+      <HoloSnap/>
       {/* <ServicesSectionNew /> */}
-      {/* <OurClient /> */}
-      <ClientBrand/>
+      <OurClient />
+      {/* <ClientBrand/> */}
       <ScrollTitle />
       <NoteSectionNew />
       <ParallaxImageSection />

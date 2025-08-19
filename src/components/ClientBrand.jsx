@@ -7,93 +7,60 @@ import { useRouter } from "next/navigation";
 const objectsData = [
   {
     id: 1,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    label: "Holosnap",
+    color: "#4FA59B",
+    link: "https://holosnap.ai",
+    image: "/images/logo/Holosnap-Logo_H_Color.png",
   },
   {
     id: 2,
-    label: "Adidas",
+    label: "Nureg",
     color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    link: "#",
+    image: "/images/logo/3. Nureg.png",
   },
   {
     id: 3,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    label: "Mother Denim",
+    color: "#ef4444",
+    link: "#",
+    image: "/images/logo/7. Mother Denim.png",
   },
   {
     id: 4,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    label: "La Jolla Group",
+    color: "#3b82f6",
+    link: "#",
+    image: "/images/logo/6. LJG.png",
   },
   {
     id: 5,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    label: "Laudert",
+    color: "#8b5cf6",
+    link: "#",
+    image: "/images/logo/8. Laudert.png",
   },
   {
     id: 6,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    label: "ICS",
+    color: "#f59e0b",
+    link: "#",
+    image: "/images/logo/2. ICS.png",
   },
   {
     id: 7,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    label: "Spice Media",
+    color: "#ec4899",
+    link: "#",
+    image: "/images/logo/4. Spice media.png",
   },
   {
     id: 8,
     label: "Adidas",
     color: "#22c55e",
     link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
+    image: "/images/client/client-9.webp",
   },
-  {
-    id: 9,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
-  },
-  {
-    id: 10,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
-  },
-  {
-    id: 11,
-    label: "Adidas",
-    color: "#22c55e",
-    link: "https://www.adidas.com",
-    image:
-      "/images/client/client-9.webp", // Relative path if served via public/
-  },
-  
 ];
 
 const ClientBrand = () => {
@@ -104,13 +71,6 @@ const ClientBrand = () => {
   const mouseConstraintRef = useRef(null);
   const observerRef = useRef(null);
   const router = useRouter();
-
-  const mouseStateRef = useRef({
-    isDragging: false,
-    startX: 0,
-    startY: 0,
-    currentBody: null,
-  });
 
   const createCapsule = (x, y, width, height, options) => {
     const radius = height / 2;
@@ -131,6 +91,8 @@ const ClientBrand = () => {
       parts: [left, rect, right],
       restitution: options.restitution,
       frictionAir: options.frictionAir,
+      friction: options.friction,
+      density: options.density,
       label: options.label,
     });
 
@@ -155,11 +117,16 @@ const ClientBrand = () => {
     engineRef.current = Matter.Engine.create();
     const engine = engineRef.current;
     const world = engine.world;
-    engine.gravity.y = 0.4;
+    engine.gravity.y = 0.2;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const baseOptions = { restitution: 0.8, frictionAir: 0.02 };
+    const baseOptions = { 
+      restitution: 0.9, 
+      frictionAir: 0.005, 
+      friction: 0.1,
+      density: 0.001
+    };
 
     const renderBodies = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -269,7 +236,11 @@ const ClientBrand = () => {
       const mouse = Matter.Mouse.create(canvas);
       const mouseConstraint = Matter.MouseConstraint.create(engine, {
         mouse: mouse,
-        constraint: { stiffness: 0.2, render: { visible: false } },
+        constraint: { 
+          stiffness: 0.1, 
+          damping: 0.8,
+          render: { visible: false } 
+        },
       });
 
       mouse.element = canvas;
@@ -277,47 +248,16 @@ const ClientBrand = () => {
       Matter.Composite.add(world, mouseConstraint);
       mouseConstraintRef.current = mouseConstraint;
 
-      canvas.addEventListener("mousedown", (event) => {
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
-        mouseStateRef.current.startX = mouseX;
-        mouseStateRef.current.startY = mouseY;
-        mouseStateRef.current.isDragging = false;
-        mouseStateRef.current.currentBody = null;
-
-        for (const body of bodiesRef.current) {
-          if (
-            Matter.Bounds.contains(body.bounds, { x: mouseX, y: mouseY }) &&
-            Matter.Vertices.contains(body.vertices, { x: mouseX, y: mouseY })
-          ) {
-            mouseStateRef.current.currentBody = body;
-            break;
-          }
-        }
-      });
-
-      canvas.addEventListener("mousemove", (event) => {
-        if (mouseStateRef.current.currentBody) {
-          const rect = canvas.getBoundingClientRect();
-          const dx = event.clientX - rect.left - mouseStateRef.current.startX;
-          const dy = event.clientY - rect.top - mouseStateRef.current.startY;
-          if (Math.sqrt(dx * dx + dy * dy) > 5) {
-            mouseStateRef.current.isDragging = true;
-          }
-        }
-      });
-
-      canvas.addEventListener("mouseup", () => {
-        const body = mouseStateRef.current.currentBody;
-        if (body && !mouseStateRef.current.isDragging && body.customLink) {
+      // Handle clicks on bodies for navigation
+      mouseConstraint.mouse.element.addEventListener('mouseup', (event) => {
+        const body = mouseConstraint.body;
+        if (body && body.customLink) {
           if (body.customLink.startsWith("http")) {
             window.open(body.customLink, "_blank");
           } else {
             router.push(body.customLink);
           }
         }
-        mouseStateRef.current.currentBody = null;
       });
 
       canvas.addEventListener("mousewheel", (e) => e.preventDefault());
