@@ -32,10 +32,10 @@ const items = [
   },
   {
     type: "image",
-    title: "CAD to Campaign",
+    title: "AI Modelling",
     service: "3D Services",
-    src: "/images/cad-to-campaign.webp",
-    alt: "CAD to Campaign",
+    src: "/images/AI model for web.png",
+    alt: "AI Modelling",
   },
   // {
   //   type: "image",
@@ -133,7 +133,7 @@ function MediaBox({ item }) {
           <img
             src={item.src}
             alt={item.alt}
-            className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+            className="zoom-image absolute top-0 left-0 w-full h-full object-contain will-change-transform"
           />
         ) : (
           <iframe

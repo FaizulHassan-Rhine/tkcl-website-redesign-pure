@@ -15,11 +15,11 @@ const Retouched = () => {
 
           <div className="w-full flex justify-center items-center ">
             <iframe
-              className="bg-white h-[500px]  2xl:h-[720px] md:h-[700px]  w-full  border-[3px] lg:border-[1px] border-[#255646] rounded-xl"
+              className="bg-white h-[400px] md:h-[700px] 2xl:h-[800px] w-full border-[3px] lg:border-[1px] border-[#255646] rounded-xl overflow-hidden"
               src="https://www.retouched.ai"
               title="Embedded Website"
               frameBorder="0"
-
+              scrolling="no"
               allowFullScreen
             />
           </div>

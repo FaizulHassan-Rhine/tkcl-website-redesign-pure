@@ -9,7 +9,7 @@ const OurClient = () => {
     "/images/logo/6. LJG.png",
     "/images/logo/8. Laudert.png",
     "/images/logo/2. ICS.png",
-    "/images/logo/4. Spice media.png",
+    "/images/logo/4. Spice media.avif",
   ];
 
   // Duplicate the list so it loops seamlessly
@@ -18,6 +18,13 @@ const OurClient = () => {
   return (
     <>
       <style jsx>{`
+        @font-face {
+          font-family: 'Tartuffo';
+          src: url('/fonts/Tartuffo_Trial-MediumItalic.otf') format('opentype');
+          font-weight: 700;
+          font-style: italic;
+        }
+        
         @keyframes slide {
           from {
             transform: translateX(0);
@@ -34,12 +41,18 @@ const OurClient = () => {
         .animate-slide:hover {
           animation-play-state: paused;
         }
+        
+        .font-tartuffo-bold-italic {
+          font-family: 'Tartuffo', serif;
+          font-weight: 700;
+          font-style: italic;
+        }
       `}</style>
       
       <div className="container mx-auto">
 
         <div className="overflow-hidden py-10 ">
-        <h1 className='text-[40px] md:text-[50px] xl:text-[60px] text-left title font-semibold leading-[100%]'>Our Clients</h1>
+        <h1 className='text-[40px] md:text-[50px] xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our Clients</h1>
 
         <div className="relative w-full lg:py-20">
           <div className="flex animate-slide gap-8 lg:gap-16 pt-20">
