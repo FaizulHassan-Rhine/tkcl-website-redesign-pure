@@ -55,7 +55,7 @@ export default function Page() {
       {/* <InfiniteLine /> */}
       <SecondHero/>
       <FeaturedWork />
-      <Retouched/>
+      {/* <Retouched/> */}
       <HoloSnap/>
       {/* <ServicesSectionNew /> */}
       <OurClient />

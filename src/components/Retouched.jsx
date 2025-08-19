@@ -13,7 +13,7 @@ const Retouched = () => {
       <div className='w-full'>
         <div className="pb-10">
 
-          <div className="w-full flex justify-center items-center ">
+          <div className="w-full flex justify-center items-center overflow: hidden;">
             <iframe
               className="bg-white h-[400px] md:h-[700px] 2xl:h-[800px] w-full border-[3px] lg:border-[1px] border-[#255646] rounded-xl overflow-hidden"
               src="https://www.retouched.ai"
@@ -21,6 +21,7 @@ const Retouched = () => {
               frameBorder="0"
               scrolling="no"
               allowFullScreen
+              loading="lazy"
             />
           </div>
         </div>
