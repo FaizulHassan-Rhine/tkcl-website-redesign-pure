@@ -4,7 +4,7 @@ import React from "react";
 const models = [
   {
     title: "Interior Visualization",
-    src: "https://sketchfab.com/models/c00345fd64414c4e8895c6aaa262e4d5/embed",
+    src: "https://sketchfab.com/models/7a568cc0d0ca4c848103cf42b0a6a525/embed",
   },
   {
     title: "Exterior Visualization",

@@ -3,42 +3,61 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { info } from "autoprefixer";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const images = [
+// Separate the video item
+const video = {
+  type: "video",
+  title: "Video Editing",
+  service: "Photo Editing Services",
+  src: "https://tkcl-website-redesign-pure.vercel.app/videos/crop.webm",
+  alt: "Masking",
+};
+
+// Other media items
+const items = [
   {
     type: "image",
     title: "Image Editing",
     service: "Photo Editing Services",
-    src: "/images/image-1.webp",
+    src: "https://tkcl-website-redesign-pure.vercel.app/images/Photo-Retouch/photo-retouch-2-after.webp",
     alt: "Clipping Path",
   },
-  { type: "image", title: "Video Editing", service: "Photo Editing Services", src: "/images/image-2.webp", alt: "Masking" },
   {
     type: "3d",
-    src: "https://sketchfab.com/models/20a01f39619f47a6a656778239db3ff8/embed?autospin=1&autostart=1&preload=1", // Example 3D Model #1
+    src: "https://sketchfab.com/models/ff101cef30c140eb8f6893898aa5ca2f/embed",
     title: "3D Modelling & Rendering",
     service: "3D Services",
   },
   {
-    type: "3d",
-    src: "https://sketchfab.com/models/f3e6f16527af4465858a34cc1e9e7a2b/embed?autostart=1", // Example 3D Model #2
+    type: "image",
     title: "CAD to Campaign",
     service: "3D Services",
+    src: "/images/cad-to-campaign.webp",
+    alt: "CAD to Campaign",
   },
-  { type: "image", title: "Holosnap", service: "AI Services", src: "/images/image-5.webp", alt: "Holosnap" },
-  { type: "image", title: "Retouched AI", service: "AI Services", src: "/images/image-6.webp", alt: "Retouched AI" },
+  {
+    type: "image",
+    title: "Holosnap",
+    service: "AI Services",
+    src: "https://tkcl-redesigned.vercel.app/assets/imgs/project/image-65.webp",
+    alt: "Holosnap",
+  },
+  {
+    type: "image",
+    title: "Retouched AI",
+    service: "AI Services",
+    src: "https://tkcl-redesigned.vercel.app/assets/imgs/project/image-66.webp",
+    alt: "Retouched AI",
+  },
 ];
 
 export default function FeaturedWork() {
   const sectionRef = useRef(null);
-  const gridRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-
     if (!section) return;
 
     const images = gsap.utils.toArray(".zoom-image");
@@ -67,51 +86,72 @@ export default function FeaturedWork() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="">
-      {/* <h1 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[140px] title font-bold text-center mb-2">Feature Work</h1> */}
-      <div className="flex justify-between items-center px-4 ">
-        {/* <h1 className="text-[10px] lg:text-lg font-light text-center mb-2">Featured Work</h1> */}
-        {/* <h1 className="text-[10px] lg:text-[24px] font-light text-center mb-2">
-          Feature Work
-        </h1> */}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12  w-full h-full px-4 py-10 mx-auto">
-        {images.map((item, index) => (
-          <div key={index} className="flex flex-col space-y-2">
-            {/* Image or 3D model box */}
-            <div className="relative overflow-hidden rounded-xl  aspect-[3/2] w-full">
-              {item.type === "image" ? (
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
-                />
-              ) : (
-              <iframe
-  className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
-  src={`${item.src}${item.src.includes('?') ? '&' : '?'}autostart=0`}
-  title={item.title}
-  frameBorder="0"
-  allow="fullscreen; vr"
-  mozallowfullscreen="true"
-  webkitallowfullscreen="true"
-></iframe>
+    <section ref={sectionRef}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 w-full h-full px-4 py-10 mx-auto">
+        {/* 1st: Image */}
+        <MediaBox item={items[0]} />
 
-              )}
-            </div>
+        {/* 2nd: Video */}
+        {/* 2nd: Video */}
+<div className="flex flex-col space-y-2">
+  <div className="relative overflow-hidden rounded-xl aspect-[3/2] w-full">
+    <video
+      className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+      src={video.src}
+      title={video.title}
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+  </div>
+  <div className="px-1">
+    <h2 className="text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight">
+      {video.title}
+    </h2>
+  </div>
+</div>
 
-            {/* Text below */}
-            <div className=" px-1">
-              {item.title && (
-                <h2 className= "text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight">
-                  {item.title}
-                </h2>
-              )}
-             
-            </div>
-          </div>
+
+        {/* 3rd: 3D Model */}
+        <MediaBox item={items[1]} />
+
+        {/* Remaining 3 Images */}
+        {items.slice(2).map((item, index) => (
+          <MediaBox key={index} item={item} />
         ))}
       </div>
     </section>
+  );
+}
+
+function MediaBox({ item }) {
+  return (
+    <div className="flex flex-col space-y-2">
+      <div className="relative overflow-hidden rounded-xl shadow-lg aspect-[3/2] w-full">
+        {item.type === "image" ? (
+          <img
+            src={item.src}
+            alt={item.alt}
+            className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+          />
+        ) : (
+          <iframe
+            className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+            src={`${item.src}${item.src.includes("?") ? "&" : "?"}autostart=0`}
+            title={item.title}
+            frameBorder="0"
+            allow="fullscreen; vr"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+          ></iframe>
+        )}
+      </div>
+      <div className="px-1">
+        <h2 className="text-[20px] sm:text-[25px] lg:text-[30px] title font-semibold leading-tight">
+          {item.title}
+        </h2>
+      </div>
+    </div>
   );
 }
