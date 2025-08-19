@@ -1,7 +1,7 @@
 'use client'
 export default function HoloSnap() {
     return (
-     <div className="container mx-auto ">
+     <div className="container mx-auto h-screen">
        <section className="flex flex-col md:flex-row items-center justify-between mx-auto  py-12">
         {/* Left side - Image */}
         <div className="w-full md:w-1/2 flex justify-center">
