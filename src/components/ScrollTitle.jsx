@@ -64,7 +64,7 @@ export default function ScrollTitle() {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: "+=100%",
+        end: "+=150%",
         scrub: true,
         pin: true,
         invalidateOnRefresh: true, // recompute on resize/orientation

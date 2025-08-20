@@ -111,7 +111,7 @@ export default function FeaturedWork() {
 <div className="flex flex-col space-y-2">
   <div className="relative overflow-hidden rounded-md aspect-[3/2] w-full">
     <video
-      className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+      className=" absolute top-0 left-0 w-full h-full object-cover will-change-transform"
       src={video.src}
       title={video.title}
       autoPlay
@@ -152,11 +152,11 @@ function MediaBox({ item }) {
           <img
             src={item.src}
             alt={item.alt}
-            className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+            className=" absolute top-0 left-0 w-full h-full object-cover will-change-transform"
           />
         ) : (
           <iframe
-            className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
+            className=" absolute top-0 left-0 w-full h-full object-cover will-change-transform"
             src={`${item.src}${item.src.includes("?") ? "&" : "?"}autostart=0`}
             title={item.title}
             frameBorder="0"
