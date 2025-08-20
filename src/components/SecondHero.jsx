@@ -18,7 +18,7 @@ const SecondHero = () => {
             <div className='flex  flex-col-reverse lg:flex-row justify-center items-center gap-4  lg:gap-12 mt-6 lg:mt-12'>
                 <div className='w-full lg:w-[696px] flex flex-col gap-4 lg:gap-7 px-2 '>
                     <h1 className='text-[20px] lg:text-[36px] font-bold leading-10 text-[#737373] font-tartuffo'>About Us</h1>
-                    <p className='text-[12px] lg:text-[20px] font-medium lg:leading-7 text-[#737373]'>The KOW Company is revolutionizing the world of content every second. Image retouching has become more accessible
+                    <p className='text-[12px] lg:text-[20px] text-justify font-medium lg:leading-7 text-[#737373]'>The KOW Company is revolutionizing the world of content every second. Image retouching has become more accessible
               with our extraordinary pool of retouchers and AI software built in-house. We have not stopped there; we are producing
               3D models at scale with software-driven solutions that save your time and provide top-notch experiences. We are scaling
               up every day, as we are trusted by big brands, studios, and retailers worldwide. We ensure the visibility of your assets

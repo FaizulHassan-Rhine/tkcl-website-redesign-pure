@@ -43,7 +43,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-10 " />
 
       {/* Content */}
-      <div className="relative z-20 text-center -mt-[200px] px-4 text-white">
+      <div className="relative z-20 text-center -mt-[200px]  text-white">
         <h1 className="text-4xl md:text-6xl font-bold ">
           Bring Your Visuals to Life<br />
           <span className="text-white">with AI-Powered, Human Perfection</span>

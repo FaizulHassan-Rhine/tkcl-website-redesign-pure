@@ -26,8 +26,8 @@ export default function Retouched() {
           <h2 className="text-3xl md:text-4xl font-bold text-black font-sans">
             Retouched AI
           </h2>
-          <p className="mt-4 text-lg text-black font-sans max-w-xl">
-          Retouched.ai is the perfect tool for effortlessly and freely removing backgrounds from images using artificial intelligence. This tool is specifically designed for photographers, graphic designers, e-commerce businesses, and content creators. It delivers precise, high-quality results in seconds. You don't have to labor over unzipping files and moving them from one place to another to get a painfully neutral result. Retouched.ai gives you a comfortable workspace and makes it look like you're a Photoshop pro, even if you're not.
+          <p className="mt-4 text-lg text-black font-sans max-w-xl text-justify">
+          Removing backgrounds is no longer a part of tedious photo editing task, it is just one tap away with Retouched.ai. With the help of artificial intelligence, Retouched.ai is the perfect solution for background knockoffs, replacement with presets and prompt generated backdrop. Wasting hours on unzipping files and dragging them to get a very basic output is not a smart choice when you have Retouched.ai to give a pro level output. Need an output ready to be uploaded on Facebook, Shopify, or Amazon? The smart resizing option on retouched.ai will allow you to get the most suitable output for all platforms. Flexibility and usability are guaranteed by Retouched.ai, which allows for output in several formats: JPG, PNG, and PSD. This format can easily fit into whatever you're doing because it supports the everyday output needs of most working creatives, regardless of their end goal. Say goodbye to tedious manual editing and welcome a fast, more efficient method for achieving professional and visually compelling results. Retouched.ai makes it easy to creatively accomplish the otherwise daunting task of background removal.
  
           </p>
          <a href="https://holosnap.ai" target="_blank" rel="noopener noreferrer">
