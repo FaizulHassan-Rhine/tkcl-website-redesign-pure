@@ -46,7 +46,7 @@ export default function AnimatedHeadline() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/videos/Dynamic bottle animation.mp4" type="video/mp4" />
+        <source src="/videos/Alnature-animation-for-website.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       

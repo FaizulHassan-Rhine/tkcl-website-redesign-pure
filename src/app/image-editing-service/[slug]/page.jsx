@@ -8,6 +8,7 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider';
 import FooterGrid from '@/components/FooterNew';
 import ContactForm from '@/components/ContactForm';
 import FAQ from '@/components/Faq';
+import MoreServices from '@/components/MoreServices';
 import { useParams, notFound } from 'next/navigation';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -117,7 +118,8 @@ export default function ServiceDetailsPage() {
 
   return (
     <>
-      <div className="m-0 py-20 overflow-x-hidden">
+      <div className='container mx-auto'>
+        <div className=" py-20 overflow-x-hidden">
         {/* Title */}
         <section className="w-full py-10 px-6 text-left flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
           <h1 className="text-4xl lg:text-[80px] title font-bold">{title}</h1>
@@ -172,9 +174,9 @@ export default function ServiceDetailsPage() {
 
         {/* Triptych Before/After */}
         {pairs?.length > 0 && (
-          <section className="w-full flex flex-col md:flex-row gap-5 h-[80vh] mb-5 px-6">
+          <section className="w-full flex flex-col md:flex-row gap-5 h-[50vh] mb-5 px-6">
             {pairs.slice(0,3).map((p, i) => (
-              <div key={`pair-${i}`} className="w-full h-full object-cover">
+              <div key={`pair-${i}`} className="w-full h-[50vh]">
                 <BeforeAfterSlider beforeSrc={p.before} afterSrc={p.after} alt={`${title} Compare ${i+1}`} initial={50} />
               </div>
             ))}
@@ -216,11 +218,98 @@ export default function ServiceDetailsPage() {
         )}
       </div>
 
+      {/* More Services Section */}
+      <MoreServices 
+        currentServiceId={service?.id}
+        services={[
+          {
+            id: "shadow-addition",
+            title: "Shadow Addition",
+            slug: "shadow-addition",
+            hero: "/images/Shadow-Addition/shadow-addition-8-after.webp",
+            href: "/image-editing-service/shadow-addition",
+            intro: {
+              summary: "To make a product look realistic and add dimension, shadow work is imperative."
+            }
+          },
+          {
+            id: "background-replacement",
+            title: "Background Replacement",
+            slug: "background-replacement",
+            hero: "/images/Background-Removal/background-removal-3-after.webp",
+            href: "/image-editing-service/background-replacement",
+            intro: {
+              summary: "Swap busy or off-brand backgrounds with clean, on‑brand scenes."
+            }
+          },
+          {
+            id: "image-manipulation",
+            title: "Image Manipulation",
+            slug: "image-manipulation",
+            hero: "/images/Image-Manipulation/image-manipulation-6-after.webp",
+            href: "/image-editing-service/image-manipulation",
+            intro: {
+              summary: "Change or blend images to produce new images and create specific effects."
+            }
+          },
+          {
+            id: "ghost-mannequin",
+            title: "Ghost Mannequin",
+            slug: "ghost-mannequin",
+          hero: "/images/Ghost-Mannequin/ghost-mannequin-4-after.webp",
+            href: "/image-editing-service/ghost-mannequin",
+            intro: {
+              summary: "Remove mannequins while maintaining the form of garments."
+            }
+          },
+          {
+            id: "photo-recolor",
+            title: "Photo Recolor",
+            slug: "photo-recolor",
+            hero: "/images/Photo-Recolor/photo-recolor-7-after.webp",
+            href: "/image-editing-service/photo-recolor",
+            intro: {
+              summary: "Alter or scale colors in photos without compromising texture or detail."
+            }
+          },
+          {
+            id: "photo-masking",
+            title: "Photo Masking",
+            slug: "photo-masking",
+            hero: "/images/Photo-Masking/photo-masking-9-after.webp",
+            href: "/image-editing-service/photo-masking",
+            intro: {
+              summary: "Accurate selection and adjustment of delicate details like hair and fur."
+            }
+          },
+          {
+            id: "photo-retouch",
+            title: "Photo Retouch",
+            slug: "photo-retouch",
+           hero: "/images/Photo-Retouch/photo-retouch-4-after.webp",
+            href: "/image-editing-service/photo-retouch",
+            intro: {
+              summary: "Improve pictures by eliminating spots and adding detail naturally."
+            }
+          },
+          {
+            id: "color-correction",
+            title: "Color Correction",
+            slug: "color-correction",
+            hero: "/images/Color-Correction/color-correction-4-after.webp",
+            href: "/image-editing-service/color-correction",
+            intro: {
+              summary: "Alter tones, brightness, and saturation to fit desired style and brand colors."
+            }
+          }
+        ]}
+      />
+
       {/* FAQ + Contact */}
       <section className="w-full h-full px-4 py-10 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-40">
           <div className="flex flex-col space-y-2">
-            <h2 className="text-[40px] md:text-[60px] lg:text-[80px] title font-extrabold text-left">FAQ</h2>
+            <h2 className="text-[32px] md:text-[40px] lg:text-[60px] title font-bold text-left">FAQ</h2>
             {faqLoading && <p className="mt-6 opacity-70">Loading FAQs…</p>}
             <div className="mt-10 w-full mx-auto divide-y divide-black dark:divide-white/10">
               {!faqLoading && faqs?.length > 0 && <FAQ faqs={faqs} />}
@@ -228,11 +317,12 @@ export default function ServiceDetailsPage() {
             </div>
           </div>
           <div className="flex flex-col space-y-2">
-            <h2 className="text-[40px] md:text-[60px] lg:text-[80px] title font-extrabold text-left">CONTACT US</h2>
+            <h2 className="text-[32px] md:text-[40px] lg:text-[60px] title font-bold text-left">CONTACT US</h2>
             <ContactForm />
           </div>
         </div>
       </section>
+      </div>
       <FooterGrid />
     </>
   );

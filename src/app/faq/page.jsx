@@ -44,8 +44,8 @@ export default function FAQPage() {
     return () => controller.abort();
   }, []);
   return (
-    <div>
-      <div className=" bg-white text-black dark:bg-black dark:text-white px-4 sm:px-10 py-20 font-sans">
+    <div className="">
+      <div className=" container mx-auto px-4 sm:px-10 py-20 font-sans">
         <div className=" mx-auto">
           <h1 className="  text-[40px] md:text-[60px] xl:text-[100px] title font-bold text-center">
             FAQ

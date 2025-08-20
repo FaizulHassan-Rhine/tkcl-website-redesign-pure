@@ -14,7 +14,7 @@ const videos = [
 export default function VideoGrid() {
   return (
     <>
-      <div className="py-20">
+      <div className="container mx-auto py-20">
         <h1 className="text-[32px] md:text-[48px] xl:text-[100px] mb-6 lg:mb-20 font-semibold title text-center">
           Video Editing Services
         </h1>

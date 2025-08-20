@@ -88,7 +88,7 @@ export default function ContactForm() {
             onFocus={() => setIsOpen(true)}
             onBlur={() => setIsOpen(false)}
           >
-            {!isOpen && <option value="">Solution</option>}
+            {!isOpen && <option value="">Services</option>}
             <option value="Image Editing Services">Image Editing</option>
             <option value="Video Editing Services">Video Editing</option>
             <option value="3D Modelling & Rendering Service">3D Modelling & Rendering</option>

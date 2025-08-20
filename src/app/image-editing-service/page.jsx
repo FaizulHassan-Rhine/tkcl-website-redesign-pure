@@ -64,7 +64,7 @@ export default function ImageEditingGridPage() {
 
   return (
     <>
-      <section ref={sectionRef} className="mx-auto px-4 md:px-6 py-20">
+      <section ref={sectionRef} className="container mx-auto px-4 md:px-6 py-20">
         <div className="mb-8 md:mb-12 text-center">
           <h2 className="text-[32px] md:text-[48px] xl:text-[100px] title font-semibold tracking-tight">Image Editing Services</h2>
           {loading && <p className="opacity-70 mt-2">Loading…</p>}

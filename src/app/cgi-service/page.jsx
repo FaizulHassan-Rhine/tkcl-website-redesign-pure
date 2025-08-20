@@ -65,7 +65,7 @@ function ModelCard({ title, src }) {
 
 function ShowcaseSection({ heading, items, subtitle }) {
   return (
-    <section className="py-12 sm:py-16">
+    <section className="container mx-auto py-12 sm:py-16">
       <h3 className="text-2xl title sm:text-3xl md:text-[40px] font-bold tracking-tight text-left mb-8">
         {heading}
       </h3>

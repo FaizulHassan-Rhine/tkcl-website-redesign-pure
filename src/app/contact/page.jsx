@@ -6,7 +6,7 @@ import React from "react";
 export default function Contact() {
   return (
     <>
-      <div className="bg-white text-black dark:bg-black dark:text-white  px-6 md:px-20 py-32">
+      <div className="container mx-auto  px-6 md:px-20 py-32">
         {/* Header */}
         <h1 className="text-6xl lg:text-[100px] title  font-semibold text-center">
           CONTACT
@@ -36,7 +36,7 @@ export default function Contact() {
               href="mailto:hello@thekowcompany.com"
               className="underline text-[16px] lg:text-[32px] sub-title "
             >
-              hello@thekowcompany.com
+              info@thekowcompany.com
             </a>
             {/* <div className="mt-8 space-y-2">
               <p className="text-sm text-gray-400">Follow</p>

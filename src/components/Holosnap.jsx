@@ -10,14 +10,14 @@ export default function HoloSnap() {
         }
   `}</style> 
      <div className="container mx-auto h-screen">
-       <h1 className='text-[40px] md:text-[50px] xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our AI Tools</h1>
+      
        <section className="flex flex-col md:flex-row items-center justify-between mx-auto  py-12">
         {/* Left side - Image */}
         <div className="w-full md:w-1/2 flex justify-center">
           <img
             src="/images/Black-Titanium.png"
             alt="Description"
-            className="w-[80%]  "
+            className="w-[70%]  "
           />
         </div>
   

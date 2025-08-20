@@ -67,12 +67,12 @@ const LoadingScreenOverlay = ({ onComplete }) => {
     })
     .to(leftDoorRef.current, {
       x: '-100%',
-      duration: 1,
+      duration: .5,
       ease: 'power2.inOut',
     }, '+=0.2')
     .to(rightDoorRef.current, {
       x: '100%',
-      duration: 1,
+      duration: .5,
       ease: 'power2.inOut',
     }, '<');
   };
@@ -94,7 +94,7 @@ const LoadingScreenOverlay = ({ onComplete }) => {
       {/* Left Door */}
       <div
         ref={leftDoorRef}
-        className="absolute inset-y-0 left-0 bg-gradient-to-r from-gray-900 to-black"
+        className="absolute inset-y-0 left-0 bg-white "
         style={{
           width: 'calc(50% + 2px)',
           transform: 'translateX(0%)',
@@ -105,7 +105,7 @@ const LoadingScreenOverlay = ({ onComplete }) => {
       {/* Right Door */}
       <div
         ref={rightDoorRef}
-        className="absolute inset-y-0 right-0 bg-gradient-to-l from-gray-900 to-black"
+        className="absolute inset-y-0 right-0 bg-white"
         style={{
           width: 'calc(50% + 2px)',
           transform: 'translateX(0%)',
@@ -118,7 +118,7 @@ const LoadingScreenOverlay = ({ onComplete }) => {
         <div className="text-center">
           <div
             ref={spinnerRef}
-            className="w-40 h-40 border-8 border-white border-t-transparent rounded-full mx-auto mb-8"
+            className="w-40 h-40 border-8 border-black border-t-transparent rounded-full mx-auto mb-8"
             style={{
               transform: 'rotate(0deg)',
               willChange: 'transform',
