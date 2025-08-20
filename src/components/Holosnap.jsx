@@ -1,7 +1,16 @@
 'use client'
 export default function HoloSnap() {
     return (
+     <>
+      <style jsx>{`
+    .font-tartuffo-bold-italic {
+          font-family: 'Tartuffo', serif;
+          font-weight: 700;
+          font-style: italic;
+        }
+  `}</style> 
      <div className="container mx-auto h-screen">
+       <h1 className='text-[40px] md:text-[50px] xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our AI Tools</h1>
        <section className="flex flex-col md:flex-row items-center justify-between mx-auto  py-12">
         {/* Left side - Image */}
         <div className="w-full md:w-1/2 flex justify-center">
@@ -29,6 +38,7 @@ export default function HoloSnap() {
         </div>
       </section>
      </div>
+     </>
     );
   }
   

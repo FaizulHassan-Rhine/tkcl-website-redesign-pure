@@ -91,7 +91,17 @@ export default function FeaturedWork() {
   }, []);
 
   return (
+  <>
+  <style jsx>{`
+    .font-tartuffo-bold-italic {
+          font-family: 'Tartuffo', serif;
+          font-weight: 700;
+          font-style: italic;
+        }
+  `}</style>  
     <section ref={sectionRef} className="container mx-auto ">
+             <h1 className='text-[40px] md:text-[50px] py-20 xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our Services</h1>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 w-full h-full  py-10 mx-auto">
         {/* 1st: Image */}
         <MediaBox item={items[0]} />
@@ -99,7 +109,7 @@ export default function FeaturedWork() {
         {/* 2nd: Video */}
         {/* 2nd: Video */}
 <div className="flex flex-col space-y-2">
-  <div className="relative overflow-hidden rounded-xl aspect-[3/2] w-full">
+  <div className="relative overflow-hidden rounded-md aspect-[3/2] w-full">
     <video
       className="zoom-image absolute top-0 left-0 w-full h-full object-cover will-change-transform"
       src={video.src}
@@ -130,13 +140,14 @@ export default function FeaturedWork() {
         ))}
       </div>
     </section>
+  </>
   );
 }
 
 function MediaBox({ item }) {
   return (
     <div className="flex flex-col space-y-2">
-      <div className="relative overflow-hidden rounded-xl shadow-lg aspect-[3/2] w-full">
+      <div className="relative overflow-hidden rounded-md  aspect-[3/2] w-full">
         {item.type === "image" ? (
           <img
             src={item.src}
@@ -163,6 +174,7 @@ function MediaBox({ item }) {
 </a>
 
       </div>
+
     </div>
   );
 }

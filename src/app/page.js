@@ -15,6 +15,7 @@ import SecondHero from '@/components/SecondHero';
 import ClientBrand from '@/components/ClientBrand';
 import Retouched from '@/components/Retouched';
 import HoloSnap from '@/components/Holosnap';
+import HeroSection from '@/components/HeroText';
 
 export default function Page() {
   return (
@@ -23,7 +24,8 @@ export default function Page() {
       <section>
         <div className="flex flex-col  md:flex-row justify-between gap-6 lg:gap-20 items-start ">
           
-          <AnimatedHeadline/>
+          {/* <AnimatedHeadline/> */}
+          <HeroSection/>
 
          {/* <div className='flex flex-col items-center md:pt-20 md:items-start'>
            <div className="flex justify-center gap-10 items-center">
