@@ -33,7 +33,7 @@ const OurClientNew = () => {
         }
       `}</style>
 
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto h-screen ">
         <h1 className="text-[40px] md:text-[50px] title py-20 xl:text-[60px] text-center font-tartuffo-bold-italic leading-[100%]">
           Our Clients
         </h1>
@@ -42,7 +42,7 @@ const OurClientNew = () => {
           {clients.map((src, i) => (
             <div
               key={i}
-              className="flex justify-center items-center w-[200px] h-[120px]"
+              className="flex justify-center items-center w-[100px] md:w-[200px] h-[120px]"
             >
               <img
                 src={src}
