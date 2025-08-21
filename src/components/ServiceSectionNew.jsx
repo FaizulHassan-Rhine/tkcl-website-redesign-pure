@@ -95,7 +95,7 @@ export default function ServicesSection() {
         <h1 className='text-[40px] md:text-[50px] xl:text-[60px] title font-semibold'>Explore <br/> Our Creativity</h1>
         
       </div>
-      <div className='h-[1px]'></div>
+      <div className='h-[1px]'></div> 
       
       {services.map((s, index) => (
         <div
