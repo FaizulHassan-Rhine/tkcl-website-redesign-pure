@@ -99,7 +99,7 @@ export default function FeaturedWork() {
           font-style: italic;
         }
   `}</style>  
-    <section ref={sectionRef} className="container mx-auto ">
+    <section id="services" ref={sectionRef} className="container mx-auto ">
              <h1 className='text-[40px] md:text-[50px] py-20 xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our Services</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 w-full h-full  py-10 mx-auto">

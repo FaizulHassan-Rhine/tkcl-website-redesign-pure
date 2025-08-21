@@ -9,7 +9,7 @@ export default function HoloSnap() {
           font-style: italic;
         }
   `}</style> 
-     <div className="container mx-auto h-screen">
+     <div id="holosnap" className="container mx-auto h-full md:h-screen">
       
        <section className="flex flex-col md:flex-row items-center justify-between mx-auto  py-12">
         {/* Left side - Image */}
@@ -17,7 +17,7 @@ export default function HoloSnap() {
           <img
             src="/images/Black-Titanium.png"
             alt="Description"
-            className="w-[70%]  "
+            className="w-[50%]"
           />
         </div>
   

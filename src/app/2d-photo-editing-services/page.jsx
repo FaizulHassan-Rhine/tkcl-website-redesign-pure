@@ -74,7 +74,7 @@ export default function ImageEditingGridPage() {
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 max-w-8xl mx-auto">
           {!loading && !error && services.map((svc, idx) => {
             const slug = svc.slug || slugify(svc.title || svc.alt || `service-${idx+1}`);
-            const href = `/image-editing-service/${slug}`;
+            const href = `/2d-photo-editing-services/${slug}`;
             return (
              <div className='flex flex-col '>
               <figure key={svc.id || slug} className="flex flex-col relative overflow-hidden shadow-xl rounded group">

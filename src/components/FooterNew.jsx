@@ -21,7 +21,7 @@ export default function FooterGrid() {
               />
             </div>
             </a>
-            <p className="text-[16px] max-w-[320px] leading-6  footer-text-body">
+            <p className="text-[16px] max-w-[320px] leading-6 text-justify footer-text-body">
              The powerhouse of all your content-related needs. Refer to our image and video editing services to get the best content that meets your desire. Do not miss out on the exciting 3D services that we are ready to offer along with AI-driven solutions. 
             </p>
 
@@ -51,9 +51,9 @@ export default function FooterGrid() {
           <div>
             <h3 className="text-2xl font-semibold sub-title">Our Services</h3>
             <ul className="mt-4 space-y-2 text-[16px] footer-text-body">
-              <li><Link href="/image-editing-service" className="hover:text-black">Image Editing</Link></li>
-              <li><Link href="/video-service" className="hover:text-black">Video Editing</Link></li>
-              <li><Link href="/cgi-service" className="hover:text-black">3D Modeling & Rendering</Link></li>
+              <li><Link href="/2d-photo-editing-services" className="hover:text-black">Image Editing</Link></li>
+              <li><Link href="/video-editing-services" className="hover:text-black">Video Editing</Link></li>
+              <li><Link href="/3d-modeling-and-rendering" className="hover:text-black">3D Modeling & Rendering</Link></li>
             </ul>
           </div>
 
@@ -63,8 +63,8 @@ export default function FooterGrid() {
             <ul className="mt-4 space-y-2 text-[16px] footer-text-body">
               
               {/* <li><Link href="#" className="hover:text-black">Career</Link></li> */}
-              <li><Link href="/blog" className="hover:text-black">Blogs</Link></li>
-              <li><Link href="/contact" className="hover:text-black">Contact us</Link></li>
+              <li><Link href="/blogs" className="hover:text-black">Blogs</Link></li>
+              <li><Link href="/contact-us" className="hover:text-black">Contact us</Link></li>
               <li><Link href="https://thekowcompany.com/api-resources/retouched" className="hover:text-black">API Resources</Link></li>
             </ul>
           </div>
@@ -126,7 +126,7 @@ export default function FooterGrid() {
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-600">
             <Link href="privacy-policy"  className="hover:text-black">Privacy Policy</Link>
             {/* <Link href="#" className="hover:text-black">Cookie Policy</Link> */}
-            <Link href="term-and-conditions" className="hover:text-black">Terms &amp; Conditions</Link>
+            <Link href="terms-and-conditions" className="hover:text-black">Terms &amp; Conditions</Link>
           </div>
         </div>
       </div>

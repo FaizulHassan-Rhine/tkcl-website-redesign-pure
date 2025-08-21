@@ -9,7 +9,7 @@ export default function Retouched() {
           font-style: italic;
         }
   `}</style> 
-     <div className="container mx-auto h-screen ">
+     <div id="retouched" className="container mx-auto h-full md:h-screen ">
        <h1 className='text-[40px] md:text-[50px] py-20 xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our AI Tools</h1>
        <section className="flex flex-col md:flex-row items-center justify-between mx-auto  py-12">
         {/* Left side - Image */}
@@ -17,7 +17,7 @@ export default function Retouched() {
           <img
             src="/images/Silver.png"
             alt="Description"
-            className="w-[90%]  "
+            className="w-[90%] "
           />
         </div>
   

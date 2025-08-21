@@ -1,10 +1,56 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export default function HeroSection() {
   const [loadVideo, setLoadVideo] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0); // index over duplicated list
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const transitionMs = 700; // keep in sync with class duration-700
 
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Content for different sections (original list)
+  const heroContent = useMemo(
+    () => [
+      {
+        title: "Bring Your Visuals to Life",
+        subtitle: "with AI-Powered, Human Perfection",
+        description: "Stunning 2D Image Editing and 3D Visualization",
+        buttonText: "2D",
+        targetSection: "services",
+      },
+      {
+        title: "Transform Your Ideas",
+        subtitle: "into Digital Masterpieces",
+        description: "Professional Design Services & Creative Solutions",
+        buttonText: "3D",
+        targetSection: "services",
+      },
+      {
+        title: "Elevate Your Brand",
+        subtitle: "with Premium Visual Content",
+        description: "Custom Graphics, Animations & Interactive Experiences",
+        buttonText: "AI",
+        targetSection: "retouched",
+      },
+    ],
+    []
+  );
+
+  // Duplicate slides to fake an infinite track (leftward only)
+  const slides = useMemo(() => [...heroContent, ...heroContent], [heroContent]);
+
+  const realCount = heroContent.length;
+  const realIndex = currentIndex % realCount; // 0..realCount-1
+
+  // Start loading bg video once hero enters viewport
   useEffect(() => {
     const handleScroll = () => {
       const hero = document.getElementById("hero-section");
@@ -13,51 +59,151 @@ export default function HeroSection() {
         setLoadVideo(true);
       }
     };
-
-    handleScroll(); // run on load
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Auto-advance forward only (leftward translate)
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIsTransitioning(true);
+      setCurrentIndex((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
+
+  // When we pass the first copy (>= realCount), jump back by realCount with no transition
+  const trackRef = useRef(null);
+  useEffect(() => {
+    if (currentIndex < realCount) return; // still in first copy
+    // After transition ends, disable transition and snap back by -realCount
+    const timer = setTimeout(() => {
+      setIsTransitioning(false);
+      setCurrentIndex((prev) => prev - realCount);
+      // Re-enable transition on next tick so subsequent moves animate
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setIsTransitioning(true));
+      });
+    }, transitionMs);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, realCount]);
+
+  // Dot click: always move forward (never backward) to the desired real index
+  const goToRealIndexForwardOnly = (targetRealIndex) => {
+    const advanceBy = (targetRealIndex - realIndex + realCount) % realCount; // 0..realCount-1
+    if (advanceBy === 0) return; // already there
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + advanceBy);
+  };
+
   return (
-    <section
-      id="hero-section"
-      className="relative h-screen w-full overflow-hidden flex items-center justify-center"
-    >
-      {/* Background Video */}
-      {loadVideo && (
-        <video
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        >
-          <source src="/videos/Alnature-animation-for-website.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )}
+    <>
+      <section
+        id="hero-section"
+        className="relative h-[250px] md:h-screen w-full overflow-hidden flex items-center justify-center"
+      >
+        {/* Background Video */}
+        {loadVideo && (
+          <video
+            className="absolute inset-0 w-full h-full object-contain md:object-cover z-0"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/videos/Alnature-animation-for-website.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
 
-      {/* Overlay */}
-      <div className="absolute inset-0 z-10 " />
+        {/* Overlay */}
+        <div className="absolute inset-0 z-10 " />
 
-      {/* Content */}
-      <div className="relative z-20 text-center -mt-[200px]  text-white">
-        <h1 className="text-4xl md:text-6xl font-bold ">
-          Bring Your Visuals to Life<br />
-          <span className="text-white">with AI-Powered, Human Perfection</span>
-        </h1>
-        <h2 className="mt-4 text-xl md:text-2xl font-medium">
-          Stunning 2D Image Editing and 3D Visualization
-        </h2>
-        <a href="/contact">
-          <button className="relative mt-5 px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
-            <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-            <span className="relative z-10 text-[14px] xl:text-[20px]">Let's Talk</span>
-          </button>
-        </a>
-      </div>
-    </section>
+        {/* Content */}
+        <div className="relative z-20 text-center -mt-[70px] md:-mt-[300px] text-white px-4 overflow-hidden w-full">
+          <div className="relative w-full">
+            {/* Sliding content container */}
+            <div
+              ref={trackRef}
+              className={`flex ${
+                isTransitioning ? "transition-transform duration-700 ease-in-out" : ""
+              }`}
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {slides.map((content, index) => (
+                <div key={index} className="w-full flex-shrink-0">
+                  <div className="transform transition-all duration-500 ease-in-out">
+                    <h1 className="text-[20px] md:text-6xl font-bold leading-tight">
+                      <span
+                        className="block transform transition-all duration-500 ease-out"
+                        style={{
+                          opacity: index % realCount === realIndex ? 1 : 0,
+                          transform: `translateY(${index % realCount === realIndex ? "0px" : "20px"})`,
+                        }}
+                      >
+                        {content.title}
+                      </span>
+                      
+                      <span
+                        className="text-white pt-2 transform transition-all duration-500 ease-out delay-100"
+                        style={{
+                          opacity: index % realCount === realIndex ? 1 : 0,
+                          transform: `translateY(${index % realCount === realIndex ? "0px" : "20px"})`,
+                        }}
+                      >
+                        {content.subtitle}
+                      </span>
+                    </h1>
+
+                    <h2
+                      className="mt-1 md:mt-4 text-[12px] md:text-2xl font-medium transform transition-all duration-500 ease-out delay-200"
+                      style={{
+                        opacity: index % realCount === realIndex ? 1 : 0,
+                        transform: `translateY(${index % realCount === realIndex ? "0px" : "20px"})`,
+                      }}
+                    >
+                      {content.description}
+                    </h2>
+
+                    <button
+                      onClick={() => scrollToSection(content.targetSection)}
+                      className="relative mt-2 md:mt-8 px-4 md:px-8 md:py-4 py-2 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white hover:scale-105 transform delay-300"
+                      style={{
+                        opacity: index % realCount === realIndex ? 1 : 0,
+                        transform: `translateY(${index % realCount === realIndex ? "0px" : "30px"}) scale(${index % realCount === realIndex ? "1" : "0.9"})`,
+                      }}
+                    >
+                      <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+                      <span className="relative z-10 text-[14px] xl:text-[20px] transition-all duration-300">
+                        {content.buttonText}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Progress indicators */}
+          {/* <div className="flex justify-center space-x-2 mt-8 relative z-30">
+            {heroContent.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToRealIndexForwardOnly(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 transform ${
+                  index === realIndex
+                    ? "bg-white scale-110 shadow-lg"
+                    : "bg-white/50 hover:bg-white/75 hover:scale-105"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div> */}
+        </div>
+      </section>
+    </>
   );
 }

@@ -124,21 +124,21 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="/image-editing-service"
+                        href="/2d-photo-editing-services"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white  hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Image Editing
                       </a>
                     
                       <a
-                        href="/video-service"
+                        href="/video-editing-services"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Video Editing
                       </a>
                      
                       <a
-                        href="/cgi-service"
+                        href="/3d-modeling-and-rendering"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         3D Modelling & Rendering
@@ -208,7 +208,7 @@ export default function Navbar() {
                   }`}>
                     <div className="py-2">
                       <a
-                        href="/contact"
+                        href="/contact-us"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         Contact Us
@@ -220,7 +220,7 @@ export default function Navbar() {
                         About Us
                       </a> */}
                       <a
-                        href="faq"
+                        href="faqs"
                         className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
                       >
                         FAQ
@@ -235,7 +235,7 @@ export default function Navbar() {
                   </div>
                 </li>
 
-               <a href="/blog" >
+               <a href="/blogs" >
                  <li className="hover:text-[#4FA59B] text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
                   Blogs
                 </li>
@@ -263,7 +263,7 @@ export default function Navbar() {
               </button> */}
 
               {/* Let's Talk Button */}
-              <a href="/contact">
+              <a href="/contact-us">
                 <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
                 <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 border-[#3B837B] transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10 text-[14px] xl:text-[20px]">Let's Talk</span>
@@ -329,14 +329,14 @@ export default function Navbar() {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${mobileDropdowns.services ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="ml-4 mt-2 space-y-1">
-                    <a href="/image-editing-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/2d-photo-editing-services" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Image Editing
                     </a>
-                    <a href="/video-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/video-editing-services" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Video Editing
                     </a>
                    
-                    <a href="/cgi-service" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/3d-modeling-and-rendering" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       3D Modelling & CGI
                     </a>              
                   </div>
@@ -394,13 +394,13 @@ export default function Navbar() {
                 </div>
                 <div className={`overflow-hidden transition-all duration-300 ${mobileDropdowns.support ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
                   <div className="ml-4 mt-2 space-y-1">
-                    <a href="/contact" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/contact-us" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       Contact Us
                     </a>
                     <a href="#" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       About Us
                     </a>
-                    <a href="/faq" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
+                    <a href="/faqs" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
                       FAQ
                     </a>
                     <a href="https://thekowcompany.com/api-resources/retouched" className="block py-2 px-3 text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200">
@@ -410,12 +410,12 @@ export default function Navbar() {
                 </div>
               </li>
 
-            <a href="/blog">
+            <a href="/blogs">
                 <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Blogs</li>
             </a>
               
              <div className='flex justify-center items-center'>
-               <a href="/contact">
+               <a href="/contact-us">
                 <li className="py-2 px-2">
                 <button className="relative w-40 px-4 py-4 bg-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 text-white">
                   <span className="absolute inset-0 bg-[#4FA59B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
