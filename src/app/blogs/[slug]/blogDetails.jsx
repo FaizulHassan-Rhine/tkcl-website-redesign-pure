@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BlogDetails = ({ blog, is2D, relatedBlogs }) => {
   const contentRef = useRef(null);
-  const imagerealDomain = 'https://tkcl-website-redesign-pure.vercel.app';
+  const imagerealDomain = 'https://thekowcompany.com';
   const thumbPath = blog.thumb.trim();
 
   // Inject JSON-LD schema

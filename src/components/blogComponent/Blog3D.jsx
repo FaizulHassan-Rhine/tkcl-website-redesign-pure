@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import { useRouter } from 'next/navigation';
 const Blog3D = () => {
   const blog3dApidomain = 'https://tkclbackendev.onrender.com';
-  const imagerealDomaina3d = 'https://tkcl-website-redesign-pure.vercel.app';
+  const imagerealDomaina3d = 'https://thekowcompany.com';
   const [blogs3D, setBlogs3D] = useState([]);
 const router = useRouter();
   useEffect(() => {

@@ -51,7 +51,7 @@ export default function Navbar() {
               {/* Logo */}
               <a href="/" className="">
                 <img
-                  src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
+                  src="/images/logo/logoBlack.png"
                   alt="Logo"                
                   width={100}
                   height={100}
@@ -88,7 +88,7 @@ export default function Navbar() {
            <a href="/" className="">
             
               <img
-                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
+                src="/images/logo/logoBlack.png"
                 alt="Logo"                
                 width={100}
                 height={100}
