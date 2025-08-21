@@ -76,7 +76,7 @@ const AllBlog = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredBlogs.slice(0, 3).map((items, index) => (
                 <Link
-                  href={`/blog/${items.slug}`}
+                  href={`/blogs/${items.slug}`}
                 key={`top-${index}`}
                 prefetch // ⬅️ be explicit
                 onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)} // ⬅️ prefetch on hover
@@ -86,7 +86,7 @@ const AllBlog = () => {
                     <div className="cardImage">
                       <div className="relative w-full aspect-[16/9]">
                         <img
-                          src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                          src={`${imagerealDomainallblogs}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                           alt={items.title}
                           className="w-full h-[300px] object-fill"
                         />
@@ -113,7 +113,7 @@ const AllBlog = () => {
             <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
               {filteredBlogs.slice(3, 5).map((items, index) => (
                 <Link
-                     href={`/blog/${items.slug}`}
+                     href={`/blogs/${items.slug}`}
               key={`wide-${index}`}
               prefetch
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)}
@@ -124,7 +124,7 @@ const AllBlog = () => {
                       {/* keep same image construction, just let it fill width */}
                       <div className="relative w-full aspect-[16/9]">
                         <img
-                          src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                          src={`${imagerealDomainallblogs}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                           alt={items.title}
                           className="object-cover"
                         />
@@ -150,7 +150,7 @@ const AllBlog = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredBlogs.slice(5).map((items, index) => (
                 <Link
-                  href={`/blog/${items.slug}`}
+                  href={`/blogs/${items.slug}`}
               key={`rest-${index}`}
               prefetch
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)}
@@ -160,7 +160,7 @@ const AllBlog = () => {
                     <div className="cardImage">
                       <div className="relative w-full aspect-[16/9]">
                         <img
-                          src={`https://thekowcompany.com/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
+                          src={`${imagerealDomainallblogs}/images/thumbnail/${getFileNameFromCloudinaryUrl(items.thumb)}`}
                           alt={items.title}
                           className="w-full h-[300px] object-fill"
                         />
