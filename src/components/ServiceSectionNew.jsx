@@ -90,7 +90,7 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <div ref={containerRef} className="space-y-12 xl:space-y-24 py-16">
+    <div ref={containerRef} className="space-y-12  xl:space-y-24 py-16">
       <div className='leading-[250%] xl:leading-[400%] '>
         <h1 className='text-[40px] md:text-[50px] xl:text-[60px] title font-semibold'>Explore <br/> Our Creativity</h1>
         
