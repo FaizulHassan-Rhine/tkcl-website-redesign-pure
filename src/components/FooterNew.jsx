@@ -16,7 +16,7 @@ export default function FooterGrid() {
               <div className="flex items-center gap-3">
               <img
                 className="w-40"
-                src="https://thekowcompany.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FThe-KOW-Company-Logo.18227de6.webp&w=640&q=75&dpl=dpl_5fM2KP2eYrzKNkUGTj5wiZnw7r6T"
+                src="/images/logo/logoBlack.png"
                 alt="The KOW Company Logo"
               />
             </div>
