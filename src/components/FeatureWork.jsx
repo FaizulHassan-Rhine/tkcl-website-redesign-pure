@@ -13,7 +13,7 @@ const video = {
   service: "Photo Editing Services",
   src: "https://tkcl-website-redesign-pure.vercel.app/videos/crop.webm",
   alt: "Masking",
-  link: "/video-service",
+  link: "/video-editing-services",
 };
 
 // Other media items
@@ -24,14 +24,14 @@ const items = [
     service: "Photo Editing Services",
     src: "https://tkcl-website-redesign-pure.vercel.app/images/Photo-Retouch/photo-retouch-2-after.webp",
     alt: "Clipping Path",
-    link: "/image-editing-service",
+    link: "/2d-photo-editing-services",
   },
   {
     type: "3d",
     src: "https://sketchfab.com/models/ff101cef30c140eb8f6893898aa5ca2f/embed",
     title: "3D Modelling & Rendering",
     service: "3D Services",
-    link: "/cgi-service",
+    link: "/3d-modeling-and-rendering",
   },
   {
     type: "image",
@@ -100,7 +100,7 @@ export default function FeaturedWork() {
         }
   `}</style>  
     <section id="services" ref={sectionRef} className="container mx-auto ">
-             <h1 className='text-[40px] md:text-[50px] py-20 xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our Services</h1>
+             <h1 className='text-[40px] md:text-[50px] py-5 sm:py-20 xl:text-[60px] text-center title font-tartuffo-bold-italic leading-[100%]'>Our Services</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12 w-full h-full  py-10 mx-auto">
         {/* 1st: Image */}

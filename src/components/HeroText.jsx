@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { HiArrowRight } from "react-icons/hi";
 
 export default function HeroSection() {
   const [loadVideo, setLoadVideo] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0); // index over duplicated list
   const [isTransitioning, setIsTransitioning] = useState(true);
-  const transitionMs = 700; // keep in sync with class duration-700
+  const transitionMs = 1500; // keep in sync with class duration-700
 
   // Smooth scroll function
   const scrollToSection = (sectionId) => {
@@ -15,7 +16,11 @@ export default function HeroSection() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-
+const styles = `
+  @keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }`;
   // Content for different sections (original list)
   const heroContent = useMemo(
     () => [
@@ -23,21 +28,27 @@ export default function HeroSection() {
         title: "Bring Your Visuals to Life",
         subtitle: "with AI-Powered, Human Perfection",
         description: "Stunning 2D Image Editing and 3D Visualization",
-        buttonText: "2D",
+        buttonText: "2D Services",
+        buttonLinkText: "Learn More",
+      demoLink: "/2d-photo-editing-services",
         targetSection: "services",
       },
       {
         title: "Transform Your Ideas",
         subtitle: "into Digital Masterpieces",
         description: "Professional Design Services & Creative Solutions",
-        buttonText: "3D",
+        buttonText: "3D Services",
+        buttonLinkText: "Learn More",
+      demoLink: "/3d-modeling-and-rendering",
         targetSection: "services",
       },
       {
         title: "Elevate Your Brand",
         subtitle: "with Premium Visual Content",
         description: "Custom Graphics, Animations & Interactive Experiences",
-        buttonText: "AI",
+        buttonText: "Our AI Tools",
+        buttonLinkText: "Learn More",
+      demoLink: "https://aimodelling.thekowcompany.com/",
         targetSection: "retouched",
       },
     ],
@@ -69,7 +80,7 @@ export default function HeroSection() {
     const id = setInterval(() => {
       setIsTransitioning(true);
       setCurrentIndex((prev) => prev + 1);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(id);
   }, []);
 
@@ -100,6 +111,7 @@ export default function HeroSection() {
 
   return (
     <>
+     <style>{styles}</style>
 <section
   id="hero-section"
   className="relative h-[92vh] w-full overflow-hidden flex items-center justify-center max-lg:-mt-[15px]"
@@ -120,7 +132,7 @@ export default function HeroSection() {
         )}
 
         {/* Overlay */}
-        <div className="absolute inset-0 z-10 " />
+        <div className="absolute inset-0 z-10 bg-black bg-opacity-15" />
 
         {/* Content */}
         <div className="relative z-20 text-center -mt-[70px] md:-mt-[300px] text-white px-4 overflow-hidden w-full">
@@ -135,10 +147,10 @@ export default function HeroSection() {
             >
               {slides.map((content, index) => (
                 <div key={index} className="w-full flex-shrink-0">
-                  <div className="transform transition-all duration-500 ease-in-out">
+                  <div className="transform transition-all duration-500 ease-in-out duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)]" >
                     <h1 className="text-[20px] md:text-6xl font-bold leading-tight">
                       <span
-                        className="block transform transition-all duration-500 ease-out"
+                        className="block transform transition-all duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
                         style={{
                           opacity: index % realCount === realIndex ? 1 : 0,
                           transform: `translateY(${index % realCount === realIndex ? "0px" : "20px"})`,
@@ -159,7 +171,7 @@ export default function HeroSection() {
                     </h1>
 
                     <h2
-                      className="mt-1 md:mt-4 text-[12px] md:text-2xl font-medium transform transition-all duration-500 ease-out delay-200"
+                      className="mt-1 md:mt-4 text-[12px] md:text-2xl font-medium transform  transition-all duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-400"
                       style={{
                         opacity: index % realCount === realIndex ? 1 : 0,
                         transform: `translateY(${index % realCount === realIndex ? "0px" : "20px"})`,
@@ -167,20 +179,42 @@ export default function HeroSection() {
                     >
                       {content.description}
                     </h2>
+                   <div className="flex items-center justify-center gap-4">
+   <button
+      onClick={() => scrollToSection(content.targetSection)}
+      className="relative mt-2 md:mt-8 px-4 md:px-8 md:py-3 py-2 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-[10px] font-medium overflow-hidden group transition-all duration-600 hover:text-white hover:scale-105 transform delay-300"
+    style={{
+      opacity: index % realCount === realIndex ? 1 : 0,
+      transform: `translateY(${index % realCount === realIndex ? "0px" : "30px"}) scale(${index % realCount === realIndex ? "1" : "0.9"})`,
+    }}
+  >
+    <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+    <span className="relative z-10 text-[14px] xl:text-[18px] transition-all duration-300">
+      {content.buttonText}
+    </span>
+  </button>
 
-                    <button
-                      onClick={() => scrollToSection(content.targetSection)}
-                      className="relative mt-2 md:mt-8 px-4 md:px-8 md:py-4 py-2 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white hover:scale-105 transform delay-300"
-                      style={{
-                        opacity: index % realCount === realIndex ? 1 : 0,
-                        transform: `translateY(${index % realCount === realIndex ? "0px" : "30px"}) scale(${index % realCount === realIndex ? "1" : "0.9"})`,
-                      }}
-                    >
-                      <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-                      <span className="relative z-10 text-[14px] xl:text-[20px] transition-all duration-300">
-                        {content.buttonText}
-                      </span>
-                    </button>
+  <a
+      href={content.demoLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="relative mt-2 md:mt-8 px-4 md:px-8 md:py-3 py-2 bg-transparent text-white border border-white rounded-[10px] font-medium overflow-hidden group transition-all duration-600 hover:text-[#4FA59B] hover:scale-105 transform delay-300 flex items-center gap-2"
+    style={{
+      opacity: index % realCount === realIndex ? 1 : 0,
+      transform: `translateY(${index % realCount === realIndex ? "0px" : "30px"}) scale(${index % realCount === realIndex ? "1" : "0.9"})`,
+    }}
+  >
+    <span className="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+      <span className="relative z-10 text-[14px] xl:text-[18px] transition-all duration-300 flex items-center gap-2">
+        {content.buttonLinkText}
+        <HiArrowRight 
+          className="w-5 h-5" 
+          style={{ animation: 'bounceRight 1.5s infinite ease-in-out' }}
+        />
+      </span>
+  </a>
+</div>
+
                   </div>
                 </div>
               ))}

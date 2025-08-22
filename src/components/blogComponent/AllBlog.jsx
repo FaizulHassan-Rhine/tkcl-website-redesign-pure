@@ -76,7 +76,7 @@ const AllBlog = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredBlogs.slice(0, 3).map((items, index) => (
                 <Link
-                  href={`/blogs/${items.slug}`}
+                  href={`/blog/${items.slug}`}
                 key={`top-${index}`}
                 prefetch // ⬅️ be explicit
                 onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)} // ⬅️ prefetch on hover
@@ -113,7 +113,7 @@ const AllBlog = () => {
             <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
               {filteredBlogs.slice(3, 5).map((items, index) => (
                 <Link
-                     href={`/blogs/${items.slug}`}
+                     href={`/blog/${items.slug}`}
               key={`wide-${index}`}
               prefetch
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)}
@@ -150,7 +150,7 @@ const AllBlog = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredBlogs.slice(5).map((items, index) => (
                 <Link
-                  href={`/blogs/${items.slug}`}
+                  href={`/blog/${items.slug}`}
               key={`rest-${index}`}
               prefetch
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)}

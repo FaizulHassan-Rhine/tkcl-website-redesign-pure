@@ -6,7 +6,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FooterGrid from '@/components/FooterNew';
 import slugify from '@/lib/slugify';
-
+import schema2D from "@/seo/schema2d";
+import Script from 'next/script';
 
 
 
@@ -103,6 +104,11 @@ export default function ImageEditingGridPage() {
         </div>
       </section>
       <FooterGrid />
+
+      
+            <Script id="2d-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(schema2D)}
+    </Script>
     </>
   );
 }

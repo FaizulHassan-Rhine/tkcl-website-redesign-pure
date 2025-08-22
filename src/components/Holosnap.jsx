@@ -9,24 +9,16 @@ export default function HoloSnap() {
           font-style: italic;
         }
   `}</style> 
-     <div id="holosnap" className="container mx-auto h-full md:h-screen">
+     <div id="holosnap" className="container mx-auto ">
       
-       <section className="flex flex-col md:flex-row items-center justify-between mx-auto  py-12">
+       <section className="flex flex-col md:flex-row items-center justify-between mx-auto py-5 sm:py-12">
         {/* Left side - Image */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <img
-            src="/images/Black-Titanium.png"
-            alt="Description"
-            className="w-[50%]"
-          />
-        </div>
-  
         {/* Right side - Text & Button */}
-        <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12 ">
-          <h2 className="text-3xl md:text-4xl font-bold text-black font-sans">
+        <div className="w-full md:w-1/2 mt-0  md:mt-0 md:pl-20 ">
+          <h2 className="text-2xl md:text-4xl font-bold text-black font-sans">
             Holosnap (Beta)
           </h2>
-          <p className="mt-4 text-lg text-black font-sans max-w-xl text-justify">
+          <p className="mt-4 text-lg text-black font-sans  text-justify">
           Turning ordinary images into detailed 3D models is no longer a thing of the past, it is the future! Holosnap allows users to create lifelike 3D representations without needing any complex modeling skills by using advanced AI, and computer vision enhanced with professional touch. The process of turning 2D visuals into immersive, interactive 3D models can be streamlined with Holosnap. Find a powerful and user-friendly solution for 3D modeling from images for various content creation ranging from Virtual/Augmented Reality to campaign ready solutions.
  
           </p>
@@ -36,6 +28,16 @@ export default function HoloSnap() {
           </button>
          </a>
         </div>
+
+        <div className="w-full md:w-1/2 flex justify-center">
+          <img
+            src="/images/Black-Titanium.png"
+            alt="Description"
+            className="w-[60%] mt-5 sm:mt-0"
+          />
+        </div>
+  
+       
       </section>
      </div>
      </>

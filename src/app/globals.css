@@ -347,3 +347,10 @@ body > .skiptranslate {
         display: none;
       }
     }
+
+
+    @media (max-width: 640px) {
+  #services,#retouched{
+    margin-top: 25px;
+  }
+    }

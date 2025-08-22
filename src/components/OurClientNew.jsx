@@ -33,8 +33,8 @@ const OurClientNew = () => {
         }
       `}</style>
 
-      <div className="container mx-auto h-screen ">
-        <h1 className="text-[40px] md:text-[50px] title py-20 xl:text-[60px] text-center font-tartuffo-bold-italic leading-[100%]">
+      <div className="container  ">
+        <h1 className="text-[40px] md:text-[50px] title py-5 sm:py-20 xl:text-[60px] text-center font-tartuffo-bold-italic leading-[100%]" id='oursclients'>
           Our Clients
         </h1>
 

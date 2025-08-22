@@ -1,7 +1,8 @@
 import FooterGrid from "@/components/FooterNew";
 import React from "react";
 import { metadata as pageMeta } from '@/seo/metadatas';
-
+import schema3D from "@/seo/shcema3d"
+import Script from "next/script"
 
 export const metadata = {
   title: pageMeta.threeMR.title,
@@ -118,6 +119,9 @@ export default function ThreeDShowcase() {
       </section>
 
       <FooterGrid />
+       <Script id="3d-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(schema3D)}
+    </Script>
     </>
   );
 }

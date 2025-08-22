@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from "re
 
 export default function FooterGrid() {
   return (
-    <footer className="bg-gray-100">
+    <footer className="bg-gray-100 " style={{margin:'0px'}}>
       <div className="container mx-auto  px-4 py-14">
         {/* 1 / 2 / 4 grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
@@ -14,11 +14,12 @@ export default function FooterGrid() {
           <div className="space-y-4">
             <a href="/" >
               <div className="flex items-center gap-3">
-              <img
+              {/* <img
                 className="w-40"
                 src="/images/logo/logoBlack.png"
                 alt="The KOW Company Logo"
-              />
+              /> */}
+              <h1 className="text-2xl font-semibold sub-title">The KOW Company</h1>
             </div>
             </a>
             <p className="text-[16px] max-w-[320px] leading-6 text-justify footer-text-body">

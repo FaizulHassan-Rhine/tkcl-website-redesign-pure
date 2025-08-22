@@ -15,7 +15,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
         {/* Toggle Buttons */}
         <div className="flex justify-center gap-4 mb-12 md:flex-wrap">
           <Link
-            href="/blogs"
+            href="/blog"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColor ? "bg-green-500" : "bg-transparent",
@@ -31,7 +31,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
             />
           </Link>
           <Link
-            href="/blogs/3d"
+            href="/blog/3d"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColor3d ? "bg-green-500" : "bg-transparent",
@@ -47,14 +47,14 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
             />
           </Link>
           <Link
-            href="/blogs/2d"
+            href="/blog/2d"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColor2d ? "bg-green-500" : "bg-transparent",
               "group"
             )}
           >
-            <span className="relative z-10">Photo</span>
+            <span className="relative z-10">2D</span>
             <span
               className={clsx(
                 "absolute inset-0 bg-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0",
@@ -63,7 +63,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
             />
           </Link>
           <Link
-            href="/blogs/events"
+            href="/blog/events"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColorevents ? "bg-green-500" : "bg-transparent",

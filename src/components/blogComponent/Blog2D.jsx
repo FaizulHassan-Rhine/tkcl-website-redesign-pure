@@ -68,7 +68,7 @@ const router = useRouter();
         {/* Row 1: 3 cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs2D.slice(0, 3).map((items, index) => (
-            <Link href={`/blogs/${items.slug}`} key={`top-${index}`}  prefetch // ⬅️ be explicit
+            <Link href={`/blog/${items.slug}`} key={`top-${index}`}  prefetch // ⬅️ be explicit
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)} aria-label="blog post">
               <div className="card_of_blog justify-center border-0 p-0 rounded-lg">
                 <div className="cardImage">
@@ -92,7 +92,7 @@ const router = useRouter();
         {/* Row 2: 2 wide cards */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
           {blogs2D.slice(3, 5).map((items, index) => (
-            <Link href={`/blogs/${items.slug}`} key={`wide-${index}`} prefetch // ⬅️ be explicit
+            <Link href={`/blog/${items.slug}`} key={`wide-${index}`} prefetch // ⬅️ be explicit
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)} aria-label="blog post">
               <div className="card_of_blog justify-center border-0 p-0 rounded-lg flex flex-col lg:flex-col overflow-hidden">
                 <div className="cardImage">
@@ -116,7 +116,7 @@ const router = useRouter();
         {/* Remaining cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
            {blogs2D.slice(5).map((items, index) => (
-            <Link href={`/blogs/${items.slug}`} key={`rest-${index}`}  prefetch // ⬅️ be explicit
+            <Link href={`/blog/${items.slug}`} key={`rest-${index}`}  prefetch // ⬅️ be explicit
               onMouseEnter={() => router.prefetch(`/blog/${items.slug}`)} aria-label="blog post">
               <div className="card_of_blog justify-center border-0 p-0 rounded-lg">
                 <div className="cardImage">

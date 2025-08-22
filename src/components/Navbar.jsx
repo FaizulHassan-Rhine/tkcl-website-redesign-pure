@@ -90,8 +90,8 @@ export default function Navbar() {
               <img
                 src="/images/logo/logoBlack.png"
                 alt="Logo"                
-                width={100}
-                height={100}
+                width={120}
+                height={120}
               />
            </a>
             
@@ -130,12 +130,7 @@ export default function Navbar() {
                         Image Editing
                       </a>
                     
-                      <a
-                        href="/video-editing-services"
-                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
-                      >
-                        Video Editing
-                      </a>
+                      
                      
                       <a
                         href="/3d-modeling-and-rendering"
@@ -143,7 +138,18 @@ export default function Navbar() {
                       >
                         3D Modelling & Rendering
                       </a>
-                     
+                       <a
+                        href="https://aimodelling.thekowcompany.com/"
+                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+                      >
+                        AI Modelling
+                      </a>
+                     <a
+                        href="/video-editing-services"
+                        className="block px-4 py-3 text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+                      >
+                        Video Editing
+                      </a>
                     </div>
                   </div>
                 </li>
@@ -235,7 +241,7 @@ export default function Navbar() {
                   </div>
                 </li>
 
-               <a href="/blogs" >
+               <a href="/blog" >
                  <li className="hover:text-[#4FA59B] text-[14px] xl:text-[20px] font-semibold transition-colors duration-200 cursor-pointer">
                   Blogs
                 </li>
@@ -264,7 +270,7 @@ export default function Navbar() {
 
               {/* Let's Talk Button */}
               <a href="/contact-us">
-                <button className="relative px-8 py-4 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
+                <button className="relative px-8 py-3 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 hover:text-white">
                 <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 border-[#3B837B] transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10 text-[14px] xl:text-[20px]">Let's Talk</span>
               </button>
@@ -410,14 +416,14 @@ export default function Navbar() {
                 </div>
               </li>
 
-            <a href="/blogs">
+            <a href="/blog">
                 <li className="py-2 px-2 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg transition-all duration-200 cursor-pointer">Blogs</li>
             </a>
               
              <div className='flex justify-center items-center'>
                <a href="/contact-us">
                 <li className="py-2 px-2">
-                <button className="relative w-40 px-4 py-4 bg-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 text-white">
+                <button className="relative w-40 px-4 py-2 bg-[#4FA59B] rounded-full font-medium overflow-hidden group transition-all duration-300 text-white">
                   <span className="absolute inset-0 bg-[#4FA59B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                   <span className="relative z-10">Let's Talk</span>
                 </button>
