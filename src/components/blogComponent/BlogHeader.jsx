@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// import './blog.css'
+// import './blog.cssff'
 import clsx from "clsx";
 const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
   return (
