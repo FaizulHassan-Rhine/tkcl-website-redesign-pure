@@ -4,6 +4,7 @@
 import { metadata as pageMeta } from '@/seo/metadatas';
 
 import Blog2D from "@/components/blogComponent/Blog2D";
+import FooterGrid from '@/components/FooterNew';
 ;
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default  function Page() {
     <>
      
       <Blog2D />
+      <FooterGrid/>
     </>
   );
 }
