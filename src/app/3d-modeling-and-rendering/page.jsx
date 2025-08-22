@@ -1,5 +1,15 @@
 import FooterGrid from "@/components/FooterNew";
 import React from "react";
+import { metadata as pageMeta } from '@/seo/metadatas';
+
+
+export const metadata = {
+  title: pageMeta.threeMR.title,
+  description: pageMeta.threeMR.description,
+  alternates: {
+    canonical: pageMeta.threeMR.link,
+  },
+};
 
 const models = [
   {

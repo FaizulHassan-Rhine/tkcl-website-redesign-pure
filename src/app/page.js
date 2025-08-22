@@ -17,7 +17,8 @@ import Retouched from '@/components/Retouched';
 import HoloSnap from '@/components/Holosnap';
 import HeroSection from '@/components/HeroText';
 import OurClientNew from '@/components/OurClientNew';
-
+import homePageSchema from '@/seo/homePageSchema'
+import Script from 'next/script';
 export default function Page() {
   return (
     <main className="pt-20 space-y-20 transition-colors duration-500">
@@ -68,6 +69,9 @@ export default function Page() {
       <NoteSectionNew />
       <ParallaxImageSection />
       <FooterGrid />
+      <Script id="homePage-schema" type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(homePageSchema)}
+    </Script>
     </main>
   );
 }

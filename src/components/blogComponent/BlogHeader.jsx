@@ -15,7 +15,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
         {/* Toggle Buttons */}
         <div className="flex justify-center gap-4 mb-12 md:flex-wrap">
           <Link
-            href="/blog"
+            href="/blogs"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColor ? "bg-green-500" : "bg-transparent",
@@ -31,7 +31,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
             />
           </Link>
           <Link
-            href="/blog/3d"
+            href="/blogs/3d"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColor3d ? "bg-green-500" : "bg-transparent",
@@ -47,7 +47,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
             />
           </Link>
           <Link
-            href="/blog/2d"
+            href="/blogs/2d"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColor2d ? "bg-green-500" : "bg-transparent",
@@ -63,7 +63,7 @@ const BlogHeader = ({ btnColor, btnColor2d, btnColor3d, btnColorevents }) => {
             />
           </Link>
           <Link
-            href="/blog/events"
+            href="/blogs/events"
             className={clsx(
               "relative px-6 py-2 text-black dark:text-white font-semibold border border-green-500 overflow-hidden transition-all duration-300",
               btnColorevents ? "bg-green-500" : "bg-transparent",

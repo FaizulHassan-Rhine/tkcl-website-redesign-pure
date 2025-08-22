@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*?post=
+Disallow: /*?action=
+Disallow: /*?preview
+Sitemap: https://thekowcompany.com/sitemap.xml

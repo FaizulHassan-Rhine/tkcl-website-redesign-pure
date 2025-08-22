@@ -1,5 +1,15 @@
 import FooterGrid from "@/components/FooterNew";
 import React from "react";
+import { metadata as pageMeta } from '@/seo/metadatas';
+
+
+export const metadata = {
+  title: pageMeta.privacyPolicy.title,
+  description: pageMeta.privacyPolicy.description,
+  alternates: {
+    canonical: pageMeta.privacyPolicy.link,
+  },
+};
 
 const page = () => {
   return (

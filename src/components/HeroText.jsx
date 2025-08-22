@@ -100,14 +100,14 @@ export default function HeroSection() {
 
   return (
     <>
-      <section
-        id="hero-section"
-        className="relative h-[250px] md:h-screen w-full overflow-hidden flex items-center justify-center"
-      >
-        {/* Background Video */}
-        {loadVideo && (
-          <video
-            className="absolute inset-0 w-full h-full object-contain md:object-cover z-0"
+<section
+  id="hero-section"
+  className="relative h-[92vh] w-full overflow-hidden flex items-center justify-center max-lg:-mt-[15px]"
+>
+  {/* Background Video */}
+  {loadVideo && (
+    <video
+      className="absolute inset-0 w-full h-full object-cover z-0"
             autoPlay
             loop
             muted

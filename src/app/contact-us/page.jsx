@@ -2,7 +2,15 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import FooterGrid from "@/components/FooterNew";
 import React from "react";
+import { metadata as pageMeta } from '@/seo/metadatas';
 
+export const metadata = {
+  title: pageMeta.contactUs.title,
+  description: pageMeta.contactUs.description,
+  alternates: {
+    canonical: pageMeta.contactUs.link,
+  },
+};
 export default function Contact() {
   return (
     <>
