@@ -114,8 +114,8 @@ const styles = `
      <style>{styles}</style>
 <section
   id="hero-section"
-  className="relative h-[92vh] w-full overflow-hidden flex items-center justify-center max-lg:-mt-[15px]"
->
+  className="relative h-[95vh] w-full overflow-hidden flex items-center justify-center max-lg:-mt-[15px]"
+ style={{marginTop:'-25px'}}>
   {/* Background Video */}
   {loadVideo && (
     <video

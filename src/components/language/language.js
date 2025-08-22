@@ -223,7 +223,7 @@ const Language = ({ screenLeft, carearmenu, navbar2d3dColor }) => {
         <button 
           type="button"
           onClick={onToggle}
-          className={`flex items-center gap-2 w-full rounded-full bg-[#4FA59B]  px-4 py-4 font-medium shadow-sm focus:outline-none ${
+          className={`flex items-center gap-2 w-full rounded-full bg-[#4FA59B]  px-4 py-3 font-medium shadow-sm focus:outline-none ${
             screenLeft || carearmenu || navbar2d3dColor
               ? 'text-gray-800 border-[#7C9C30]'
               : 'text-white border-[#7C9C30]'
