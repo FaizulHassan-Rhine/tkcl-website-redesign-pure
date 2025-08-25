@@ -1,6 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+// ...keep your imports
+import React, { useEffect, useMemo, useState, useRef } from 'react';
+// (rest of your imports unchanged)
+
 import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -22,6 +25,9 @@ function useLenis() {
     return () => { cancelAnimationFrame(id); lenis?.destroy?.(); };
   }, []);
 }
+
+
+
 
 export default function ServiceDetailsPage() {
   const { slug } = useParams();
@@ -173,15 +179,11 @@ export default function ServiceDetailsPage() {
         )}
 
         {/* Triptych Before/After */}
-        {pairs?.length > 0 && (
-          <section className="w-full flex flex-col md:flex-row gap-5 h-[50vh] mb-5 px-6">
-            {pairs.slice(0,3).map((p, i) => (
-              <div key={`pair-${i}`} className="w-full h-[50vh]">
-                <BeforeAfterSlider beforeSrc={p.before} afterSrc={p.after} alt={`${title} Compare ${i+1}`} initial={50} />
-              </div>
-            ))}
-          </section>
-        )}
+       {pairs?.length > 0 && (
+            <section className="w-full px-6 mb-10">
+              <BeforeAfterCarousel pairs={pairs} title={title} />
+            </section>
+          )}
 
         {/* Two columns lists */}
         {(sections?.whereList?.length || sections?.stylesList?.length) && (
@@ -325,5 +327,65 @@ export default function ServiceDetailsPage() {
       </div>
       <FooterGrid />
     </>
+  );
+}
+
+
+function BeforeAfterCarousel({ pairs, title }) {
+  const slides = useMemo(() => pairs.slice(0, 3), [pairs]);
+  const [index, setIndex] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onKey = (e) => {
+      if (e.key === 'ArrowRight') setIndex((i) => (i + 1) % slides.length);
+      if (e.key === 'ArrowLeft') setIndex((i) => (i - 1 + slides.length) % slides.length);
+    };
+    el.addEventListener('keydown', onKey);
+    return () => el.removeEventListener('keydown', onKey);
+  }, [slides.length]);
+
+  if (slides.length === 0) return null;
+
+  return (
+    <div
+      ref={containerRef}
+      tabIndex={0}
+      className="outline-none"
+      aria-roledescription="carousel"
+      aria-label={`${title} before/after carousel`}
+    >
+      <div className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden rounded-2xl">
+        <BeforeAfterSlider
+          beforeSrc={slides[index].before}
+          afterSrc={slides[index].after}
+          alt={`${title} Compare ${index + 1}`}
+          initial={50}
+        />
+      </div>
+
+      <div className="flex items-center justify-center gap-3 mt-6" role="tablist" aria-label="Choose slide">
+        {slides.map((_, i) => {
+          const active = i === index;
+          return (
+            <button
+              key={`dot-${i}`}
+              role="tab"
+              aria-selected={active}
+              onClick={() => setIndex(i)}
+              className={[
+                "h-3 w-3 rounded-full transition-all duration-200",
+                active ? "w-6" : "w-3",
+                active ? "bg-black dark:bg-white" : "bg-black/30 dark:bg-white/30",
+              ].join(' ')}
+              title={`Go to slide ${i + 1}`}
+            />
+          );
+        })}
+      </div>
+    </div>
+
   );
 }

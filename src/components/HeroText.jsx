@@ -199,8 +199,9 @@ const styles = `
                     </h2>
                    <div className="flex items-center justify-center gap-4">
    <button
+   href={content.demoLink}
       onClick={() => scrollToSection(content.targetSection)}
-      className="relative mt-2 md:mt-8 px-4 md:px-8 md:py-3 py-2 bg-[#4FA59B] text-white border border-[#4FA59B] rounded-[10px] font-medium overflow-hidden group transition-all duration-600 hover:text-white hover:scale-105 transform delay-300"
+      className="relative mt-2 md:mt-8 px-4 md:px-8 md:py-3 py-2 bg-[#4FA59B] flex text-white border border-[#4FA59B] rounded-[10px] font-medium overflow-hidden group transition-all duration-600 hover:text-white hover:scale-105 transform delay-300"
     style={{
       opacity: index % realCount === realIndex ? 1 : 0,
       transform: `translateY(${index % realCount === realIndex ? "0px" : "30px"}) scale(${index % realCount === realIndex ? "1" : "0.9"})`,
@@ -210,9 +211,17 @@ const styles = `
     <span className="relative z-10 text-[14px] xl:text-[18px] transition-all duration-300">
       {content.buttonText}
     </span>
+    <span className="absolute inset-0 bg-[#3B837B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+      <span className="relative z-10 text-[14px] xl:text-[18px] transition-all duration-300 flex items-center gap-2">
+        {/* {content.buttonLinkText} */}
+        <HiArrowRight 
+          className="w-5 h-5" 
+          style={{ animation: 'bounceRight 1.5s infinite ease-in-out' }}
+        />
+      </span>
   </button>
 
-  <a
+  {/* <a
       href={content.demoLink}
       target="_blank"
       rel="noopener noreferrer"
@@ -230,7 +239,7 @@ const styles = `
           style={{ animation: 'bounceRight 1.5s infinite ease-in-out' }}
         />
       </span>
-  </a>
+  </a> */}
 </div>
 
                   </div>
@@ -240,7 +249,7 @@ const styles = `
           </div>
 
           {/* Progress indicators */}
-          {/* <div className="flex justify-center space-x-2 mt-8 relative z-30">
+          <div className="flex justify-center space-x-2 mt-8 relative z-30">
             {heroContent.map((_, index) => (
               <button
                 key={index}
@@ -253,7 +262,7 @@ const styles = `
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
-          </div> */}
+          </div>
         </div>
       </section>
     </>
