@@ -121,7 +121,7 @@ export default function ServiceDetailsPage() {
       <div className='container mx-auto'>
         <div className=" py-20 overflow-x-hidden">
         {/* Title */}
-        <section className="w-full py-10 px-6 text-left flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
+        <section className="w-full border-gray-200 border-2 rounded py-10 px-6 text-left flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
           <h1 className="text-4xl lg:text-[80px] title font-bold">{title}</h1>
           <div className="w-full lg:w-[40%] max-w-xl">
             <p className="text-body text-[20px]">{intro?.long || intro?.summary}</p>
@@ -139,7 +139,7 @@ export default function ServiceDetailsPage() {
 
         {/* Why section */}
         {(sections?.whyTitle || sections?.whyBody) && (
-          <section className="w-full py-16 flex justify-center mb-5 px-6">
+          <section className="w-full border-gray-200 border-2 rounded py-16 flex justify-center mb-5 px-6">
             <div className="flex flex-col md:flex-row justify-between items-start gap-10 w-full">
               <h3 className="sub-title text-[42px] md:text-[50px] leading-tight font-semibold max-w-[520px]">{sections?.whyTitle}</h3>
               <p className="text-body md:w-[50%] text-[20px]">{sections?.whyBody}</p>
@@ -185,7 +185,7 @@ export default function ServiceDetailsPage() {
 
         {/* Two columns lists */}
         {(sections?.whereList?.length || sections?.stylesList?.length) && (
-          <section className="w-full py-16 px-6 flex justify-center mb-5">
+          <section className="w-full border-gray-200 border-2 rounded py-16 px-6 flex justify-center mb-5">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
               <div className="hidden md:block" />
               {sections?.whereList?.length > 0 && (

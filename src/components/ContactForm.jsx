@@ -379,7 +379,7 @@ else if (needMeeting && meetingPlatform === 'Teams') {
         <input type="text" name="phone" placeholder="Phone*" className="bg-transparent border-b dark:border-white border-gray-700 focus:outline-none py-2" required />
  
         <div className="relative">
-          <select name="solution" className="dark:bg-black dark:text-white border-b dark:border-white border-gray-700 focus:outline-none py-2 pr-8 appearance-none w-full" required onFocus={() => setIsOpen(true)} onBlur={() => setIsOpen(false)}>
+          <select name="solution" className="border-b border-gray-700 focus:outline-none py-2 pr-8 appearance-none w-full" required onFocus={() => setIsOpen(true)} onBlur={() => setIsOpen(false)}>
             {!isOpen && <option value="">Services</option>}
             <option value="Image Editing Services">Image Editing</option>
             <option value="Video Editing Services">Video Editing</option>
@@ -464,11 +464,11 @@ else if (needMeeting && meetingPlatform === 'Teams') {
           </>
         )}
  
-        <button type="submit" disabled={sending} className="group relative mt-4 md:col-span-2 overflow-hidden bg-black text-white dark:bg-white dark:text-black font-semibold px-6 lg:px-12 py-3 lg:py-6 rounded-full w-fit disabled:opacity-60">
-          <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-white">
+        <button type="submit" disabled={sending} className="group relative mt-4 md:col-span-2 overflow-hidden bg-[#4FA59B] text-white font-semibold px-6 lg:px-12 py-3 lg:py-6 rounded-full w-fit disabled:opacity-60">
+          <span className="relative z-10 transition-colors duration-300 ">
             {sending ? 'Sending…' : 'Send Message'}
           </span>
-          <span className="absolute inset-0 bg-green-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0"></span>
+          <span className="absolute inset-0 bg-[#3B837B] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0"></span>
         </button>
       </form>
  

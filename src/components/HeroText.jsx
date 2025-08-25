@@ -150,7 +150,7 @@ const styles = `
         )}
 
         {/* Overlay */}
-        <div className="absolute inset-0 z-10 bg-black bg-opacity-15" />
+        <div className="absolute inset-0 z-10 " />
 
         {/* Content */}
         <div className="relative z-20 text-center -mt-[70px] md:-mt-[300px] text-white px-4 overflow-hidden w-full">
@@ -165,7 +165,7 @@ const styles = `
             >
               {slides.map((content, index) => (
                 <div key={index} className="w-full flex-shrink-0">
-                  <div className="transform transition-all duration-500 ease-in-out duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)]" >
+                  <div className="transform transition-all  duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)]" >
                     <h1 className="text-[20px] md:text-6xl font-bold leading-tight">
                       <span
                         className="block transform transition-all duration-1000 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
