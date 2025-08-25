@@ -383,7 +383,7 @@ else if (needMeeting && meetingPlatform === 'Teams') {
             {!isOpen && <option value="">Services</option>}
             <option value="Image Editing Services">Image Editing</option>
             <option value="Video Editing Services">Video Editing</option>
-            <option value="3D Modelling & Rendering Service">3D Modelling & Rendering</option>
+            <option value="3D Modelling & Rendering Service">3D Modelling & Rendering</option> 
             <option value="AI Services">AI Services</option>
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
